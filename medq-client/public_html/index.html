@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Med Q</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="js/libs/jquery-mobile/jquery.mobile.min.css">
+        <link rel="stylesheet" href="js/libs/jquery-mobile-datebox/jqm-datebox.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <script id="ticket-template" type="text/template">
+            <div class="medq-ticket">
+                <label class="header"><%= cid %></label>
+                <label class="name"><%= displayName %></label>
+                <label class="phone"><%= phone %></label>
+                <label class="status"><section class=medq-ticket-status-<%= statusClass %>><%= status %></section></label>
+                <label><%= remainingWaitingTime %></label>
+            </div>
+        </script>
+        <script id="queue-alert-template" type="text/template">
+            <div>Ticket Info</div>
+        </script>
+        <script id="queue-summary-template" type="text/template">
+            <div>Summary Template</div>
+        </script>
+        <script id="ticket-details-template" type="text/template">
+            <div class="ui-panel-inner">
+            <div class="new-entry-header" style="display:<%= newEntryDisplayFlag %>"><label class="new-entry-header-text">New Entry</label></div>
+                <h2 style="display:<%= modifyEntryDisplayFlag %>">Modify</h2>
+                <div class="inputGroup">
+                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                        <label for="displayName">Name</label><input id="displayName" type="text" value="<%= displayName %>"/>
+                    </div>
+                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                        <label for="phone">Telephone Number</label><input id="phone" type="text"/>
+                    </div>
+                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                        <label for="patientId">Patient ID</label><input id="patientId" type="text"/>
+                    </div>
+                </div>
+                <div class="inputGroup">
+                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                        <label for="bookingTime">Booking Time</label><input id="bookingTime" type="text"/>
+                    </div>
+                    <div>
+                        <button class="walkin">Walk-In</button>
+                    </div>
+                </div>
+                <div class="inputGroup">
+                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                        <input type="checkbox" id="receiveSms"/>Receive SMS
+                    </div>
+                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                        <input type="checkbox" id="receiveCall"/>Receive Call
+                    </div>
+                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                    <label for="extraTime">Extra Consulting Time</label><input id="extraTime" type="text"/>
+                    </div>
+                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                    <label for="preCheck">Pre Consulting Check</label><input id="preCheck" type="text"/>
+                    </div>
+                </div>
+                <div id="newButtonGroup" style="display:<%= newEntryDisplayFlag %>"><button id="save">Save</button><button id="saveAndPrint">Save and Print</button></div>
+                <div id="modifyButtonGroup" style="display:<%= modifyEntryDisplayFlag %>"><button id="delete">Delete</button><button id="save">Save</button><button id="print">Print</button></div>
+            </div>
+        </script>
+        <script id="import-file-template" type="text/template">
+            <div>Import File</div>
+        </script>
+        <script id="settings-template" type="text/template">
+            <div>Settings</div>
+        </script>
+        <script src="js/libs/jquery/jquery.min.js"></script>
+        <script src="js/libs/jquery-mobile/jquery.mobile.min.js"></script>
+        <script src="js/libs/jquery-mobile-datebox/jqm-datebox.core.min.js"></script>
+        <script src="js/libs/underscore/underscore-min.js"></script>
+        <script src="js/libs/backbone/backbone-min.js"></script>
+        <script src="js/models/ticket.js"></script>
+        <script src="js/models/algo.js"></script>
+        <script src="js/models/recipient.js"></script>
+        <script src="js/models/user.js"></script>
+        <script src="js/collections/tickets.js"></script>
+        <script src="js/collections/recipients.js"></script>
+        <script src="js/models/queue.js"></script>
+        <script src="js/views/prototype.js"></script>
+        <script src="js/views/actionalert.js"></script>
+        <script src="js/views/main.js"></script>
+        <script src="js/views/queue.js"></script>
+        <script src="js/views/ticket.js"></script>
+        <script src="js/app.js"></script>
+        <div data-role="page">
+            <div data-role="header" class="medq-header"><h1 class="medq-header-text">Dr. Lee Clinic - MedQ Patient Queuing System</h1></div>
+            <div data-role="content" style="padding: 0;border-collapse: collapse">
+                <table style="height: 100%;width: 100%">
+                    <tr>
+                        <td style="vertical-align: top;width:100%">
+                            <table style="width:100%">
+                                <tr>
+                                    <td colspan="2" style="vertical-align: top;height: 20px"><div class="medq-content-top" id="queueHeader"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:600px" colspan="2">
+                                        <div>
+                                            <!--<div class="queuename">Consultation</div>-->
+                                            <div class="medq-content-middle" id="queue"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: bottom;height: 50px;width:50%">
+                                        <div class="medq-content-bottom">
+                                            <section id="queue-alert" class="queueAlert"></section>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: bottom;width:50%">
+                                        <section id="queue-summary" class="queueSummary"></section>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="width:250px;background-color: #e9e9e9; border-left: 1px double black">
+                <!--<div id="action-panel" style="float: right">-->
+                            <div id="action-panel" style="margin-left: 10px; padding-top: 5px; padding-bottom: 5px; margin-right: 10px; ">
+                                <button id="add">New Entry</button><br/>
+                                <button id="modify">Modify</button><br/>
+                                <button id="next">Next</button><br/>
+                                <button id="import">Import File(Hide this)</button><br/>
+                                <button id="settings">Settings(Hide this)</button>
+                </div>
+<div data-role="panel" data-position="right" data-display="overlay" id="action-form" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-animate ui-panel-open"></div>
+                        </td>
+                    </tr>
+                </table>
+<!--
+                <div style="float: left">
+                    <div class="medq-content-top" id="queueHeader"></div>
+                    <div>
+                        <div class="queuename">Consultation</div>
+                        <div class="medq-content-middle" id="queue"></div>
+                    </div>
+                    <div class="medq-content-bottom"><section id="queue-alert" class="queueAlert"></section><section id="queue-summary" class="queueSummary"></section></div>                    
+                </div>
+                <div id="action-panel" style="float: right">
+                                <button id="add">New Entry</button><br/>
+                                <button id="modify">Modify</button><br/>
+                                <button id="next">Next</button><br/>
+                                <button id="import">Import File(Hide this)</button><br/>
+                                <button id="settings">Settings(Hide this)</button>
+                </div>
+                <div data-role="panel" data-position="right" data-display="overlay" id="action-form" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-animate ui-panel-open"></div>
+                -->
+            </div>
+            <div data-role="footer"><h4>@Copyright</h4></div>
+        </div>
+    </body>
+</html>

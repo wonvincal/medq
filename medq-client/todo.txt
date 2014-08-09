@@ -1,0 +1,20 @@
+Styling
+- Style for header
+- Style for top row
+- Style for middle row
+- Style for bottom row
+- Improve ticket view
+- Improve ticket details view for add
+- Improve ticket details view for modify
+
+Logic
+- Improve object structures - Done
+- New Entry: save all fields to a model, get an ID back
+- New Entry: logic for remaining time
+- Modify Entry: save all fields to a model with a specific ID
+- DemoService to update tickets and queue
+- QueueAlert event subscriptions
+- QueueSummary event subscriptions
+- Connect RESTful API
+- Backend database
+- Check dispose
