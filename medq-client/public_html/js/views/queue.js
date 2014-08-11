@@ -7,8 +7,10 @@ var app = app || {};
 
 app.QueueView = Backbone.View.extend({
     
-    tagName: 'div' ,
-
+    tagName: 'div',
+    
+    className: 'queue-view',
+    
     // model is passed in from the constructor
     initialize: function(){
         this.render();

@@ -25,6 +25,38 @@ $(function(){
         displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
     });
     
+    var ticket3 = new app.Ticket({
+        displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
+    });
+
+    var ticket4 = new app.Ticket({
+        displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
+    });
+
+    var ticket5 = new app.Ticket({
+        displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
+    });
+    
+    var ticket6 = new app.Ticket({
+        displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
+    });
+
+    var ticket7 = new app.Ticket({
+        displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
+    });
+
+    var ticket8 = new app.Ticket({
+        displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
+    });
+
+    var ticket9 = new app.Ticket({
+        displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
+    });
+
+    var ticket10 = new app.Ticket({
+        displayName: 'Silas Yuen', phone: '91919192', status: 'Arrived', remainingWaitingTime: '5 mins (12:26)'
+    });
+
 /*    var ticket3 = new app.Ticket({
         displayName: 'Janice Chow', status: 'New', remainingWaitingTime: '10'
     });
@@ -40,5 +72,16 @@ $(function(){
 */
     queue.get('tickets').add(ticket);
     queue.get('tickets').add(ticket2);
+    queue.get('tickets').add(ticket3);
+    queue.get('tickets').add(ticket4);
+    queue.get('tickets').add(ticket5);
+    queue.get('tickets').add(ticket6);
+    queue.get('tickets').add(ticket7);
+    queue.get('tickets').add(ticket8);
+    queue.get('tickets').add(ticket9);
+    queue.get('tickets').add(ticket10);
     new app.MainView({queue: queue});
+
+    //var content = $.mobile.getScreenHeight() - $(".ui-header").outerHeight() - $(".ui-footer").outerHeight() - $(".ui-content").outerHeight() + $(".ui-content").height();
+    //$(".ui-content").height(content);
 });

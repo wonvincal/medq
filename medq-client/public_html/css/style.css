@@ -7,18 +7,17 @@ and open the template in the editor.
     Created on : Jul 21, 2014, 1:13:40 AM
     Author     : Calvin
 */
-.medq-ticket {
-    float: left;
+.ticket-view {
     border: 1px solid lightgray;
     width: 110px;
-    display: block;
+    display: inline-block;
     text-align: center;
     margin-right: 10px;
     margin-bottom: 5px;
     box-shadow: 2px 2px 2px #888888;
 }
 
-.ui-mobile .medq-ticket .header
+.ui-mobile .ticket-view .header
 {
     color: #710709;
     //border: black 1px solid;
@@ -26,24 +25,22 @@ and open the template in the editor.
     font-size: larger;
 }
 
-.ui-mobile .medq-ticket .name
+.ui-mobile .ticket-view .name
 {
     font-size: medium;
 }
 
-.ui-mobile .medq-ticket .phone
+.ui-mobile .ticket-view .phone
 {
     font-size: small;
 }
 
-.ui-mobile .medq-ticket .status
+.ui-mobile .ticket-view .status
 {
-    //background-color: #0E6D29;
     text-shadow: none;
     padding-top: 5px;
     padding-bottom: 5px;
     color: white;
-    //display:inline-block;
 }
 
 .medq-ticket-status-in-progress
@@ -68,30 +65,76 @@ and open the template in the editor.
     border-color: lightgoldenrodyellow;
 }
 
-.queuename {
-                //text-align: center;
-                padding-bottom: 10px;
-                font-size: large;
-                text-decoration: underline;
-                transform: rotate(-90deg);
-                -webkit-transform: rotate(-90deg);
-                -moz-transform: rotate(-90deg);
-                -ms-transform: rotate(-90deg);
-                position:relative;
-                top:95px;
-                //left: -13px;
-                //display:inline-block;
-                width: 20px;
-                //height: 200px;
-                float: left;
+#queue-name {
+    border: #059 thin solid;
+    padding-bottom: 10px;
+    font-size: large;
+    text-decoration: underline;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    position:relative;
+    top:95px;
+    left: -13px;
+    //display:inline-block;
+    float: left;
+    width: 100px;
+    //height: 300px;
 }
 
-.queueAlert {
-    float: left
+#queue-header {
+    text-align: center;
+    font-weight: bold;
+    margin-right: 200px;
 }
 
-.queueSummary {
-    float: left
+#queue-content {
+    float: left;
+    width: auto;
+}
+
+#queue-content-bottom {
+    margin-right: 200px;
+}
+
+#queue {
+    margin-right: 200px;
+}
+
+#queue-alert {
+    //clear: both;
+    border: #059 solid thin;
+    width: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+#queue-summary {
+    border: #059 solid thin;
+    width: 49%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+#action-panel
+{
+    //float: left;
+    width: 200px;
+    margin-left: -200px;
+    background-color: #e9e9e9;
+    border-left: 1px double black;
+    padding: 5px 10px;
+    min-height: 100%;
+    height: 100%;
+    //height: 400px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .top {
@@ -121,15 +164,6 @@ and open the template in the editor.
 .medq-header-text.ui-title {
     color: white;
     text-shadow: none;
-}
-
-.medq-content-top{
-    text-align: center;
-    font-weight: bold;
-}
-
-.medq-content-bottom {
-    float: left;
 }
 
 .ui-panel-inner {

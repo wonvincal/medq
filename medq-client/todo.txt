@@ -18,3 +18,17 @@ Logic
 - Connect RESTful API
 - Backend database
 - Check dispose
+
+
+Restyle with div
+- Why to use div? Because table is only for tabular data
+- What needs to be done?
+
+[header]
+[body][panel]
+[footer]
+
+[body] = 
+[Queue       ]
+[Action][Info]
+

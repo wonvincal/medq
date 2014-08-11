@@ -11,6 +11,8 @@ app.TicketsView = Backbone.View.extend({
     
     tagName: 'div',
     
+    className: 'tickets-view',
+    
     initialize: function(){
         // render() has to be called before subscribing to add/remove event
         // otherwise ticket may get removed before it appears in the collection
@@ -83,6 +85,8 @@ app.TicketsView = Backbone.View.extend({
 app.TicketView = Backbone.View.extend({
     
     tagName: 'div',
+    
+    className: 'ticket-view',
     
     template: _.template($('#ticket-template').html()),
     

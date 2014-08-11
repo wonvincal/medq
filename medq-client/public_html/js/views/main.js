@@ -31,7 +31,7 @@ app.MainView = Backbone.View.extend({
         $('#queue').html(this.queueView.el);
         this.queueView.on("selected", this.ticketSelected, this);
         this.setDisplayTime();
-        setInterval(this.setDisplayTime, 1000);
+        setInterval(this.setDisplayTime, 1000);        
     },
 
     events: {
@@ -100,7 +100,7 @@ app.MainView = Backbone.View.extend({
     setDisplayTime: function(){
         var now = new Date();
         var desc = now.toDateString() + " " + now.toLocaleTimeString();
-        $('#queueHeader').html(desc);
+        $('#queue-header').html(desc);
     }
     
 });
