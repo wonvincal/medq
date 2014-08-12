@@ -20,7 +20,7 @@ and open the template in the editor.
                 <label class="name"><%= displayName %></label>
                 <label class="phone"><%= phone %></label>
                 <label class="status"><section class=medq-ticket-status-<%= statusClass %>><%= status %></section></label>
-                <label><%= remainingWaitingTime %></label>
+                <label><%= remainingWaitingTime %> min (<%= remainingWaitingTime %>)</label>
         </script>
         <script id="queue-alert-template" type="text/template">Ticket Info</script>
         <script id="queue-summary-template" type="text/template">Summary Template</script>

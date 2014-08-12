@@ -60,15 +60,7 @@ app.TicketsView = Backbone.View.extend({
         this.views = [];
         this.render();
     },
-
-    enqueueTicket: function(item){
-        this.collection.add(item);
-    },
-    
-    dequeueTicket: function(item){
-        this.collection.remove(item);
-    },
-    
+   
     next: function(){
         // If second ticket exist, set the second ticket's status to Consulting
         // Remove the first one
@@ -161,8 +153,20 @@ app.TicketDetailsView = Backbone.View.extend({
            {
                data[el.id] = $(el).val();
            }
-           data["remainingWaitingTime"] = 10;
         });
+                
+        // Number of tickets in the queue + buffer time
+        var tickets = this.collection;
+
+        var estimatedWaitingTime = 5;
+        if (tickets.length >= 1)
+        {
+            var lastTicket = tickets.at(tickets.length - 1);
+            estimatedWaitingTime = lastTicket.get("remainingWaitingTime") + estimatedWaitingTime;
+        }
+        
+        data["remainingWaitingTime"] = estimatedWaitingTime;
+        
         this.collection.add(new app.Ticket(data));
     },
     
