@@ -121,7 +121,7 @@ and open the template in the editor.
 
 #action-panel
 {
-    //float: left;
+    float: left;
     width: 200px;
     margin-left: -200px;
     background-color: #e9e9e9;
@@ -192,4 +192,34 @@ and open the template in the editor.
     top: 50%;
     transform: translateY(-50%);
     text-shadow: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+#medq-page {
+    height: 100%;
+}
+
+#medq-page .ui-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 40px;
+    left: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+#medq-page .ui-header {
+    height: 39px;
+}
+
+#medq-page .ui-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+//    height: 42px;
 }

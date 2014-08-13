@@ -89,34 +89,26 @@ and open the template in the editor.
         <script src="js/views/queue.js"></script>
         <script src="js/views/ticket.js"></script>
         <script src="js/app.js"></script>
-        <div data-role="page">
+        <div data-role="page" id="medq-page">
             <div data-role="header" class="medq-header"><h1 class="medq-header-text">Dr. Lee Clinic - MedQ Patient Queuing System</h1></div>
-            <div data-role="content" style="padding: 0;border-collapse: collapse">
-                <table style="height: 100%">
-                    <tr>
-                        <td>
-                            <!-- queue-content and queue-content-bottom are mainly for layout purpose -->
-                            <div id="queue-content">
-                            <div id="queue-header"></div>
-                            <!--<div id="queue-name">Consultation</div>-->
-                            <div id="queue"></div>
-                                <div id="queue-content-bottom">
-                                    <div id="queue-alert"></div>
-                                    <div id="queue-summary"></div>                        
-                                </div>
-                            </div>                            
-                        </td>
-                        <td>
-                            <div id="action-panel">
-                                <div><button id="add">New Entry</button></div>
-                                <div><button id="modify">Modify</button></div>
-                                <div><button id="next">Next</button></div>
-                                <div><button id="import">Import File(Hide this)</button></div>
-                                <div><button id="settings">Settings(Hide this)</button></div>
-                            </div>                            
-                        </td>
-                    </tr>
-                </table>
+            <div data-role="content">
+                <!-- queue-content and queue-content-bottom are mainly for layout purpose -->
+                <div id="queue-content">
+                    <div id="queue-header"></div>
+                    <!--<div id="queue-name">Consultation</div>-->
+                    <div id="queue"></div>
+                    <div id="queue-content-bottom">
+                        <div id="queue-alert"></div>
+                            <div id="queue-summary"></div>
+                    </div>
+                </div>
+                <div id="action-panel">
+                    <div><button id="add">New Entry</button></div>
+                    <div><button id="modify">Modify</button></div>
+                    <div><button id="next">Next</button></div>
+                    <div><button id="import">Import File(Hide this)</button></div>
+                    <div><button id="settings">Settings(Hide this)</button></div>
+                </div>
             </div>
             <div data-role="panel" data-position="right" data-display="overlay" id="action-form" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-animate ui-panel-open"></div>
             <div data-role="footer"><h4>@Copyright</h4></div>
