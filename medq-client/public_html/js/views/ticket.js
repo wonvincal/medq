@@ -35,13 +35,25 @@ app.TicketsView = Backbone.View.extend({
     // Render one ticket
     renderTicket: function(item){
         var ticketView = new app.TicketView({model: item});
-        ticketView.on("selected", this.ticketSelected, this);
+        this.listenTo(item, "selected", this.ticketSelected);
         this.$el.append(ticketView.render().el);
         this.views.push(ticketView);
     },
     
     ticketSelected: function(item){
-        this.trigger("selected", item);
+        if (!this.selectedItem)
+        {
+            this.selectedItem = item;
+            this.trigger("selected", item);
+            return;
+        }
+        
+        if (item.cid !== this.selectedItem.cid)
+        {
+            this.selectedItem.unselect();
+            this.selectedItem = item;
+            this.trigger("selected", item);
+        }
     },
     
     // Remove a ticket from the collection
@@ -80,10 +92,21 @@ app.TicketView = Backbone.View.extend({
     
     className: 'ticket-view',
     
+    selectedClass: 'ticket-view-selected',
+    
     template: _.template($('#ticket-template').html()),
     
     events: {
-        'click': 'selected'
+        'click': 'clicked'
+    },
+    
+    initialize: function(){
+        this.listenTo(this.model, 'selected', this.selected);
+        this.listenTo(this.model, 'unselected', this.unselected);
+    },
+    
+    clicked: function() {
+        this.model.select();
     },
     
     render: function(){        
@@ -108,8 +131,13 @@ app.TicketView = Backbone.View.extend({
     },
 
     selected: function(){
-        this.trigger("selected", this.model.cid);
-    }    
+        this.trigger("selected", this.model);
+        this.$el.addClass(this.selectedClass);
+    },
+    
+    unselected: function(){
+        this.$el.removeClass(this.selectedClass);
+    }
 });
 
 app.TicketDetailsView = Backbone.View.extend({
@@ -118,7 +146,8 @@ app.TicketDetailsView = Backbone.View.extend({
 
     events: {
         'click #save': 'enqueue',
-        'click #delete': 'dequeue'
+        'click #delete': 'dequeue',
+        'click #saveModify': 'modify'
     },
 
     initialize: function(){
@@ -142,6 +171,15 @@ app.TicketDetailsView = Backbone.View.extend({
         
         this.$el.html(_.template($('#ticket-details-template').html(), templateParams));
         return this;
+    },
+
+    complete: function(){
+        this.trigger('completed');
+    },
+    
+    modify: function(){
+        this.model.save();
+        this.complete();
     },
     
     enqueue: function(){
@@ -168,9 +206,11 @@ app.TicketDetailsView = Backbone.View.extend({
         data["remainingWaitingTime"] = estimatedWaitingTime;
         
         this.collection.add(new app.Ticket(data));
+        this.complete();
     },
     
     dequeue: function(){
         this.collection.remove(this.model);
+        this.complete();
     }
 });

@@ -17,6 +17,10 @@ and open the template in the editor.
     box-shadow: 2px 2px 2px #888888;
 }
 
+.ticket-view-selected {
+    box-shadow: 4px 4px 4px #08b;    
+}
+
 .ui-mobile .ticket-view .header
 {
     color: #710709;

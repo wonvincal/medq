@@ -52,11 +52,18 @@ app.MainView = Backbone.View.extend({
     
     detailsViews: null,
     
+    completed: function() {
+        $('#action-form').panel("close");
+    },
+    
     showAddPanel: function() {
         var view = new app.TicketDetailsView({collection: this.queue.get('tickets')});
+        this.listenTo(view, 'completed', this.completed);
         $('#action-form').empty();
         $('#action-form').append(view.render().el);
-        $('#action-form').panel("open");        
+        $('#action-form').panel("open");
+        
+        // Close previous view to avoid leaking
         if (this.detailsViews)
         {
             this.detailsViews.close();
@@ -70,12 +77,15 @@ app.MainView = Backbone.View.extend({
         var params = {collection: this.queue.get('tickets')};
         if (this.selectedTicket !== null)
         {
-            params['model'] = this.queue.get("tickets").get({cid: this.selectedTicket});
+            params['model'] = this.queue.get("tickets").get({cid: this.selectedTicket.cid});
         }
         var view = new app.TicketDetailsView(params);
+        this.listenTo(view, 'completed', this.completed);
         $('#action-form').empty();
         $('#action-form').append(view.render().el);
         $('#action-form').panel("open");
+        
+        // Close previous view to avoid leaking
         if (this.detailsViews)
         {
             this.detailsViews.close();

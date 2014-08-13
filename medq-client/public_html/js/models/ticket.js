@@ -20,6 +20,14 @@ app.Ticket = Backbone.Model.extend({
    
     initialize: function(){
        
+    },
+    
+    select: function(){
+        this.trigger("selected", this);
+    },
+    
+    unselect: function(){
+        this.trigger("unselected", this);
     }
 });
 
