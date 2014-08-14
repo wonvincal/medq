@@ -166,6 +166,7 @@ app.TicketDetailsView = Backbone.View.extend({
         else
         {
             templateParams["displayName"] = "";
+            templateParams["phone"] = "";
             templateParams["newEntryDisplayFlag"] = "block";
             templateParams["modifyEntryDisplayFlag"] = "none";
         }
