@@ -37,13 +37,17 @@ app.QueueSummaryView = Backbone.View.extend({
 
     tagName: 'div',
     
+    className: 'queue-summary-template',
+    
     template: _.template($('#queue-summary-template').html()),
     
     initialize: function(){
+        this.listenTo(this.model, 'change', this.render);
     },
 
     render: function(){
-        this.$el.html(this.template());
+        var data = _.clone(this.model.attributes);        
+        this.$el.html(this.template(data));
         return this;
     }    
 });
@@ -51,6 +55,8 @@ app.QueueSummaryView = Backbone.View.extend({
 app.QueueAlertView = Backbone.View.extend({
     
     tagName: 'div',
+    
+    className: 'queue-alert-template',
     
     template: _.template($('#queue-alert-template').html()),
     

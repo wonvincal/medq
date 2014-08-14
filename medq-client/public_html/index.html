@@ -22,8 +22,15 @@ and open the template in the editor.
                 <label class="status"><section class=medq-ticket-status-<%= statusClass %>><%= status %></section></label>
                 <label><%= remainingWaitingTime %> min (<%= remainingWaitingTime %>)</label>
         </script>
-        <script id="queue-alert-template" type="text/template">Ticket Info</script>
-        <script id="queue-summary-template" type="text/template">Summary Template</script>
+        <script id="queue-alert-template" type="text/template">
+            <h4>Ticket Info</h4>
+        </script>
+        <script id="queue-summary-template" type="text/template">
+            <h4>Summary</h4>
+            <ul>
+                <li>Total Patients Waiting: <%= numWaiting %></li>
+            </ul>
+        </script>
         <script id="ticket-details-template" type="text/template">
             <div class="ui-panel-inner">
             <div class="new-entry-header" style="display:<%= newEntryDisplayFlag %>"><label class="new-entry-header-text">New Entry</label></div>

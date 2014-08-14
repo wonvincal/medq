@@ -10,7 +10,8 @@ app.Queue = Backbone.Model.extend({
     defaults: {        
         displayName: '',
         lastSeqNum: '',
-        algo: ''
+        algo: '',
+        numWaiting: 0
     },
     
     initialize: function(attributes, options){
@@ -25,16 +26,18 @@ app.Queue = Backbone.Model.extend({
             tickets = this.tickets;
         }
         
+        this.numWaiting = tickets.length;
         this.listenTo(tickets, 'add', this.addTicket);
         this.listenTo(tickets, 'remove', this.removeTicket);
     },
     
     addTicket: function(ticket){
-        // Place holder
+        this.set("numWaiting", this.get("numWaiting") + 1);
     },
     
     removeTicket: function(ticket){
         // Place holder
+        this.set("numWaiting", this.get("numWaiting") - 1);
     }
 });
 
