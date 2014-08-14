@@ -103,6 +103,7 @@ app.TicketView = Backbone.View.extend({
     initialize: function(){
         this.listenTo(this.model, 'selected', this.selected);
         this.listenTo(this.model, 'unselected', this.unselected);
+        this.listenTo(this.model, 'change', this.render);
     },
     
     clicked: function() {
@@ -178,7 +179,8 @@ app.TicketDetailsView = Backbone.View.extend({
     },
     
     modify: function(){
-        this.model.save();
+        this.model.set("displayName", this.$("#displayName").val());
+        this.model.set("phone", this.$("#phone").val());
         this.complete();
     },
     

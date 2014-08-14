@@ -33,7 +33,7 @@ and open the template in the editor.
                         <label for="displayName">Name</label><input id="displayName" type="text" value="<%= displayName %>"/>
                     </div>
                     <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
-                        <label for="phone">Telephone Number</label><input id="phone" type="text"/>
+                        <label for="phone">Telephone Number</label><input id="phone" type="text" value="<%= phone %>"/>
                     </div>
                     <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
                         <label for="patientId">Patient ID</label><input id="patientId" type="text"/>
@@ -62,7 +62,7 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div id="newButtonGroup" style="display:<%= newEntryDisplayFlag %>"><button id="save">Save</button><button id="saveAndPrint">Save and Print</button></div>
-                <div id="modifyButtonGroup" style="display:<%= modifyEntryDisplayFlag %>"><button id="delete">Delete</button><button id="save">Save</button><button id="print">Print</button></div>
+                <div id="modifyButtonGroup" style="display:<%= modifyEntryDisplayFlag %>"><button id="delete">Delete</button><button id="saveModify">Save</button><button id="print">Print</button></div>
             </div>
         </script>
         <script id="import-file-template" type="text/template">
