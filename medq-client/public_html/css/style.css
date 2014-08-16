@@ -12,8 +12,7 @@ and open the template in the editor.
     width: 110px;
     display: inline-block;
     text-align: center;
-    margin-right: 10px;
-    margin-bottom: 5px;
+    margin: 5px 5px 5px;
     box-shadow: 2px 2px 2px #888888;
 }
 
@@ -62,6 +61,11 @@ and open the template in the editor.
     background-color: darkblue;
 }
 
+.tickets-view {
+    height: inherit;
+    overflow-y: auto;
+}
+
 .inputGroup {
     border: 1px solid black;
     margin-bottom: 10px;
@@ -91,23 +95,42 @@ and open the template in the editor.
     text-align: center;
     font-weight: bold;
     margin-right: 200px;
-}
-
-#queue-content {
-    float: left;
-    width: auto;
-}
-
-#queue-content-bottom {
-    margin-right: 200px;
+    height: 20px;
 }
 
 #queue {
     margin-right: 200px;
+    //height: inherit;
+    position: absolute;
+    top: 20px;
+    bottom: 80px;
+    left: 0px;
+    right: 0px;
+}
+
+#queue-content {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+.queue-view {
+    height: 100%;
+}
+
+#queue-content-bottom {
+    margin-right: 200px;
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    right: 0px;
+    height: 80px;
 }
 
 #queue-alert {
+    float: left;
     width: 50%;
+    height: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -115,7 +138,10 @@ and open the template in the editor.
 }
 
 #queue-summary {
+    float: left;
     width: 49%;
+    height: 100%;
+    overflow-y: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -132,30 +158,9 @@ and open the template in the editor.
     padding: 5px 10px;
     min-height: 100%;
     height: 100%;
-    //height: 400px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-.top {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 10px;
-}
-
-.bottom {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 20px;
-}
-
-.middle {
-    width: 100%;
-    padding-top: 15px;
-    padding-bottom: 100px;
 }
 
 .medq-header.ui-header.ui-bar-inherit {
@@ -232,4 +237,8 @@ html, body {
 
 .queue-summary-template {
     
+}
+
+#queue-summary-list {
+    list-style-type: none;
 }

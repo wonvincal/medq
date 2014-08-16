@@ -23,11 +23,11 @@ and open the template in the editor.
                 <label><%= remainingWaitingTime %> min (<%= remainingWaitingTime %>)</label>
         </script>
         <script id="queue-alert-template" type="text/template">
-            <h4>Ticket Info</h4>
+            <span><strong>Ticket Info</strong></span>
         </script>
         <script id="queue-summary-template" type="text/template">
-            <h4>Summary</h4>
-            <ul>
+            <span><strong>Summary</strong></span>
+            <ul id="queue-summary-list">
                 <li>Total Patients Waiting: <%= numWaiting %></li>
             </ul>
         </script>
@@ -106,7 +106,7 @@ and open the template in the editor.
                     <div id="queue"></div>
                     <div id="queue-content-bottom">
                         <div id="queue-alert"></div>
-                            <div id="queue-summary"></div>
+                        <div id="queue-summary"></div>
                     </div>
                 </div>
                 <div id="action-panel">
