@@ -29,7 +29,7 @@ app.MainView = Backbone.View.extend({
         
         this.queueView = new app.QueueView({model: this.queue});
         $('#queue').html(this.queueView.el);
-        this.queueView.on("selected", this.ticketSelected, this);
+        this.listenTo(this.queueView, "selectionChanged", this.selectionChanged);
         this.setDisplayTime();
         setInterval(this.setDisplayTime, 1000);        
     },
@@ -46,8 +46,8 @@ app.MainView = Backbone.View.extend({
         this.queueView.next();
     },
     
-    ticketSelected: function(item){
-        this.selectedTicket = item;
+    selectionChanged: function(ticketView){
+        this.selectedTicket = ticketView.model;
     },
     
     detailsViews: null,

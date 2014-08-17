@@ -35,25 +35,32 @@ app.TicketsView = Backbone.View.extend({
     // Render one ticket
     renderTicket: function(item){
         var ticketView = new app.TicketView({model: item});
-        this.listenTo(item, "selected", this.ticketSelected);
+        this.listenTo(ticketView, "selected", this.ticketSelected);
+        this.listenTo(ticketView, "unselected", this.ticketUnselected);
         this.$el.append(ticketView.render().el);
         this.views.push(ticketView);
     },
     
-    ticketSelected: function(item){
-        if (!this.selectedItem)
+    ticketSelected: function(ticketView){
+        if (!this.selectedView)
         {
-            this.selectedItem = item;
-            this.trigger("selected", item);
+            this.selectedView = ticketView;
+            this.trigger("selectionChanged", this.selectedView);
             return;
         }
         
-        if (item.cid !== this.selectedItem.cid)
+        // If an item has been selected, unselect the existing one
+        // then select the new one
+        if (ticketView.model.cid !== this.selectedView.model.cid)
         {
-            this.selectedItem.unselect();
-            this.selectedItem = item;
-            this.trigger("selected", item);
+            this.selectedView.unselect();
+            this.selectedView = ticketView;
+            this.trigger("selectionChanged", this.selectedView);
         }
+    },
+    
+    ticketUnselected: function(ticketView){
+      // Do nothing  
     },
     
     // Remove a ticket from the collection
@@ -101,13 +108,11 @@ app.TicketView = Backbone.View.extend({
     },
     
     initialize: function(){
-        this.listenTo(this.model, 'selected', this.selected);
-        this.listenTo(this.model, 'unselected', this.unselected);
         this.listenTo(this.model, 'change', this.render);
     },
     
     clicked: function() {
-        this.model.select();
+        this.select();
     },
     
     render: function(){        
@@ -131,13 +136,14 @@ app.TicketView = Backbone.View.extend({
         return this;
     },
 
-    selected: function(){
-        this.trigger("selected", this.model);
+    select: function(){
         this.$el.addClass(this.selectedClass);
+        this.trigger("selected", this);
     },
     
-    unselected: function(){
+    unselect: function(){
         this.$el.removeClass(this.selectedClass);
+        this.trigger("unselected", this);
     }
 });
 

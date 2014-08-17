@@ -20,12 +20,12 @@ app.QueueView = Backbone.View.extend({
     render: function(){
         this.ticketsView = new app.TicketsView({ collection : this.model.get('tickets') });
         this.$el.append(this.ticketsView.el);
-        this.ticketsView.on("selected", this.ticketSelected, this);
+        this.listenTo(this.ticketsView, "selectionChanged", this.selectionChanged);
         return this;
     },
     
-    ticketSelected: function(item){
-        this.trigger("selected", item);
+    selectionChanged: function(ticketView){
+        this.trigger("selectionChanged", ticketView);
     },
     
     next: function(){
