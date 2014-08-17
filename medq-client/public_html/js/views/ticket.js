@@ -51,7 +51,7 @@ app.TicketsView = Backbone.View.extend({
         
         // If an item has been selected, unselect the existing one
         // then select the new one
-        if (ticketView.model.cid !== this.selectedView.model.cid)
+        if (ticketView.model.get("tickedId") !== this.selectedView.model.get("tickedId"))
         {
             this.selectedView.unselect();
             this.selectedView = ticketView;
@@ -76,7 +76,7 @@ app.TicketsView = Backbone.View.extend({
         var view = null;
         for (var i = 0; i < count; i++)
         {
-          if (item.cid === this.views[i].model.cid)
+          if (item.get("tickedId") === this.views[i].model.get("tickedId"))
           {
               view = this.views[i];
               this.views.splice(i, 1);
@@ -138,7 +138,7 @@ app.TicketView = Backbone.View.extend({
     render: function(){        
         data = _.clone(this.model.attributes);
         data["cid"] = this.model.cid;
-        
+        data["tickedId"] = this.model.get("tickedId");
         if (data["status"] === "Consulting")
         {
             data["statusClass"] = "in-progress";
@@ -152,6 +152,7 @@ app.TicketView = Backbone.View.extend({
             data["statusClass"] = "other";
         }
         
+        data["targetTimeAsStr"] = moment(this.model.get("targetTime")).format("HH:mm");
         this.$el.html(this.template(data));
         return this;
     },
@@ -225,14 +226,16 @@ app.TicketDetailsView = Backbone.View.extend({
         // Number of tickets in the queue + buffer time
         var tickets = this.collection;
 
-        var estimatedWaitingTime = 5;
+        var estimatedWaitingTime = 4 + Math.ceil(Math.random() * 2);
+        var remainingWaitingTime = 0;
         if (tickets.length >= 1)
         {
             var lastTicket = tickets.at(tickets.length - 1);
-            estimatedWaitingTime = lastTicket.get("remainingWaitingTime") + estimatedWaitingTime;
+            estimatedWaitingTime = moment(lastTicket.get("targetTime")).clone().add("m", estimatedWaitingTime);
+            remainingWaitingTime = Math.ceil(estimatedWaitingTime.diff(Date.now())/60000);
         }
-        
-        data["remainingWaitingTime"] = estimatedWaitingTime;
+        data["targetTime"] = estimatedWaitingTime;
+        data["remainingWaitingTime"] = remainingWaitingTime;
         
         this.collection.add(new app.Ticket(data));
         this.complete();

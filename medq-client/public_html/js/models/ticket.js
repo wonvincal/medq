@@ -9,6 +9,7 @@ app.Ticket = Backbone.Model.extend({
     defaults: {
        displayName: '',
        phone: '',
+       targetTime: '',
        registerTime: '',
        completionTime: '',
        status: 'New',
@@ -19,7 +20,12 @@ app.Ticket = Backbone.Model.extend({
     },
    
     initialize: function(){
-       
+       this.set("ticketId", app.Ticket.nextSeqNum());
+    }
+},{
+    count: 100,
+    nextSeqNum: function(){
+        return ++this.count;
     }
 });
 

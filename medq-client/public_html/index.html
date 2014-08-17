@@ -16,11 +16,11 @@ and open the template in the editor.
     <body>
         <!-- css class of each ticket is: 'medq-ticket' -->
         <script id="ticket-template" type="text/template">
-                <label class="header"><%= cid %></label>
+                <label class="header"><%= ticketId %></label>
                 <label class="name"><%= displayName %></label>
                 <label class="phone"><%= phone %></label>
                 <label class="status"><section class=medq-ticket-status-<%= statusClass %>><%= status %></section></label>
-                <label><%= remainingWaitingTime %> min (<%= remainingWaitingTime %>)</label>
+                <label><%= remainingWaitingTime %> min (<%= targetTimeAsStr %>)</label>
         </script>
         <script id="queue-alert-template" type="text/template">
             <span><strong>Ticket Info</strong></span>
@@ -34,7 +34,7 @@ and open the template in the editor.
         <script id="ticket-details-template" type="text/template">
             <div class="ui-panel-inner">
             <div class="new-entry-header" style="display:<%= newEntryDisplayFlag %>"><label class="new-entry-header-text">New Entry</label></div>
-                <h2 style="display:<%= modifyEntryDisplayFlag %>">Modify</h2>
+            <div class="new-entry-header" style="display:<%= modifyEntryDisplayFlag %>"><label class="new-entry-header-text">Modify</label></div>
                 <div class="inputGroup">
                     <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
                         <label for="displayName">Name</label><input id="displayName" type="text" value="<%= displayName %>"/>
@@ -81,6 +81,7 @@ and open the template in the editor.
         <script src="js/libs/jquery/jquery.min.js"></script>
         <script src="js/libs/jquery-mobile/jquery.mobile.min.js"></script>
         <script src="js/libs/jquery-mobile-datebox/jqm-datebox.core.min.js"></script>
+        <script src="js/libs/moment/moment.min.js"></script>
         <script src="js/libs/underscore/underscore-min.js"></script>
         <script src="js/libs/backbone/backbone-min.js"></script>
         <script src="js/models/ticket.js"></script>
@@ -111,7 +112,7 @@ and open the template in the editor.
                 </div>
                 <div id="action-panel">
                     <div><button id="add">New Entry</button></div>
-                    <div><button id="modify" disabled="true">Modify</button></div>
+                    <div><button id="modify" disabled>Modify</button></div>
                     <div><button id="next">Next</button></div>
                     <div><button id="import">Import File(Hide this)</button></div>
                     <div><button id="settings">Settings(Hide this)</button></div>
