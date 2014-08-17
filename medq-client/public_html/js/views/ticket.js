@@ -107,7 +107,8 @@ app.TicketsView = Backbone.View.extend({
         {
             var item = this.collection.at(1);
             item.set("status", "Consulting");
-            item.set("remainingWaitingTime", "Now");
+            item.set("remainingWaitingTime", 0);
+            item.set("targetTime", Date.now());
         }
         this.collection.shift();
     }
@@ -139,17 +140,20 @@ app.TicketView = Backbone.View.extend({
         data = _.clone(this.model.attributes);
         data["cid"] = this.model.cid;
         data["id"] = this.model.id;
-        if (data["status"] === "Consulting")
+        
+        // Referecen to datalist "status-list" should be used instead of
+        // this hacky if/else here
+        if (data["status"] === "in-progress")
         {
-            data["statusClass"] = "in-progress";
+            data["statusAsStr"] = "Consulting";
         }
-        else if (data["status"] === "Arrived")
+        else if (data["status"] === "arrived")
         {
-            data["statusClass"] = "arrived";
+            data["statusAsStr"] = "Arrived";
         }
         else
         {
-            data["statusClass"] = "other";
+            data["statusAsStr"] = "Scheduled";
         }
         
         data["targetTimeAsStr"] = moment(this.model.get("targetTime")).format("HH:mm");
@@ -194,6 +198,7 @@ app.TicketDetailsView = Backbone.View.extend({
         {
             templateParams["displayName"] = "";
             templateParams["phone"] = "";
+            templateParams["status"] = "arrived";
             templateParams["newEntryDisplayFlag"] = "block";
             templateParams["modifyEntryDisplayFlag"] = "none";
         }
@@ -209,6 +214,7 @@ app.TicketDetailsView = Backbone.View.extend({
     modify: function(){
         this.model.set("displayName", this.$("#displayName").val());
         this.model.set("phone", this.$("#phone").val());
+        this.model.set("status", this.$("#status").val());
         this.complete();
     },
     

@@ -14,12 +14,17 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <datalist id="status-list">
+            <option value="in-progress">Consulting</option>
+            <option value="arrived">Arrived</option>
+            <option value="scheduled">Scheduled</option>
+        </datalist>
         <!-- css class of each ticket is: 'medq-ticket' -->
         <script id="ticket-template" type="text/template">
                 <label class="header"><%= id %></label>
                 <label class="name"><%= displayName %></label>
                 <label class="phone"><%= phone %></label>
-                <label class="status"><section class=medq-ticket-status-<%= statusClass %>><%= status %></section></label>
+                <label class="status"><section class=medq-ticket-status-<%= status %>><%= statusAsStr %></section></label>
                 <label><%= remainingWaitingTime %> min (<%= targetTimeAsStr %>)</label>
         </script>
         <script id="queue-alert-template" type="text/template">
@@ -33,39 +38,42 @@ and open the template in the editor.
         </script>
         <script id="ticket-details-template" type="text/template">
             <div class="ui-panel-inner">
-            <div class="new-entry-header" style="display:<%= newEntryDisplayFlag %>"><label class="new-entry-header-text">New Entry</label></div>
-            <div class="new-entry-header" style="display:<%= modifyEntryDisplayFlag %>"><label class="new-entry-header-text">Modify</label></div>
+                <div class="new-entry-header" style="display:<%= newEntryDisplayFlag %>"><label class="new-entry-header-text">New Entry</label></div>
+                <div class="new-entry-header" style="display:<%= modifyEntryDisplayFlag %>"><label class="new-entry-header-text">Modify</label></div>
                 <div class="inputGroup">
-                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                    <div class="input-group-div">
                         <label for="displayName">Name</label><input id="displayName" type="text" value="<%= displayName %>"/>
                     </div>
-                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                    <div class="input-group-div">
                         <label for="phone">Telephone Number</label><input id="phone" type="text" value="<%= phone %>"/>
                     </div>
-                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                    <div class="input-group-div">
                         <label for="patientId">Patient ID</label><input id="patientId" type="text"/>
                     </div>
                 </div>
                 <div class="inputGroup">
-                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                    <div class="input-group-div">
                         <label for="bookingTime">Booking Time</label><input id="bookingTime" type="text"/>
                     </div>
-                    <div>
+                    <div class="input-group-div" style="display:<%= newEntryDisplayFlag %>">
                         <button class="walkin">Walk-In</button>
+                    </div>
+                    <div class="input-group-div" style="display:<%= modifyEntryDisplayFlag %>">
+                        <label for="status">Status</label><input id="status" type="text" list="status-list" value="<%= status %>"/>
                     </div>
                 </div>
                 <div class="inputGroup">
-                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                    <div class="input-group-div">
                         <input type="checkbox" id="receiveSms"/>Receive SMS
                     </div>
-                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
+                    <div class="input-group-div">
                         <input type="checkbox" id="receiveCall"/>Receive Call
                     </div>
-                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
-                    <label for="extraTime">Extra Consulting Time</label><input id="extraTime" type="text"/>
+                    <div class="input-group-div">
+                        <label for="extraTime">Extra Consulting Time</label><input id="extraTime" type="text"/>
                     </div>
-                    <div style="margin-left: 5px; padding-top: 5px; padding-bottom: 5px;">
-                    <label for="preCheck">Pre Consulting Check</label><input id="preCheck" type="text"/>
+                    <div class="input-group-div">
+                        <label for="preCheck">Pre Consulting Check</label><input id="preCheck" type="text"/>
                     </div>
                 </div>
                 <div id="newButtonGroup" style="display:<%= newEntryDisplayFlag %>"><button id="save">Save</button><button id="saveAndPrint">Save and Print</button></div>

@@ -36,6 +36,7 @@ and open the template in the editor.
 .ui-mobile .ticket-view .phone
 {
     font-size: small;
+    display: none;
 }
 
 .ui-mobile .ticket-view .status
@@ -56,9 +57,9 @@ and open the template in the editor.
     background-color: #08b
 }
 
-.medq-ticket-status-other
+.medq-ticket-status-scheduled
 {
-    background-color: darkblue;
+    background-color: #888888;
 }
 
 .tickets-view {
@@ -71,6 +72,12 @@ and open the template in the editor.
     margin-bottom: 10px;
     background-color: white;
     border-color: lightgoldenrodyellow;
+}
+
+.inputGroup .input-group-div {
+    margin-left: 5px; 
+    padding-top: 5px; 
+    padding-bottom: 5px;
 }
 
 #queue-name {

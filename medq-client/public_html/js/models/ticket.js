@@ -12,7 +12,7 @@ app.Ticket = Backbone.Model.extend({
        targetTime: '',
        registerTime: '',
        completionTime: '',
-       status: 'New',
+       status: 'Arrived',
        remainingWaitingTime: '',
        notificationMethods: [], // Should be an object
        arrivalConfirmations: [], // Should be an object

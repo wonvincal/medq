@@ -35,10 +35,10 @@ $(function(){
     var targetTime = now.clone();    
     for (var i = 0; i < Math.min(numTickets, names.length) ; i++)
     {
-        var status = 'Arrived';
+        var status = 'arrived';
         if (i === 0)
         {
-            status = 'Consulting';
+            status = 'in-progress';
         }
         var ticket = new app.Ticket({
             displayName: names[i],
