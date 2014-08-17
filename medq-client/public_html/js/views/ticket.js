@@ -51,7 +51,7 @@ app.TicketsView = Backbone.View.extend({
         
         // If an item has been selected, unselect the existing one
         // then select the new one
-        if (ticketView.model.get("tickedId") !== this.selectedView.model.get("tickedId"))
+        if (ticketView.model.id !== this.selectedView.model.id)
         {
             this.selectedView.unselect();
             this.selectedView = ticketView;
@@ -76,7 +76,7 @@ app.TicketsView = Backbone.View.extend({
         var view = null;
         for (var i = 0; i < count; i++)
         {
-          if (item.get("tickedId") === this.views[i].model.get("tickedId"))
+          if (item.id === this.views[i].model.id)
           {
               view = this.views[i];
               this.views.splice(i, 1);
@@ -138,7 +138,7 @@ app.TicketView = Backbone.View.extend({
     render: function(){        
         data = _.clone(this.model.attributes);
         data["cid"] = this.model.cid;
-        data["tickedId"] = this.model.get("tickedId");
+        data["id"] = this.model.id;
         if (data["status"] === "Consulting")
         {
             data["statusClass"] = "in-progress";

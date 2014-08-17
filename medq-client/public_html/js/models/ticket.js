@@ -20,7 +20,7 @@ app.Ticket = Backbone.Model.extend({
     },
    
     initialize: function(){
-       this.set("ticketId", app.Ticket.nextSeqNum());
+       this.set("id", app.Ticket.nextSeqNum());
     }
 },{
     count: 100,

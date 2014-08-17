@@ -86,7 +86,7 @@ app.MainView = Backbone.View.extend({
         var params = {collection: this.queue.get('tickets')};
         if (this.selectedTicket !== null)
         {
-            params['model'] = this.queue.get("tickets").get({tickedId: this.selectedTicket.get("tickedId")});
+            params['model'] = this.queue.get("tickets").get({id: this.selectedTicket.id});
         }
         var view = new app.TicketDetailsView(params);
         this.listenTo(view, 'completed', this.completed);
