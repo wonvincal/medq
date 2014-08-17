@@ -12,7 +12,7 @@ and open the template in the editor.
     width: 110px;
     display: inline-block;
     text-align: center;
-    margin: 5px 5px 5px;
+    margin: 0px 5px 10px;
     box-shadow: 2px 2px 2px #888888;
 }
 
@@ -102,8 +102,8 @@ and open the template in the editor.
     margin-right: 200px;
     //height: inherit;
     position: absolute;
-    top: 20px;
-    bottom: 80px;
+    top: 21px;
+    bottom: 79px;
     left: 0px;
     right: 0px;
 }
@@ -121,7 +121,7 @@ and open the template in the editor.
 #queue-content-bottom {
     margin-right: 200px;
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     left: 0px;
     right: 0px;
     height: 80px;
@@ -212,16 +212,16 @@ html, body {
 
 #medq-page .ui-content {
     position: absolute;
-    top: 40px;
+    top: 45px;
     right: 0;
-    bottom: 40px;
+    bottom: 45px;
     left: 0;
     padding: 0;
     border-collapse: collapse;
 }
 
 #medq-page .ui-header {
-    height: 39px;
+    //height: 39px;
 }
 
 #medq-page .ui-footer {
