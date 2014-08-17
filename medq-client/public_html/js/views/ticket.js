@@ -19,7 +19,7 @@ app.TicketsView = Backbone.View.extend({
         this.views = [];
         this.render();
         this.listenTo(this.collection, 'add', this.renderTicket);
-        this.listenTo(this.collection, 'remove', this.clearTicket);
+        this.listenTo(this.collection, 'remove', this.removeTicket);
     },
     
     // Render all tickets
@@ -60,17 +60,37 @@ app.TicketsView = Backbone.View.extend({
     },
     
     ticketUnselected: function(ticketView){
-      // Do nothing  
+      if (ticketView === this.selectedView)
+      {          
+          this.selectedView = null;
+          this.trigger("selectionChanged", null);
+      }
     },
     
     // Remove a ticket from the collection
-    clearTicket: function(item){
-        // Use a jquery selector to select the one with specific ID
-        // assuming that the ticket has an ID attribute
-        this.refresh();
+    removeTicket: function(item){
+        
+        // Not using any helper library like Underscore here,
+        // because we want to get the index of the item and apply "splice" there
+        var count = this.views.length;
+        var view = null;
+        for (var i = 0; i < count; i++)
+        {
+          if (item.cid === this.views[i].model.cid)
+          {
+              view = this.views[i];
+              this.views.splice(i, 1);
+              break;
+          }
+        }
+
+        if (view)
+        {
+            this.ticketUnselected(view);
+            view.close();
+        }
     },
     
-    // Very inefficient :)
     refresh: function(){
         this.$el.empty();
         _.each(this.views, function(view){

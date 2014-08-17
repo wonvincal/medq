@@ -47,7 +47,16 @@ app.MainView = Backbone.View.extend({
     },
     
     selectionChanged: function(ticketView){
-        this.selectedTicket = ticketView.model;
+        if (ticketView)
+        {
+           this.selectedTicket = ticketView.model;
+           $("#modify").prop('disabled', false);
+        }
+        else
+        {
+            this.selectedTicket = null;
+           $("#modify").prop('disabled', true);
+        }
     },
     
     detailsViews: null,
