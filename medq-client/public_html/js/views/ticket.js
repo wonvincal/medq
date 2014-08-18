@@ -106,7 +106,7 @@ app.TicketsView = Backbone.View.extend({
         if (this.collection.length >= 2)
         {
             var item = this.collection.at(1);
-            item.set("status", "Consulting");
+            item.set("status", "in-progress");
             item.set("remainingWaitingTime", 0);
             item.set("targetTime", Date.now());
         }
