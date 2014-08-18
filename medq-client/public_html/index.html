@@ -14,11 +14,6 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <datalist id="status-list">
-            <option value="in-progress">Consulting</option>
-            <option value="arrived">Arrived</option>
-            <option value="scheduled">Scheduled</option>
-        </datalist>
         <!-- css class of each ticket is: 'medq-ticket' -->
         <script id="ticket-template" type="text/template">
                 <label class="header"><%= id %></label>
@@ -41,43 +36,49 @@ and open the template in the editor.
                 <div class="new-entry-header" style="display:<%= newEntryDisplayFlag %>"><label class="new-entry-header-text">New Entry</label></div>
                 <div class="new-entry-header" style="display:<%= modifyEntryDisplayFlag %>"><label class="new-entry-header-text">Modify</label></div>
                 <div class="inputGroup">
-                    <div class="input-group-div">
+                    <div data-role="fieldcontain">
                         <label for="displayName">Name</label><input id="displayName" type="text" value="<%= displayName %>"/>
                     </div>
-                    <div class="input-group-div">
+                    <div data-role="fieldcontain">
                         <label for="phone">Telephone Number</label><input id="phone" type="text" value="<%= phone %>"/>
                     </div>
-                    <div class="input-group-div">
+                    <div data-role="fieldcontain">
                         <label for="patientId">Patient ID</label><input id="patientId" type="text"/>
                     </div>
                 </div>
                 <div class="inputGroup">
-                    <div class="input-group-div">
+                    <div data-role="fieldcontain">
                         <label for="bookingTime">Booking Time</label><input id="bookingTime" type="text"/>
                     </div>
-                    <div class="input-group-div" style="display:<%= newEntryDisplayFlag %>">
-                        <button class="walkin">Walk-In</button>
-                    </div>
-                    <div class="input-group-div" style="display:<%= modifyEntryDisplayFlag %>">
-                        <label for="status">Status</label><input id="status" type="text" list="status-list" value="<%= status %>"/>
+                    <button id="walkin" class="walkin ui-btn ui-shadow ui-corner-all">Walk-In</button>
+                    <div style="display:<%= modifyEntryDisplayFlag %>">
+                        <label for="status-choice">Status</label>
+                        <select name="status" id="status">
+                            <option id="in-progress" value="in-progress">Consulting</option>
+                            <option id="arrived" value="arrived">Arrived</option>
+                            <option id="scheduled" value="scheduled">Scheduled</option>
+                        </select>
                     </div>
                 </div>
                 <div class="inputGroup">
-                    <div class="input-group-div">
-                        <input type="checkbox" id="receiveSms"/>Receive SMS
-                    </div>
-                    <div class="input-group-div">
-                        <input type="checkbox" id="receiveCall"/>Receive Call
-                    </div>
-                    <div class="input-group-div">
+                    <label><input type="checkbox" name="receiveSms" id="receiveSms"/>Receive SMS</label>
+                    <label><input type="checkbox" id="receiveCall"/>Receive Call</label>
+                    <div data-role="fieldcontain">
                         <label for="extraTime">Extra Consulting Time</label><input id="extraTime" type="text"/>
                     </div>
-                    <div class="input-group-div">
+                    <div data-role="fieldcontain">
                         <label for="preCheck">Pre Consulting Check</label><input id="preCheck" type="text"/>
                     </div>
+                </div>                
+                <div id="newButtonGroup" style="display:<%= newEntryDisplayFlag %>">
+                    <button id="save" class=" ui-btn ui-shadow ui-corner-all">Save</button>
+                    <button id="saveAndPrint" class=" ui-btn ui-shadow ui-corner-all">Save and Print</button>
                 </div>
-                <div id="newButtonGroup" style="display:<%= newEntryDisplayFlag %>"><button id="save">Save</button><button id="saveAndPrint">Save and Print</button></div>
-                <div id="modifyButtonGroup" style="display:<%= modifyEntryDisplayFlag %>"><button id="delete">Delete</button><button id="saveModify">Save</button><button id="print">Print</button></div>
+                <div id="modifyButtonGroup" style="display:<%= modifyEntryDisplayFlag %>">
+                    <button id="delete" class=" ui-btn ui-shadow ui-corner-all">Delete</button>
+                    <button id="saveModify" class=" ui-btn ui-shadow ui-corner-all">Save</button>
+                    <button id="print" class=" ui-btn ui-shadow ui-corner-all">Print</button>
+                </div>
             </div>
         </script>
         <script id="import-file-template" type="text/template">
@@ -127,7 +128,6 @@ and open the template in the editor.
                 </div>
             </div>
             <div data-role="panel" data-position="right" data-display="overlay" id="action-form" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-animate ui-panel-open"></div>
-            <div data-role="footer"><h4>@Copyright</h4></div>
         </div>
     </body>
 </html>

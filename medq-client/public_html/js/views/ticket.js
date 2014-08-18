@@ -204,6 +204,10 @@ app.TicketDetailsView = Backbone.View.extend({
         }
         
         this.$el.html(_.template($('#ticket-details-template').html(), templateParams));
+        this.$('#status').val(templateParams["status"]);
+        this.$('#status').selectmenu();
+        this.$('[type="checkbox"]').checkboxradio();
+        this.$('[type="text"]').textinput();
         return this;
     },
 
