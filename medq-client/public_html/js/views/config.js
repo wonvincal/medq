@@ -13,7 +13,19 @@ app.ConfigView = Backbone.View.extend({
     },
 
     events: {
-        'click #apply-scheduled-tasks': 'enqueueScheduledTasks'
+        'click #apply-scheduled-tasks': 'enqueueScheduledTasks',
+        'change #switchPublicView' : 'switchView'
+    },
+    
+    switchView: function(){
+        if ($("#switchPublicView").val() === "on")
+        {
+            $("#medq-style").attr('href','css/style-public.css');
+        }
+        else
+        {
+            $("#medq-style").attr('href','css/style.css');
+        }
     },
     
     enqueueScheduledTasks: function(){
