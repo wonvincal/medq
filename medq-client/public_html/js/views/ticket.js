@@ -207,7 +207,8 @@ app.TicketDetailsView = Backbone.View.extend({
         'click #saveModify': 'modify'
     },
 
-    initialize: function(){
+    initialize: function(options){
+        this.consultingTime = options.consultingTime;
         this.businessSessions = [];
         var businessSession = {};
         businessSession["start"] = moment().hour(1).minutes(0).second(0).milliseconds(0);
@@ -341,7 +342,7 @@ app.TicketDetailsView = Backbone.View.extend({
         var insertIndex = -1;
         var tickets = this.collection;
         var numTickets = tickets.length;
-        var estimatedConsultationTime = 4 + Math.ceil(Math.random() * 2);
+        var estimatedConsultationTime = this.consultingTime;
         
         if (!data["bookingTime"])
         {            

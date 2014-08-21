@@ -7,14 +7,26 @@ app.ConfigView = Backbone.View.extend({
 
     el: '#config-panel',
 
+    consultingTime: 10,
+    
     // Initialize different views
     initialize:function (options) {
         this.queue = options.queue;
+        this.$("#consultingTime").val(this.consultingTime);
     },
 
     events: {
         'click #apply-scheduled-tasks': 'enqueueScheduledTasks',
-        'change #switchPublicView' : 'switchView'
+        'change #switchPublicView' : 'switchView',
+        'click #apply-consulting-time': 'applyConsultlingTime'
+    },
+    
+    applyConsultlingTime: function(){
+        if (this.$("#consultingTime").val())
+        {
+            this.consultingTime = this.$("#consultingTime").val();
+            this.trigger("change:consultingTime", this.consultingTime);
+        }
     },
     
     switchView: function(){

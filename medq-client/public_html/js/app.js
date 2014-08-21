@@ -16,8 +16,8 @@ $(function(){
         lastSeqNum: 0,
         tickets: tickets
     });    
-    new app.MainView({queue: queue});
-    new app.ConfigView({queue: queue});
+    var config = new app.ConfigView({queue: queue});
+    new app.MainView({queue: queue, config: config});
 });
 
 function shuffle(o){
