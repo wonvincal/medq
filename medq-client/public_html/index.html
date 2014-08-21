@@ -48,7 +48,7 @@ and open the template in the editor.
                 </div>
                 <div class="inputGroup">
                     <div data-role="fieldcontain">
-                        <label for="bookingTime">Booking Time</label><input id="bookingTime" type="text"/>
+                        <label for="bookingTime">Booking Time (hhmm)</label><input id="bookingTime" type="text"'/>
                     </div>
                     <button id="walkin" class="walkin ui-btn ui-shadow ui-corner-all">Walk-In</button>
                     <div style="display:<%= modifyEntryDisplayFlag %>">
@@ -105,9 +105,13 @@ and open the template in the editor.
         <script src="js/views/main.js"></script>
         <script src="js/views/queue.js"></script>
         <script src="js/views/ticket.js"></script>
+        <script src="js/views/config.js"></script>
         <script src="js/app.js"></script>
         <div data-role="page" id="medq-page">
-            <div data-role="header" class="medq-header"><h1 class="medq-header-text">Dr. Lee Clinic - MedQ Patient Queuing System</h1></div>
+            <div data-role="header" class="medq-header">
+                <a href="#config-panel" data-icon="gear" data-iconpos="notext"></a>
+                <h1 class="medq-header-text">Dr. Lee Clinic - MedQ Patient Queuing System</h1>
+            </div>
             <div data-role="content">
                 <!-- queue-content and queue-content-bottom are mainly for layout purpose -->
                 <div id="queue-content">
@@ -128,6 +132,12 @@ and open the template in the editor.
                 </div>
             </div>
             <div data-role="panel" data-position="right" data-display="overlay" id="action-form" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-animate ui-panel-open"></div>
+            <div data-role="panel" data-position="left" data-display="overlay" id="config-panel" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-panel-animate ui-panel-open">
+                <div data-role="fieldcontain">
+                    <label for="numScheduledTickets">#:</label><input id="numScheduledTickets" type="text"/>
+                    <button id="apply-scheduled-tasks">Apply</button>
+                </div>                    
+            </div>
         </div>
     </body>
 </html>

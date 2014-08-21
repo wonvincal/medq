@@ -16,41 +16,8 @@ $(function(){
         lastSeqNum: 0,
         tickets: tickets
     });    
-
-    var firstNames = ["Peter", "Mary", "Joe", "Anna", "Martin"];
-    var lastNames = ["Wong", "Chan", "Tse", "Cheung", "Yuen"];
-  
-    var names = [];    
-    for (var i = 0; i < firstNames.length; i++)
-    {
-        for (var j = 0; j < lastNames.length; j++)
-        {
-            names.push(firstNames[i] + " " + lastNames[j]);
-        }
-    }
-    names = shuffle(names);
-    
-    var numTickets = 5;
-    var now = moment(Date.now());
-    var targetTime = now.clone();    
-    for (var i = 0; i < Math.min(numTickets, names.length) ; i++)
-    {
-        var status = 'arrived';
-        if (i === 0)
-        {
-            status = 'in-progress';
-        }
-        var ticket = new app.Ticket({
-            displayName: names[i],
-            phone: 90000000 + Math.floor(Math.random() * 10000000),
-            status: status,
-            remainingWaitingTime: targetTime.diff(now)/60000,
-            targetTime: targetTime.toDate()
-        });
-        queue.get('tickets').add(ticket);
-        targetTime = targetTime.clone().add("m", 4 + Math.ceil(Math.random() * 2));
-    }
     new app.MainView({queue: queue});
+    new app.ConfigView({queue: queue});
 });
 
 function shuffle(o){

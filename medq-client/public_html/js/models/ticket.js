@@ -9,6 +9,7 @@ app.Ticket = Backbone.Model.extend({
     defaults: {
        displayName: '',
        phone: '',
+       bookingTime: '',
        targetTime: '',
        registerTime: '',
        completionTime: '',
