@@ -6,6 +6,12 @@
 var app = app || {};
 
 app.Ticket = Backbone.Model.extend({
+    // The valid states are:
+    // 5) Consulting
+    // 4) Next
+    // 3) Arrived
+    // 2) Registered
+    // 1) Scheduled
     defaults: {
        displayName: '',
        phone: '',
@@ -13,7 +19,7 @@ app.Ticket = Backbone.Model.extend({
        targetTime: '',
        registerTime: '',
        completionTime: '',
-       status: 'arrived',
+       status: 'registered',
        remainingWaitingTime: '',
        notificationMethods: [], // Should be an object
        arrivalConfirmations: [], // Should be an object

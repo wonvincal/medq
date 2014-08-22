@@ -47,6 +47,8 @@ and open the template in the editor.
     padding-top: 5px;
     padding-bottom: 5px;
     color: white;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .ui-mobile .ticket-view .time
@@ -61,12 +63,27 @@ and open the template in the editor.
     background-color: #0E6D29;
 }
 
+.medq-ticket-status-next
+{
+    background-color: #0E6D29;
+}
+
 .medq-ticket-status-arrived
 {
     background-color: #08b
 }
 
+.medq-ticket-status-registered
+{
+    background-color: #5e740b;
+}
+
 .medq-ticket-status-scheduled
+{
+    background-color: cadetblue;
+}
+
+.medq-ticket-status-completed
 {
     background-color: #888888;
 }
@@ -112,13 +129,10 @@ and open the template in the editor.
 #queue-header {
     text-align: center;
     font-weight: bold;
-    margin-right: 200px;
     height: 20px;
 }
 
 #queue {
-    margin-right: 200px;
-    //height: inherit;
     position: absolute;
     top: 21px;
     bottom: 79px;
@@ -137,7 +151,6 @@ and open the template in the editor.
 }
 
 #queue-content-bottom {
-    margin-right: 200px;
     position: absolute;
     bottom: 0px;
     left: 0px;

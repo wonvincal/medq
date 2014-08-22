@@ -102,40 +102,35 @@ app.TicketsView = Backbone.View.extend({
     },
    
     next: function(){
-        // If second ticket exist, set the second ticket's status to Consulting
-        // Remove the first one
-        if (this.collection.length === 1)
+
+        if (this.collection.length >= 1)
         {
             var item = this.collection.at(0);
-            if (item.get("status") !== "in-progress")
+            var status = item.get("status");
+            if (status === "in-progress")
             {
-                item.set("status", "in-progress");
-                item.set("remainingWaitingTime", 0);
-                item.set("targetTime", Date.now());
-            }
-            else 
-            {
+                item.set("status", "completed");
                 this.collection.shift();
             }
-        }
-        else if (this.collection.length >= 2)
-        {
-            var item = this.collection.at(0);
-            if (item.get("status") !== "in-progress")
+            else if (status === "next")
             {
                 item.set("status", "in-progress");
-                item.set("remainingWaitingTime", 0);
-                item.set("targetTime", Date.now());
+                item.set("consultationStartTime", moment());
             }
-            else
-            {            
-                var item = this.collection.at(1);
-                item.set("status", "in-progress");
-                item.set("remainingWaitingTime", 0);
-                item.set("targetTime", Date.now());
-                this.collection.shift();                
+            else if (status === "arrived")
+            {
+                item.set("status", "next");
             }
-        }        
+        }
+        if (this.collection.length >= 1)
+        {
+            var item = this.collection.at(0);
+            var status = item.get("status");
+            if (status === "arrived")
+            {
+                item.set("status", "next");
+            }
+        }
     }
 });
 
@@ -150,11 +145,20 @@ app.TicketView = Backbone.View.extend({
     template: _.template($('#ticket-template').html()),
     
     events: {
-        'click': 'clicked'
+        'click': 'clicked',
+        'click .status': 'clickedStatus'
     },
     
     initialize: function(){
         this.listenTo(this.model, 'change', this.render);
+    },
+    
+    clickedStatus: function(){
+        var status = this.model.get("status");
+        if (status === "registered" || status === "scheduled")
+        {
+            this.model.set("status", "arrived");
+        }
     },
     
     clicked: function() {
@@ -168,19 +172,31 @@ app.TicketView = Backbone.View.extend({
         
         // Referecen to datalist "status-list" should be used instead of
         // this hacky if/else here
-        if (data["status"] === "in-progress")
+        switch (data["status"])
         {
-            data["statusAsStr"] = "Consulting";
+            case "in-progress":
+                data["statusAsStr"] = "Consulting";
+                break;
+            case "next":
+                data["statusAsStr"] = "Next";
+                break;
+            case "arrived":
+                data["statusAsStr"] = "Arrived";
+                break;
+            case "registered":
+                data["statusAsStr"] = "Registered";
+                break;
+            case "scheduled":
+                data["statusAsStr"] = "Scheduled";
+                break;
+            case "completed":
+                data["statusAsStr"] = "Completed";
+                break;
+            default:
+                {
+                    console.log("unexpected status: " + data["status"]);
+                }
         }
-        else if (data["status"] === "arrived")
-        {
-            data["statusAsStr"] = "Arrived";
-        }
-        else
-        {
-            data["statusAsStr"] = "Scheduled";
-        }
-        
         data["targetTimeAsStr"] = moment(this.model.get("targetTime")).format("HH:mm");
         this.$el.html(this.template(data));
         return this;
@@ -217,7 +233,7 @@ app.TicketDetailsView = Backbone.View.extend({
         
         businessSession = {};
         businessSession["start"] = moment().hour(14).minutes(0).second(0).milliseconds(0);
-        businessSession["end"] = moment().hour(23).minutes(0).second(0).milliseconds(0);
+        businessSession["end"] = moment().hour(24).minutes(0).second(0).milliseconds(0);
         this.businessSessions[1] = businessSession;        
     },
     

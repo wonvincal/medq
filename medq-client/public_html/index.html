@@ -19,7 +19,7 @@ and open the template in the editor.
                 <label class="header"><%= id %></label>
                 <label class="name"><%= displayName %></label>
                 <label class="phone"><%= phone %></label>
-                <label class="status"><section class=medq-ticket-status-<%= status %>><%= statusAsStr %></section></label>
+                <button class="status medq-ticket-status-<%= status %>"><%= statusAsStr %></button>
                 <label class="time"><%= remainingWaitingTime %> min (<%= targetTimeAsStr %>)</label>
         </script>
         <script id="queue-alert-template" type="text/template">
