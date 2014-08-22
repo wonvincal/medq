@@ -24,8 +24,6 @@ app.MainView = Backbone.View.extend({
     // Initialize different views
     initialize:function (options) {
         this.config = options.config;
-        this.consultingTime = this.config.consultingTime;
-        this.listenTo(this.config, "change:consultingTime", this.consultingTimeChanged);
         this.queue = options.queue;
         $('#queue-alert').html(new app.QueueAlertView({model: this.queue}).render().el);
         $('#queue-summary').html(new app.QueueSummaryView({model: this.queue}).render().el);
@@ -49,10 +47,6 @@ app.MainView = Backbone.View.extend({
         this.queueView.next();
     },
     
-    consultingTimeChanged: function(value){
-        this.consultingTime = value;
-    },
-    
     selectionChanged: function(ticketView){
         if (ticketView)
         {
@@ -73,7 +67,7 @@ app.MainView = Backbone.View.extend({
     },
     
     showAddPanel: function() {
-        var view = new app.TicketDetailsView({collection: this.queue.get('tickets'), "consultingTime" : this.consultingTime});
+        var view = new app.TicketDetailsView({collection: this.queue.get('tickets'), "queue" : this.queue});
         this.listenTo(view, 'completed', this.completed);
         $('#action-form').empty();
         $('#action-form').append(view.render().el);
@@ -89,7 +83,7 @@ app.MainView = Backbone.View.extend({
     },
 
     showModifyPanel: function() {
-        var params = {collection: this.queue.get('tickets'), "consultingTime" : this.consultingTime};
+        var params = {collection: this.queue.get('tickets'), "queue" : this.queue};
         if (this.selectedTicket !== null)
         {
             params['model'] = this.queue.get("tickets").get({id: this.selectedTicket.id});
