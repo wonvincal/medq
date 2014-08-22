@@ -8,7 +8,6 @@ var app = app || {};
 $(function(){
     var tickets = new app.Tickets();
     
-    // 
     // Assume that the user has already logged in
     // The user has a queue
     var queue = new app.Queue({
@@ -19,8 +18,3 @@ $(function(){
     var config = new app.ConfigView({queue: queue});
     new app.MainView({queue: queue, config: config});
 });
-
-function shuffle(o){
-    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-    return o;
-};
