@@ -65,7 +65,7 @@ app.ConfigView = Backbone.View.extend({
         for (var i = 0; i < Math.min(numTickets, this.names.length); i++)
         {
             var data = {};
-            data["status"] = 'arrived';
+            data["status"] = 'registered';
             data["displayName"] = this.names[i];
             data["phone"] = 90000000 + Math.floor(Math.random() * 10000000);
             this.queue.enqueueTicket(data);
