@@ -251,6 +251,7 @@ app.TicketDetailsView = Backbone.View.extend({
         else
         {
             templateParams["displayName"] = "";
+            templateParams["pid"] = "";
             templateParams["phone"] = "";
             templateParams["status"] = "arrived";
             templateParams["bookingTime"] = "";
@@ -272,6 +273,7 @@ app.TicketDetailsView = Backbone.View.extend({
     
     modify: function(){
         this.model.set("displayName", this.$("#displayName").val());
+        this.model.set("pid", this.$("#pid").val());
         this.model.set("phone", this.$("#phone").val());
         this.model.set("status", this.$("#status").val());
         this.model.set("bookingTime", this.$("#bookingTime").val());

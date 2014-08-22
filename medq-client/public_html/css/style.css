@@ -32,12 +32,19 @@ and open the template in the editor.
 .ui-mobile .ticket-view .name
 {
     font-size: medium;
+    min-height: 20px;
+}
+
+.ui-mobile .ticket-view .pid
+{
+    font-size: small;
+    min-height: 16px;
 }
 
 .ui-mobile .ticket-view .phone
 {
     font-size: small;
-    display: none;
+    min-height: 16px;
 }
 
 .ui-mobile .ticket-view .status

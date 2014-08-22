@@ -13,6 +13,7 @@ app.Ticket = Backbone.Model.extend({
     // 2) Registered
     // 1) Scheduled
     defaults: {
+       pid: '',
        displayName: '',
        phone: '',
        bookingTime: '',

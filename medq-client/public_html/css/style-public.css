@@ -31,13 +31,16 @@ and open the template in the editor.
 
 .ui-mobile .ticket-view .name
 {
-    font-size: medium;
+    display: none;
+}
+
+.ui-mobile .ticket-view .pid
+{
     display: none;
 }
 
 .ui-mobile .ticket-view .phone
 {
-    font-size: small;
     display: none;
 }
 

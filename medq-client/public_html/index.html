@@ -18,6 +18,7 @@ and open the template in the editor.
         <script id="ticket-template" type="text/template">
                 <label class="header"><%= id %></label>
                 <label class="name"><%= displayName %></label>
+                <label class="pid"><%= pid %></label>
                 <label class="phone"><%= phone %></label>
                 <button class="status medq-ticket-status-<%= status %>"><%= statusAsStr %></button>
                 <label class="time medq-ticket-remaining-time-<%= status %>"><%= remainingWaitingTime %> min (<%= targetTimeAsStr %>)</label>
@@ -45,7 +46,7 @@ and open the template in the editor.
                         <label for="phone">Telephone Number</label><input id="phone" type="text" value="<%= phone %>"/>
                     </div>
                     <div data-role="fieldcontain">
-                        <label for="patientId">Patient ID</label><input id="patientId" type="text"/>
+                        <label for="pid">Patient ID</label><input id="pid" type="text" value="<%= pid %>"/>
                     </div>
                 </div>
                 <div class="inputGroup">
