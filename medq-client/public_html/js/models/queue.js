@@ -12,7 +12,7 @@ app.Queue = Backbone.Model.extend({
         lastSeqNum: '',
         algo: '',
         numWaiting: 0,
-        consultingTime: 11
+        consultingTime: 10
     },
     
     initialize: function(attributes, options){
@@ -39,6 +39,13 @@ app.Queue = Backbone.Model.extend({
         this.set("numWaiting", this.tickets.length);
         this.listenTo(this.tickets, 'add', this.addTicket);
         this.listenTo(this.tickets, 'remove', this.removeTicket);
+        
+        setInterval(
+                (function(self){
+                    return function(){
+                        self.addOverrunDelays();
+                    }
+                })(this), 1000);
     },
     
     isWithinPeriod: function(booking, boundary){
@@ -103,7 +110,7 @@ app.Queue = Backbone.Model.extend({
     },
     
     removeTicket: function(ticket){
-        // Place holder
+        this.removeOverrunDelays(ticket);
         this.set("numWaiting", this.get("numWaiting") - 1);
     },
     
@@ -302,7 +309,135 @@ app.Queue = Backbone.Model.extend({
             {
                 this.tickets.trigger("refresh");
             }
-        }        
+        }
+    },
+    
+    // An overrun is detected when the current time exceeds the effective target time of the
+    // second ticket
+    // Assumption: we do not allow having multiple appointments in the same slot
+    // Important: this actually does not depend on the first ticket
+    isOverrun: function(currentTime){
+        if (this.tickets.length >= 2)
+        {
+            var secondTicket = this.tickets.at(1);            
+            if (currentTime > secondTicket.getEffectiveTargetTime()){
+                return true;
+            }
+            
+            // Also look at this - overrunStartTime
+        }
+        return false;
+    },
+
+    removeOverrunDelays: function(removedTicket){
+        var currentTime = moment().seconds(0).milliseconds(0);
+        if (removedTicket.get("status") === "completed")
+        {
+            var overrunDurationInMs = currentTime.diff(removedTicket.get("overrunStartTime"));
+            
+            if (this.tickets.length >= 2)
+            {
+                var delayId = removedTicket.get("id");
+                for (var i = 1; i < this.tickets.length; i++){
+                    var ticket = this.tickets.at(i);
+                    var delays = ticket.get("delaysInMs");
+                    if (delayId in delays)
+                    {
+                        if (delays[delayId] < overrunDurationInMs)
+                        {
+                            delays[delayId] = 0;
+                        }
+                        else
+                        {
+                            delays[delayId] = overrunDurationInMs;
+                        }
+                        ticket.set("effectiveTargetTime", ticket.getEffectiveTargetTime());
+                    }
+                }                
+            }
+        }
+    },
+    
+    addOverrunDelays: function(){
+        var self = this;
+        var currentTime = moment().seconds(0).milliseconds(0);        
+        if (this.isOverrun(currentTime))
+        {
+            var firstTicket = this.tickets.at(0);
+            firstTicket.set("overrunStartTime", currentTime);
+            var delayId = firstTicket.get("id");
+            var delayValueInMs = 5000;
+            
+            // The second ticket delay is calculatd based on currentTime,
+            // the delay of any ticket after the second none is calculated based on estimate            
+            var secondTicket = this.tickets.at(1);
+            var delays = secondTicket.get("delaysInMs");
+            if (!(delayId in delays))
+            {
+                delays[delayId] = delayValueInMs;
+            }
+            else
+            {
+                delays[delayId] = delays[delayId] + delayValueInMs;
+            }
+            secondTicket.set("effectiveTargetTime", secondTicket.getEffectiveTargetTime());
+            
+            if (this.tickets.length >= 3)
+            {
+                var prevTicket = secondTicket;
+                var estimatedConsultationTime = this.get("consultingTime");
+                for (var i = 2; i < this.tickets.length; i++)
+                {
+                    var prevTicketTargetEndTime = prevTicket.getEffectiveTargetTime().add("m", estimatedConsultationTime);
+                    var ticket = this.tickets.at(i);
+                    var targetTime = ticket.get("targetTime");
+                    if (prevTicketTargetEndTime > targetTime)
+                    {
+                        var d = ticket.get("delaysInMs");
+                        var dInMs = prevTicketTargetEndTime.diff(targetTime);
+                        if (!(delayId in d))
+                        {
+                            d[delayId] = dInMs;
+                        }
+                        else
+                        {
+                            d[delayId] = d[delayId] + dInMs;
+                        }
+                        ticket.set("effectiveTargetTime", secondTicket.getEffectiveTargetTime());
+                    }
+                    else
+                    {
+                        // Stop at the first ticket where no delay is introduced
+                        break;
+                    }
+                    prevTicket = ticket;
+                }
+            }
+        }
+        
+        // Update timestamp
+        for (var i = 0; i < this.tickets.length; i++)
+        {
+            var ticket = this.tickets.at(i);
+
+            var targetTime = ticket.get("targetTime");
+            var remainingWaitingTimeInMin = Math.max(Math.ceil(targetTime.diff(currentTime)/60000), 0);
+            ticket.set("remainingWaitingTime", remainingWaitingTimeInMin);
+            
+            var effectiveTargetTime = ticket.getEffectiveTargetTime();
+            var remainingEffectiveWaitingTimeInMin = Math.max(Math.ceil(effectiveTargetTime.diff(currentTime)/60000), 0);
+            ticket.set("remainingEffectiveWaitingTime", remainingEffectiveWaitingTimeInMin);
+        }
+        
+        // Update consultation time
+        if (this.tickets.length >= 1)
+        {
+            var ticket = this.tickets.at(0);
+            if (ticket.get("status") === "in-progress")
+            {                
+                ticket.set("consultationDuration", Math.ceil(moment().diff(ticket.get("consultationStartTime"))/1000));
+            }
+        }
     }
 });
 

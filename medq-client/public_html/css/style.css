@@ -87,6 +87,21 @@ and open the template in the editor.
     background-color: #888888;
 }
 
+.ui-mobile .ticket-view .medq-ticket-duration-completed, 
+.ui-mobile .ticket-view .medq-ticket-duration-scheduled,
+.ui-mobile .ticket-view .medq-ticket-duration-registered,
+.ui-mobile .ticket-view .medq-ticket-duration-arrived,
+.ui-mobile .ticket-view .medq-ticket-duration-next
+{
+    display: none;
+}
+
+.ui-mobile .ticket-view .medq-ticket-remaining-time-completed, 
+.ui-mobile .ticket-view .medq-ticket-remaining-time-in-progress
+{
+    display: none;
+}
+
 .tickets-view {
     height: inherit;
     overflow-y: auto;

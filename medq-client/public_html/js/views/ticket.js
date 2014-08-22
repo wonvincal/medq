@@ -115,7 +115,7 @@ app.TicketsView = Backbone.View.extend({
             else if (status === "next")
             {
                 item.set("status", "in-progress");
-                item.set("consultationStartTime", moment());
+                item.set("consultationStartTime", moment().clone());
             }
             else if (status === "arrived")
             {
@@ -129,6 +129,7 @@ app.TicketsView = Backbone.View.extend({
             if (status === "arrived")
             {
                 item.set("status", "next");
+                item.set("targetTime", moment().clone().seconds(0).milliseconds(0));
             }
         }
     }
@@ -197,7 +198,18 @@ app.TicketView = Backbone.View.extend({
                     console.log("unexpected status: " + data["status"]);
                 }
         }
+        data["consultationDurationInStr"] = '';
+        if (this.model.get("consultationDuration"))
+        {
+            data["consultationDurationInStr"] = moment().hours(0).minutes(0).seconds(this.model.get("consultationDuration")).milliseconds(0).format("mm:ss");            
+        }
+        else
+        {
+            data["consultationDurationInStr"] = "00:00";
+        }
+        
         data["targetTimeAsStr"] = moment(this.model.get("targetTime")).format("HH:mm");
+        data["effectiveTargetTimeAsStr"] = moment(this.model.get("effectiveTargetTime")).format("HH:mm");
         this.$el.html(this.template(data));
         return this;
     },

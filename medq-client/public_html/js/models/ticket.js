@@ -17,17 +17,31 @@ app.Ticket = Backbone.Model.extend({
        phone: '',
        bookingTime: '',
        targetTime: '',
-       registerTime: '',
+       remainingWaitingTime: '',
        completionTime: '',
        status: 'registered',
-       remainingWaitingTime: '',
+       delaysInMs: {},
+       effectiveTargetTime: '',
+       remainingEffectiveWaitingTime: '',
+       consultationStartTime: '',
+       consultationDuration: '',
+       overrunStartTime: '',
        notificationMethods: [], // Should be an object
        arrivalConfirmations: [], // Should be an object
-       messageReceipients: [] // Should be an object
+       messageReceipients: [], // Should be an object
     },
    
     initialize: function(){
        this.set("id", app.Ticket.nextSeqNum());
+    },
+        
+    getEffectiveTargetTime: function(){
+        var totalDelayInMs = 0;
+        for (var key in this.delaysInMs)
+        {
+            totalDelayInMs = totalDelayInMs + this.delaysInMs[key];
+        }
+        return moment(this.get("targetTime")).clone().add("ms", totalDelayInMs);
     }
 },{
     count: 100,
