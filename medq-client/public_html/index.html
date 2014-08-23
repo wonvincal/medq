@@ -86,10 +86,31 @@ and open the template in the editor.
             </div>
         </script>
         <script id="import-file-template" type="text/template">
-            <div>Import File</div>
+            <div class="template-div">
+                <div class="template-header"><label class="template-header-text">Sync Patient Info</label></div>
+                <div>Import patient info into MedQ</div>
+            </div>
         </script>
         <script id="settings-template" type="text/template">
-            <div>Settings</div>
+            <div class="template-div">
+                <div class="template-header"><label class="template-header-text">Settings</label></div>
+                <div>Queue settings such as the following:</div>
+                <ul>
+                    <li>Consultation Duration Estimate
+                    <li>Send Bulk Notification
+                </ul>
+            </div>
+        </script>
+        <script id="reports-template" type="text/template">
+            <div class="template-div">
+                <div class="template-header"><label class="template-header-text">Reports</label></div>
+                <div>Business analytics reports based on queuing statistics.</div>
+                <ul>
+                    <li>Average Waiting Time Per Period
+                    <li>Maximum Waiting Time In A Period
+                    <li>Number of No-Shows
+                </ul>
+            </div>
         </script>
         <script src="js/libs/jquery/jquery.min.js"></script>
         <script src="js/libs/jquery-mobile/jquery.mobile.min.js"></script>
@@ -131,8 +152,9 @@ and open the template in the editor.
                     <div><button id="add">New Entry</button></div>
                     <div><button id="modify" disabled>Modify</button></div>
                     <div><button id="next">Next</button></div>
-                    <div><button id="import">Import File(Hide this)</button></div>
-                    <div><button id="settings">Settings(Hide this)</button></div>
+                    <div><button id="import">Sync Patient Info</button></div>
+                    <div><button id="reports">Reports</button></div>
+                    <div><button id="settings">Settings</button></div>
                 </div>
             </div>
             <div data-role="panel" data-position="right" data-display="overlay" id="action-form" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-animate ui-panel-open"></div>

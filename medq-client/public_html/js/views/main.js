@@ -21,6 +21,8 @@ app.MainView = Backbone.View.extend({
     
     settingsTemplate: _.template($('#settings-template').html()),
     
+    reportsTemplate: _.template($('#reports-template').html()),
+    
     // Initialize different views
     initialize:function (options) {
         this.config = options.config;
@@ -40,6 +42,7 @@ app.MainView = Backbone.View.extend({
         'click #modify': 'showModifyPanel',
         'click #import': 'showImportPanel',
         'click #settings': 'showSettingsPanel',
+        'click #reports': 'showReportsPanel',
         'click #next': 'next'
     },
     
@@ -109,6 +112,10 @@ app.MainView = Backbone.View.extend({
 
     showSettingsPanel: function() {
         this.showActionForm(this.settingsTemplate);
+    },
+
+    showReportsPanel: function() {
+        this.showActionForm(this.reportsTemplate);
     },
 
     showActionForm: function(formEl){
