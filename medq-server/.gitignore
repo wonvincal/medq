@@ -12,3 +12,4 @@ dist
 /RUNNING_PID
 /.settings
 /.classpath
+/bin/
