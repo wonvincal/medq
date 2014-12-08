@@ -1,0 +1,106 @@
+/*
+    Created on : Nov 20, 2014, 1:17:20 AM
+    Author     : Calvin
+*/
+body {
+    padding-top: 50px;
+}
+
+div.queue-section {
+
+}
+
+div.queue {
+
+}
+
+div.tickets {
+
+}
+
+div.ticket-item {
+    border: 1px solid;
+    width: 110px; /* or whatever width you want. */
+    max-width: 110px;
+    display: table;
+    float: left;
+}
+
+div.ticket-item .ticket-id {
+    text-align: center;
+    display: table-row;
+    font-weight: bold;
+    background-color: #95a5a6;
+}
+
+div.ticket-item .ticket-status {
+    text-align: center;
+    display: table-row;
+    font-weight: bold;
+}
+
+.heatmap-cell:first-child {
+    display: table-cell;
+    border-left: 0px;
+    padding: 4px 4px 4px 4px;
+    width: 2%;
+    margin-bottom: 0;
+    height: 40px;
+}
+
+.heatmap-cell {
+    display: table-cell;
+    opacity: 0.4;
+    border-left: 1px solid #ddd;
+    padding: 4px 4px 4px 4px;
+    width: 2%;
+    margin-bottom: 0;
+    height: 40px;
+}
+
+.heatmap-timeslot-group {
+    padding: 0px 0px;
+    z-index: 2;
+}
+
+.heatmap-timeslot-group-background-text {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    z-index: -1;
+}
+
+.heatmap-cell-arrived {
+    background-color: #26c281;
+}
+
+.heatmap-cell-scheduled {
+    background-color: #6bb9f0;
+}
+
+.pricing .unit {
+    min-width: 110px;
+    width: 110px;
+}
+
+.pricing .price-foot{
+    padding: 0px;
+}
+
+.pricing .price-body {
+    padding: 0px 5px 0px 5px;
+}
+
+.pricing .price-title {
+    padding: 0px 5px 0px 5px;
+}
+
+.price-title > p {
+    margin-bottom: 0px;
+}
+.price-body > p {
+    margin-bottom: 0px;
+}

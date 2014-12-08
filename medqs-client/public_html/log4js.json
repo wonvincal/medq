@@ -1,0 +1,13 @@
+{
+    "appenders":[
+        {
+            "name": "Calvin Wong",
+            "type": "logLevelFilter",
+            "level": "INFO",
+            "appender":
+            {
+                "type": "console"
+            }
+        }
+    ]
+}
