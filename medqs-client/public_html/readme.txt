@@ -20,3 +20,7 @@ https://github.com/Eonasdan/bootstrap-datetimepicker/wiki/Installation
 
     1. Got moment.min.js from http://momentjs.com/
     2. Save it to C:\wongca\dev\projects\medqs-client\public_html\js
+
+
+Follow these procedure to add jest to the project
+https://facebook.github.io/jest/

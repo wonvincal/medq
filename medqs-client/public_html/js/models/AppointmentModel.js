@@ -3,8 +3,8 @@
  */
 var AppointmentModel = function(id){
     this.id = id;
-    this.customerName = null;
-    this.customerId = null;
+    this.custName = "Patient Name";
+    this.custId = "Patient ID";
     
     // property names need to be better
     this.appointmentTime = null;

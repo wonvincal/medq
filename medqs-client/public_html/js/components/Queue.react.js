@@ -8,17 +8,30 @@ var Queue = React.createClass({
         var queue = this.props.queue;
         var tickets = queue.tickets;
         return (
-            <div className="container">
-                <div>Name: {queue.name} Waiting {queue.numWaiting}</div>
-                <div>{
+            <div className="panel panel-primary">
+                <div className="panel-heading">{queue.name} <span className="text-right">Waiting {queue.numWaiting}</span></div>
+                <div className="panel-body">
+                {
                     tickets.map(function(ticket, index){
                         return (
-                            <div className="ticket-item" key={ticket.id}>
-                                <div className="ticket-id">{ticket.id}</div>
-                                <div className="ticket-status">{ticket.status}</div>
+                            <div className="pricing ticket" key={ticket.id}>
+                                <ul>
+                                    <li className="unit price-primary">
+                                        <div className="price-title">
+                                            <p>{ticket.id}</p>
+                                        </div>
+                                        <div className="price-body">
+                                            <p>{ticket.appointment.custName}</p>
+                                            <p>{ticket.appointment.custId}</p>
+                                            <p><button type="button" className="btn btn-primary">{ticket.status}</button></p>
+                                        </div>
+                                        <div className="price-foot">05:19</div>
+                                    </li>
+                                </ul>
                             </div>
                         );
-                    })}
+                    })
+                }
                 </div>
             </div>
         );

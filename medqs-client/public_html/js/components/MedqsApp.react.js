@@ -80,25 +80,25 @@ var MedqsApp = React.createClass({
     //Render our child components, passing state via props
     render: function(){
         return (
-        <div className="medqs-app">
-            <Header />
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-6">
-                        <QueueSection visible={this.state.isQueueSectionVisible} queues={this.state.queues} />
-                        <ScheduleSection visible={this.state.isScheduleSectionVisible} schedule={this.state.schedule} />
-                        <Info visible={this.state.isInfoVisible} />
-                    </div>
-                    <div className="col-md-3">
-                        <HeatMap visible={this.state.isHeatMapVisible} selectedTimeslot={this.state.selectedTimeSlot} appointments={this.state.appointments} />
-                    </div>
-                    <div className="col-md-3">
+            <div className="container-fluid medqs-app">
+                <Header />
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8">
+                            <QueueSection visible={this.state.isQueueSectionVisible} queues={this.state.queues} />
+                            <ScheduleSection visible={this.state.isScheduleSectionVisible} schedule={this.state.schedule} />
+                            <Info visible={this.state.isInfoVisible} />
+                        </div>
+                        <div className="col-md-2">
+                            <HeatMap visible={this.state.isHeatMapVisible} selectedTimeslot={this.state.selectedTimeSlot} appointments={this.state.appointments} />
+                        </div>
+                        <div className="col-md-2">
                         { (this.state.selectedTicket) ? <Ticket visible={this.state.isTicketVisible} ticket={this.state.selectedTicket} /> : <Ticket visible={this.state.isTicketVisible} /> }
                         { (this.state.selectedAppointment) ? <Appointment visible={this.state.isAppointmentVisible} appointment={this.state.selectedAppointment} /> : <Appointment visible={this.state.isAppointmentVisible} /> }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         );
    },
     
