@@ -5,14 +5,14 @@
  */
 // Use react-router
 var React = require('react');
-var Header = require('./MedqsAppHeader.react');
-var QueueSectionStore = require('../stores/QueueStore');
-var QueueSection = require('./QueueSection.react');
-var HeatMap = require('./HeatMap.react');
-var Ticket = require('./Ticket.react');
-var Appointment = require('./Appointment.react');
-var ScheduleSection = require('./ScheduleSection.react');
-var Info = require('./Info.react');
+var Header = require('./medqsapp.header.react');
+var QueueSectionStore = require('../stores/queue.store');
+var QueueSection = require('./queuesection.react');
+var HeatMap = require('./heatmap.react');
+var Ticket = require('./ticket.react');
+var Appointment = require('./appointment.react');
+var ScheduleSection = require('./schedulesection.react');
+var Info = require('./info.react.js');
 
 /*
 var HeatMapStore = require('../stores/HeatMapStore');

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 var React = require('react');
-var Queue = require('./Queue.react');
+var Queue = require('./queue.react.js');
 //var MedqsActions = require('../actions/MedqsActions');
 
 var QueueSection = React.createClass({

@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var MedqsConstants = require('../constants/MedqsConstants');
+var AppDispatcher = require('../dispatcher/app.dispatcher');
+var MedqsConstants = require('../constants/medqs.constants');
 var _ = require('underscore');
 
 // Define action object

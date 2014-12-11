@@ -8,8 +8,8 @@ window.React = require('react');
 //log4js.configure('../log4js.json', { reloadSecs: 300});
 
 // Retrieve Data From Server (use Mock Data for now)
-var MedqsService = require('./utils/MedqsService');
-var MedqsApp = require('./components/MedqsApp.react');
+var MedqsService = require('./utils/medqsservice');
+var MedqsApp = require('./components/medqsapp.react.js');
 
 // --- Mock Call ---
 // Load Mock Data into localStorage

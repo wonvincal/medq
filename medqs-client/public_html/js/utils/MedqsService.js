@@ -5,7 +5,7 @@
  * 
  * This service communicates with server side to get latest data
  */
-var MedqsActions = require('../actions/MedqsActions');
+var MedqsActions = require('../actions/medqs.actions');
 
 module.exports = {
     // Login: send credentials to server, return:
@@ -19,7 +19,7 @@ module.exports = {
         // MedqsActions.receiveQueues(data.queues);
         // MedqsActions.receiveSchedules(data.schedules);
     },
-    // Return session if available,
+    // Return session if available
     getSession: function(){
         var data = JSON.parse(localStorage.getItem('session'));
         // Store into session

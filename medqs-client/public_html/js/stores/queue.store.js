@@ -3,9 +3,9 @@
  * 
  * Copyright 2014 Calvin Wong.
  */
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+var AppDispatcher = require('../dispatcher/app.dispatcher');
 var EventEmitter = require('events').EventEmitter;
-var MedqsConstants = require('../constants/MedqsConstants');
+var MedqsConstants = require('../constants/medqs.constants');
 var _ = require('underscore');
 
 // Define initial data points

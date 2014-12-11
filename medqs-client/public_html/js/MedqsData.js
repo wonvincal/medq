@@ -21,9 +21,9 @@
  * 
  * Notification is sent to Customers
  */
-var QueueModel = require('./models/QueueModel');
-var TicketModel = require('./models/TicketModel');
-var AppointmentModel = require('./models/AppointmentModel');
+var QueueModel = require('./models/queue.model');
+var TicketModel = require('./models/ticket.model');
+var AppointmentModel = require('./models/appointment.model');
 
 var queue1 = new QueueModel(1, 'Consultation');
 var queue2 = new QueueModel(2, 'Medical/Bill');

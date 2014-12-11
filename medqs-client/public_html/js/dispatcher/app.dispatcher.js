@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 var Dispatcher = require('flux').Dispatcher;
-var MedqsConstants = require('../constants/MedqsConstants');
+var MedqsConstants = require('../constants/medqs.constants');
 
 var AppDispatcher = new Dispatcher();
 

@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 var React = require('react');
-var Planner = require('./Planner.react');
-var Calendar = require('./Calendar.react');
+var Planner = require('./planner.react.js');
+var Calendar = require('./calendar.react.js');
 
 var ScheduleSection = React.createClass({
     render: function(){
