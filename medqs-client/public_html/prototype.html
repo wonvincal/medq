@@ -29,8 +29,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <!--<ul class="nav navbar-nav">-->
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><i class="glyphicon glyphicon-user"></i> Queue <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Planner</a></li>
+                    <li class="active"><a href="javascript:void(0);" onclick="showQueue();"><i class="glyphicon glyphicon-user"></i> Queue <span class="sr-only">(current)</span></a></li>
+                    <li><a href="javascript:void(0);" onclick="showPlanner();"><i class="glyphicon glyphicon-calendar"></i> Planner</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Report</a></li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
@@ -46,58 +46,95 @@
     </nav>
     <div class="row">
         <div class="col-md-8">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Consultation <span class="text-right">Total</span></div>
-                <div class="panel-body">
-                <div class="pricing">
-                    <ul>
-                        <li class="unit price-primary">
-                            <div class="price-title">
-                                <p>101</p>
-                            </div>
-                            <div class="price-body">
-                                <p>Alvin Wong</p>
-                                <p>P601</p>
-                                <p><button type="button" class="btn btn-primary">Consulting</button></p>
-                            </div>
-                            <div class="price-foot">05:19</div>
-                        </li>
-                        <li class="unit price-primary">
-                            <div class="price-title">
-                                <p>102</p>
-                            </div>
-                            <div class="price-body">
-                                <p>Peter Ng</p>
-                                <p>P602</p>
-                                <p><button type="button" class="btn btn-primary">Consulting</button></p>
-                            </div>
-                            <div class="price-foot">5 min (10:16)</div>
-                        </li>
-                        <li class="unit price-primary">
-                            <div class="price-title">
-                                <p>103</p>
-                            </div>
-                            <div class="price-body">
-                                <p>Sam Yuen</p>
-                                <p>P603</p>
-                                <p><button type="button" class="btn btn-info">Arrived</button></p>
-                            </div>
-                            <div class="price-foot">15 min (10:26)</div>
-                        </li>
-                    </ul>
+            <div id="queue-section" hidden >
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Consultation <span class="text-right">Total</span></div>
+                    <div class="panel-body">
+                    <div class="pricing">
+                        <ul>
+                            <li class="unit price-primary">
+                                <div class="price-title">
+                                    <p>101</p>
+                                </div>
+                                <div class="price-body">
+                                    <p>Alvin Wong</p>
+                                    <p>P601</p>
+                                    <p><button type="button" class="btn btn-primary">Consulting</button></p>
+                                </div>
+                                <div class="price-foot">05:19</div>
+                            </li>
+                            <li class="unit price-primary">
+                                <div class="price-title">
+                                    <p>102</p>
+                                </div>
+                                <div class="price-body">
+                                    <p>Peter Ng</p>
+                                    <p>P602</p>
+                                    <p><button type="button" class="btn btn-primary">Consulting</button></p>
+                                </div>
+                                <div class="price-foot">5 min (10:16)</div>
+                            </li>
+                            <li class="unit price-primary">
+                                <div class="price-title">
+                                    <p>103</p>
+                                </div>
+                                <div class="price-body">
+                                    <p>Sam Yuen</p>
+                                    <p>P603</p>
+                                    <p><button type="button" class="btn btn-info">Arrived</button></p>
+                                </div>
+                                <div class="price-foot">15 min (10:26)</div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Medicine / Bill</div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">Action</div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">Medicine / Bill</div>
-                <div class="panel-body">
-                    Panel content
+            <div id="planner">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Calendar</div>
+                    <div class="panel-body">
+                        <div class="calendar"><div class="years clearfix"><div class="unit prev"><em></em></div><div class="monyear">MAY 2014</div><div class="unit next"><em></em></div></div><div class="days"><div class="clearfix"><div class="unit">SU</div><div class="unit">MO</div><div class="unit">TU</div><div class="unit">WE</div><div class="unit">TH</div><div class="unit">FR</div><div class="unit">SA</div></div><div class="clearfix"><div class="unit older"><b>27</b></div><div class="unit older"><b>28</b></div><div class="unit older"><b>29</b></div><div class="unit older"><b>30</b></div><div class="unit"><b>1</b></div><div class="unit"><b>2</b></div><div class="unit"><b>3</b></div><div class="unit"><b>4</b></div><div class="unit"><b>5</b></div><div class="unit"><b>6</b></div><div class="unit"><b>7</b></div><div class="unit"><b>8</b></div><div class="unit"><b>9</b></div><div class="unit"><b>10</b></div><div class="unit"><b>11</b></div><div class="unit"><b>12</b></div><div class="unit"><b>13</b></div><div class="unit active"><b>14</b></div><div class="unit"><b>15</b></div><div class="unit"><b>16</b></div><div class="unit"><b>17</b></div><div class="unit"><b>18</b></div><div class="unit"><b>19</b></div><div class="unit"><b>20</b></div><div class="unit"><b>21</b></div><div class="unit"><b>22</b></div><div class="unit"><b>23</b></div><div class="unit"><b>24</b></div><div class="unit"><b>25</b></div><div class="unit"><b>26</b></div><div class="unit"><b>27</b></div><div class="unit"><b>28</b></div><div class="unit"><b>29</b></div><div class="unit"><b>30</b></div><div class="unit"><b>31</b></div><div class="unit older"><b>1</b></div><div class="unit older"><b>2</b></div><div class="unit older"><b>3</b></div><div class="unit older"><b>4</b></div><div class="unit older"><b>5</b></div><div class="unit older"><b>6</b></div><div class="unit older"><b>7</b></div></div></div></div>
+                        <ul class="list-inline">
+                            <li class="list-group-item">Yellow</li>
+                            <li class="list-group-item">Blue</li>
+                            <li class="list-group-item">Green</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="panel panel-info">
-                <div class="panel-heading">Action</div>
-                <div class="panel-body">
-                    Panel content
+                <textarea class="form-control">Notes</textarea>
+                <br/>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Appointment  <a href="#">Morning</a>|<a href="#">Afternoon</a>|<a href="#">Evening</a></div>
+                    <div class="panel-body">
+                        <div class="list-group-item planner-timeslot-row">
+                            <a href="#left" class="planner-timeslot-time-cell">10:00</a>
+                            <a href="#right" class="planner-timeslot-appointment-cell">Alvin Wong</a>
+                            <a href="#right" class="planner-timeslot-appointment-cell">XAlvin Wong</a>
+                        </div>
+                        <div class="list-group-item planner-timeslot-row">
+                            <a href="#left" class="planner-timeslot-time-cell">10:10</a>
+                            <a href="#right" class="planner-timeslot-appointment-cell">Patient #1</a>
+                            <a href="#right" class="planner-timeslot-appointment-cell">Patient #2</a>
+                            <a href="#right" class="planner-timeslot-appointment-cell">Patient #3</a>
+                        </div>
+                        <div class="list-group-item planner-timeslot-row">
+                            <a href="#left" class="planner-timeslot-time-cell">10:20</a>
+                            <a href="#right" class="planner-timeslot-appointment-cell">Patient All</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -291,6 +328,19 @@
                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                     </button>
                 </div>
+                <div className="form-group">
+                    <label for="inputTicketId">Ticket ID</label>
+                    <input type="text" class="form-control"  readonly id="inputTicketId" value="110" />
+                </div>
+                <div className="form-group">
+                    <label for="inputState">State</label>
+                    <select id="inputState">
+                        <option value="1">Arrived</option>
+                        <option value="2">Registered</option>
+                        <option value="3">Scheduled</option>
+                    </select>
+                </div>
+                <hr/>
                 <div class="form-group">
                     <label for="inputName">Name</label>
                     <input type="text" class="form-control" id="inputName">
@@ -346,6 +396,7 @@
     </div>
     </div>
     <script src="js/jquery.js"></script>
+    <script src="js/jquery.fs.selecter.min.js"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-datetimepicker.min.js"></script>
@@ -357,7 +408,20 @@
             $('#inputBookingTimePicker').datetimepicker({
                 pickDate: false
             });
+            $("select").selecter({
+                cover: true
+            });
         });
+
+        function showQueue(){
+            $("#planner").hide();
+            $("#queue-section").show();
+        }
+
+        function showPlanner(){
+            $("#queue-section").hide();
+            $("#planner").show();
+        }
     </script>
 </body>
 </html>

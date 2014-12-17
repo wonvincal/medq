@@ -48,6 +48,20 @@ div.ticket-item .ticket-status {
     height: 40px;
 }
 
+.planner-timeslot-row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.planner-timeslot-time-cell {
+    display: table-cell;
+    width: 5em;
+}
+
+.planner-timeslot-appointment-cell {
+    display: table-cell;
+}
+
 .heatmap-cell {
     display: table-cell;
     opacity: 0.4;

@@ -9,7 +9,13 @@ var _ = require('underscore');
 
 // Define action object
 var MedqsActions = {
-    
+    receiveTicket: function(data){
+        console.log("receiveTicket");
+        AppDispatcher.handleAction({
+            actionType: MedqsConstants.RECEIVE_TICKET_DATA,
+            data: data
+        });
+    },
     // Receive queues data - either snapshot or partial updates
     receiveQueues: function(data){
         AppDispatcher.handleAction({

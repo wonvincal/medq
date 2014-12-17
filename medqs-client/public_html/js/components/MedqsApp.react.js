@@ -10,9 +10,9 @@ var QueueSectionStore = require('../stores/queue.store');
 var QueueSection = require('./queuesection.react');
 var HeatMap = require('./heatmap.react');
 var Ticket = require('./ticket.react');
-var Appointment = require('./appointment.react');
 var ScheduleSection = require('./schedulesection.react');
 var Info = require('./info.react.js');
+var MedqsService = require('../utils/medqsservice');
 
 /*
 var HeatMapStore = require('../stores/HeatMapStore');
@@ -77,6 +77,19 @@ var MedqsApp = React.createClass({
         HeatmapStore.removeChangeListener(this._onChange);
         AppointmentStore.removeChangeListener(this._onChange);       */
     },
+    handleTicketChange: function(value){
+        // Save the changes on the server side
+        // 1 - setState({ selectedTicket: returnValueFromServer}); - or -
+        // 2 - wait until the asynchronous call returned from the server
+        //     and setState will then be triggered from QueueStore
+        MedqsService.addTicket(this.props.queue, value);
+
+        // Update the following components:
+        // - Ticket, QueueSection, Info
+        // 1) Update the Ticket anyway, React will figure out if changes need to be made
+        // 2) Update the Queue
+        // 3) Update Info section
+    },
     //Render our child components, passing state via props
     render: function(){
         return (
@@ -90,11 +103,13 @@ var MedqsApp = React.createClass({
                             <Info visible={this.state.isInfoVisible} />
                         </div>
                         <div className="col-md-2">
-                            <HeatMap visible={this.state.isHeatMapVisible} selectedTimeslot={this.state.selectedTimeSlot} appointments={this.state.appointments} />
+                            <HeatMap visible={this.state.isHeatMapVisible}
+                                selectedTimeslot={this.state.selectedTimeSlot} appointments={this.state.appointments} />
                         </div>
                         <div className="col-md-2">
-                        { (this.state.selectedTicket) ? <Ticket visible={this.state.isTicketVisible} ticket={this.state.selectedTicket} /> : <Ticket visible={this.state.isTicketVisible} /> }
-                        { (this.state.selectedAppointment) ? <Appointment visible={this.state.isAppointmentVisible} appointment={this.state.selectedAppointment} /> : <Appointment visible={this.state.isAppointmentVisible} /> }
+                        { (this.state.selectedTicket) ?
+                            <Ticket visible={this.state.isTicketVisible} ticket={this.state.selectedTicket} onChange={this.handleTicketChange} /> :
+                            <Ticket visible={this.state.isTicketVisible} onChange={this.handleTicketChange}/> }
                         </div>
                     </div>
                 </div>

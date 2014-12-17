@@ -53,7 +53,11 @@ module.exports = {
     },
     getReportSpecs: function(){
     },
-    addTicket: function(){
+
+    // Create a ticket, with appointment info if applicable
+    // Return a status and a ticket id
+    addTicket: function(queue, ticket){
+        // Send ticket over
 
     },
     removeTicket: function(){

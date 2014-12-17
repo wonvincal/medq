@@ -14,10 +14,17 @@ var _selectedQueue = null;
 var _selectedTicket = null;
 var _sectionVisible = false;
 
+// Reference to the ticket being edited or created
+var _ticketBeingEdited = null;
+
 // Private methods
 // Method to receive queues data from mock API
 function receiveQueuesData(data){
     _queues = data;
+}
+
+function receiveTicketData(data){
+    _selectedTicket = data;
 }
 
 function addQueue(queue){
@@ -82,6 +89,8 @@ AppDispatcher.register(function(payload){
         case MedqsConstants.RECEIVE_QUEUES_DATA:
             receiveQueuesData(action.data);
             break;
+        case MedqsConstants.RECEIVE_TICKET_DATA:
+            receiveTicketData(action.data);
         default:
             return true;
     }    

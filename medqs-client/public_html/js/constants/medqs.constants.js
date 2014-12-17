@@ -19,6 +19,7 @@ module.exports = keyMirror({
     SET_SELECTED_TICKET: null,
     SET_SELECTED_APPOINTMENT: null,
     SEARCH: null,
+    RECEIVE_TICKET_DATA: null,
     RECEIVE_SEARCH_RESULT: null,
     RECEIVE_QUEUES_DATA: null,
     RECEIVE_SCHEDULES_DATA: null,
