@@ -1,0 +1,169 @@
+app
+    app
+
+router
+    app.router
+        routes
+        /
+            create main.header.react + main.browser.react
+        /contact
+            create main.header.react + main.browser.react
+        /w/queue
+            create main.header.react + main.widget.react
+        /w/schedule
+            create main.header.react + main.widget.react
+        /w/report
+            create main.header.react + main.widget.react
+        handler
+            widget.handler: general.handler
+                /w/queue: convert into an action: getQueue()
+            browser.handler: general.handler
+            general.handler
+                if login info is available in localcache, route to login
+
+server/api
+    AppService
+        getQueue(): ajax
+
+action
+    AppActionCreator
+    constant
+        SELECT_QUEUE
+        SELECT_QUEUE_CANCELLED
+        SELECT_TICKET
+        SELECT_TICKET_CANCELLED
+        QUEUE_SELECTED
+        GET_QUEUE
+        GET_QUEUE_FAILED
+        QUEUE_RECEIVED
+        TICKET_ADDED
+        TICKET_SELECTED
+    method
+        getQueues()
+            app.server.getQueues()
+                success:
+                    dispatch(RECEIVE_QUEUES) - DONE
+                    selectQueue(queue) if this is the first selected queue
+                fail:
+                    dispatch(GET_QUEUE_FAILED)
+        addTicket(queue, ticket)
+            app.server.addTicket(q.id, ticket)
+                success:
+                    dispatch(TICKET_ADDED)
+                    dispatch(QUEUE_RECEIVED)
+        selectTicket(ticket)
+            dispatch(SELECT_TICKET)
+            if (cancel == 'Y')
+                dispatch(SELECT_TICKET_ABORTED)
+            else
+                dispatch(TICKET_SELECTED)
+        selectQueue(queue)
+            dispatch(SELECT_QUEUE, {cancel:N})
+            if (cancel == 'Y')
+                dispatch(SELECT_QUEUE_ABORTED)
+            else
+                dispatch(QUEUE_SELECTED)
+
+dispatcher
+    AppDispatcher
+
+store
+    QueueStore
+    QueueSectionStore
+        prop:
+            m_queues
+            m_selected_queue
+        on:
+            QUEUE_RECEIVED
+                set queue into m_queues. if any change, emit change.
+            QUEUE_SELECTED
+                set selected_queue if necessary, emit change.
+            TICKET_SELECTED
+                set selected_ticket if necessary, emit change.
+    ScheduleStore
+    ScheduleSectionStore
+    TicketAptStore
+    TicketAptEditorStore
+        state:
+            m_queue
+            m_isCreateDirty
+        on:
+            SELECT_QUEUE
+                if queue != queue_to_be_selected and create is in progress,
+                    set promptToDiscard = 'Y'
+                    set select_op_payload = payload
+                    set selectedSection = "Add"
+                    emit change
+                else
+                    do nothing
+            QUEUE_SELECTED
+                set queue = queue_to_be_selected, nextTicketId = queue.nextTicketId
+            TICKET_ADDED
+                if added ticket is same as what we have
+                    status = "Added successfully"
+                    ticket = (clear)
+            SELECT_TICKET
+                if ticket != ticket_to_be_selected and edit is in progress
+                    set promptToDiscard = 'Y'
+                    set select_op_payload = payload
+                    set selectedSection = "Edit"
+                    emit change
+            TICKET_SELECTED
+                set ticket = ticket_selected, emit change
+dao
+    queue
+    schedule
+    ticketappt
+
+react
+    QueueSection.react
+        prop:
+            queues
+            selected_queue: highlight
+            selected_ticket: highlight
+        on:
+            click
+                ticket
+                    action.selectTicket(ticket)
+                queue
+                    action.selectQueue(queue)
+
+    TicketAptEditor.react
+        on:
+            click
+                promptToDiscard
+                    If yes
+                        nothing
+                    If no
+                        select_op_payload.cancel = 'Y'
+                add
+                    action.addTicket(queue, ticket)
+        prop:
+            selectedSection. show that section
+            promptToDiscard. show prompt.
+            select_queue_payload (may need to set this as state)
+            queue
+            nextTicketId
+            status
+            ticket
+
+Ways to begin
+1. url: /w/queue/
+2. /browse, choose a specific queue with click of link: /w/queue
+3. /login, load data from /w/queue
+
+Naming of methods
+verb + context + how
+
+Choice of verbs
+1. Get/Receive/Received
+2. Select/Selected
+3. Get failed, Select failed
+4. Get cancelled, Select cancelled (cancelled == user decision)
+
+1. BEFORE_ACTION, ACTION, AFTER_ACTION
+   If an action can happen in multiple widgets within the application
+2. ACTION, ACTIONED
+
+1. Should I allow subscribing events of a store from another store?
+   Ans: I think this will complicate the whole picture

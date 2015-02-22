@@ -1,7 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe8b60c6-7c40-4b79-8ede-1394b68cdccd" name="Default" comment="" />
+    <list default="true" id="fe8b60c6-7c40-4b79-8ede-1394b68cdccd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/AppServerMock.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/stores/AppWorkspaceStore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/AptEntityProvider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/constants/AptStatus.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/CompanyEntityProvider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/CompanyModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/ConfigModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/CustomerModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/EntityModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/EntityProvider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/components/HeatmapSlot.react.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/stores/HeatmapStore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/QueueEntityProvider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/QueueModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/components/TicketAptEditorSection.react.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/stores/TicketAptEditorSectionStore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/TicketEntityProvider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/utils/TimeService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/components/WebWorkspace.react.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/WorkerEntityProvider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/models/WorkerModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/interaction.txt" />
+      <change type="DELETED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\models\queue.model.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\stores\info.store.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\stores\schedule.store.js" afterPath="" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\MedqsData.js" afterPath="$PROJECT_DIR$/public_html/js/AppDataMock.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\actions\medqs.actions.js" afterPath="$PROJECT_DIR$/public_html/js/actions/AppActionCreator.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\components\HeatMap.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/Heatmap.react.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\components\MedqsApp.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/AppWorkspace.react.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\components\Planner.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/PlannerSection.react.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\components\ScheduleSection.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/Planner.react.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\components\Ticket.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/TicketAptEditor.react.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\components\ad.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/Ad.react.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\components\medqsapp.header.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/Header.react.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\constants\medqs.constants.js" afterPath="$PROJECT_DIR$/public_html/js/constants/AppConstant.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\dispatcher\app.dispatcher.js" afterPath="$PROJECT_DIR$/public_html/js/dispatcher/AppDispatcher.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\models\appointment.model.js" afterPath="$PROJECT_DIR$/public_html/js/models/AptModel.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\models\ticket.model.js" afterPath="$PROJECT_DIR$/public_html/js/models/TicketModel.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\models\ticketstatus.model.js" afterPath="$PROJECT_DIR$/public_html/js/constants/TicketStatus.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\stores\appointment.store.js" afterPath="$PROJECT_DIR$/public_html/js/stores/InfoStore.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\stores\heatmap.store.js" afterPath="$PROJECT_DIR$/public_html/js/stores/PlannerSectionStore.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\stores\queue.store.js" afterPath="$PROJECT_DIR$/public_html/js/stores/QueueSectionStore.js" />
+      <change type="MOVED" beforePath="C:\wongca\dev\projects\medq\medqs-client\public_html\js\utils\MedqsService.js" afterPath="$PROJECT_DIR$/public_html/js/utils/AppService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/components/Calendar.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/Calendar.react.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Calvin.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Calvin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/components/Info.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/Info.react.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/components/Queue.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/Queue.react.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/components/QueueSection.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/QueueSection.react.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/components/Ticket.react.js" afterPath="$PROJECT_DIR$/public_html/js/components/Ticket.react.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/app.css" afterPath="$PROJECT_DIR$/public_html/css/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app.js" afterPath="$PROJECT_DIR$/public_html/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.html" afterPath="$PROJECT_DIR$/public_html/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/log4js.json" afterPath="$PROJECT_DIR$/public_html/log4js.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/npm-debug.log" afterPath="$PROJECT_DIR$/public_html/npm-debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/package.json" afterPath="$PROJECT_DIR$/public_html/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/private/private.xml" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/prototype.html" afterPath="$PROJECT_DIR$/public_html/prototype.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/readme.txt" afterPath="$PROJECT_DIR$/public_html/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="medqs-client.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,66 +88,22 @@
     <splitter split-orientation="vertical" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="medqs.actions.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public_html/js/actions/medqs.actions.js">
+          <file leaf-file-name="HeatmapStore.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public_html/js/stores/HeatmapStore.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-                  <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+                <state vertical-scroll-proportion="0.9078591" vertical-offset="430" max-vertical-offset="2278">
+                  <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="queue.react.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public_html/js/components/queue.react.js">
+          <file leaf-file-name="AppActionCreator.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public_html/js/actions/AppActionCreator.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
-                  <caret line="11" column="75" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="2234" max-vertical-offset="4505">
+                  <caret line="163" column="19" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="queuesection.react.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public_html/js/components/queuesection.react.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-                  <caret line="9" column="36" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="36" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="heatmap.react.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public_html/js/components/heatmap.react.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-                  <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ticket.react.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public_html/js/components/ticket.react.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.49210528" vertical-offset="544" max-vertical-offset="1207">
-                  <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="schedule.store.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public_html/js/stores/schedule.store.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -94,23 +112,31 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="prototype.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public_html/prototype.html">
+          <file leaf-file-name="TicketModel.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public_html/js/models/TicketModel.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.26934096" vertical-offset="4207" max-vertical-offset="5746">
-                  <caret line="283" column="38" selection-start-line="283" selection-start-column="38" selection-end-line="283" selection-end-column="38" />
-                  <folding>
-                    <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                  </folding>
+                <state vertical-scroll-proportion="1.9669422" vertical-offset="0" max-vertical-offset="935">
+                  <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="medqsapp.react.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public_html/js/components/medqsapp.react.js">
+          <file leaf-file-name="AppConstant.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public_html/js/constants/AppConstant.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1904">
-                  <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
+                  <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConfigModel.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public_html/js/models/ConfigModel.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1870">
+                  <caret line="88" column="41" selection-start-line="88" selection-start-column="41" selection-end-line="88" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -120,41 +146,63 @@
       </split-second>
     </splitter>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public_html/js/models/Appointment.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/QueueSection.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/HeatMap.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/Ticket.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/Info.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/Planner.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/ScheduleSection.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/bundle.js" />
-        <option value="$PROJECT_DIR$/public_html/package.json" />
-        <option value="$PROJECT_DIR$/public_html/js/components/Calendar.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/Appointment.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/MedqsAppHeader.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/MedqsData.js" />
-        <option value="$PROJECT_DIR$/public_html/js/utils/MedqsService.js" />
-        <option value="$PROJECT_DIR$/public_html/css/app.css" />
-        <option value="$PROJECT_DIR$/public_html/css/bootflat.min.css" />
-        <option value="$PROJECT_DIR$/public_html/js/models/TicketModel.js" />
-        <option value="$PROJECT_DIR$/public_html/js/models/AppointmentModel.js" />
-        <option value="$PROJECT_DIR$/public_html/index.html" />
-        <option value="$PROJECT_DIR$/public_html/js/components/Queue.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/utils/__test__/MedqsServiceTest.js" />
-        <option value="$PROJECT_DIR$/public_html/js/utils/__tests__/MedqsServiceTest.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/ticketappt.model.js" />
+        <option value="$PROJECT_DIR$/public_html/js/stores/AppWorkspaceStore.js" />
+        <option value="$PROJECT_DIR$/public_html/js/stores/QueueSectionStore.js" />
+        <option value="$PROJECT_DIR$/public_html/js/utils/AptUtil.js" />
+        <option value="$PROJECT_DIR$/public_html/js/constants/TicketStatus.js" />
+        <option value="$PROJECT_DIR$/public_html/js/constants/AptStatus.js" />
         <option value="$PROJECT_DIR$/public_html/readme.txt" />
-        <option value="$PROJECT_DIR$/public_html/js/components/MedqsApp.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/components/medqsapp.react.js" />
-        <option value="$PROJECT_DIR$/public_html/js/app.js" />
-        <option value="$PROJECT_DIR$/public_html/js/actions/medqs.actions.js" />
-        <option value="$PROJECT_DIR$/public_html/js/dispatcher/app.dispatcher.js" />
-        <option value="$PROJECT_DIR$/public_html/js/stores/queue.store.js" />
-        <option value="$PROJECT_DIR$/public_html/js/utils/medqsservice.js" />
+        <option value="$PROJECT_DIR$/public_html/js/stores/HeatpmapStore.js" />
+        <option value="$PROJECT_DIR$/public_html/js/utils/ConfigService.js" />
+        <option value="$PROJECT_DIR$/public_html/js/components/HeatmapSlot.react.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/ConfigModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/components/Heatmap.react.js" />
+        <option value="$PROJECT_DIR$/public_html/js/components/AppWorkspace.react.js" />
+        <option value="$PROJECT_DIR$/public_html/js/components/Queue.react.js" />
+        <option value="$PROJECT_DIR$/public_html/js/stores/InfoStore.js" />
+        <option value="$PROJECT_DIR$/public_html/js/utils/TimeService.js" />
+        <option value="$PROJECT_DIR$/public_html/index.html" />
+        <option value="$PROJECT_DIR$/public_html/node_modules/react-bootstrap-datetimepicker/lib/DateTimeField.js" />
+        <option value="$PROJECT_DIR$/public_html/js/components/Info.react.js" />
+        <option value="$PROJECT_DIR$/public_html/js/components/Ticket.react.js" />
         <option value="$PROJECT_DIR$/public_html/prototype.html" />
-        <option value="$PROJECT_DIR$/public_html/js/components/ticket.react.js" />
+        <option value="$PROJECT_DIR$/public_html/css/app.css" />
+        <option value="$PROJECT_DIR$/public_html/js/models/ShopModel.js" />
+        <option value="$PROJECT_DIR$/public_html/package.json" />
+        <option value="$PROJECT_DIR$/public_html/js/models/BaseEntityModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/TicketEntityProvider.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/EntityProvider.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/TwoLevelEntityProvider.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/AptEntityProvider.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/EntityModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/CustomerModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/AptModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/WorkerEntityProvider.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/CompanyEntityProvider.js" />
+        <option value="$PROJECT_DIR$/public_html/js/actions/AppActionCreator.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/ScheduleEntityProvider.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/ScheduleModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/components/TicketAptEditorSection.react.js" />
+        <option value="$PROJECT_DIR$/public_html/js/components/TicketAptEditor.react.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/TicketModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/bundle.js" />
+        <option value="$PROJECT_DIR$/public_html/js/stores/TicketAptEditorSectionStore.js" />
+        <option value="$PROJECT_DIR$/public_html/js/utils/AppService.js" />
+        <option value="$PROJECT_DIR$/public_html/js/AppServerMock.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/CompanyModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/WorkerModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/AppDataMock.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/QueueEntityProvider.js" />
+        <option value="$PROJECT_DIR$/public_html/js/models/QueueModel.js" />
+        <option value="$PROJECT_DIR$/public_html/js/constants/AppConstant.js" />
+        <option value="$PROJECT_DIR$/public_html/js/stores/HeatmapStore.js" />
       </list>
     </option>
   </component>
@@ -162,12 +210,12 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-255" />
-    <option name="y" value="45" />
-    <option name="width" value="1172" />
-    <option name="height" value="976" />
+    <option name="x" value="19" />
+    <option name="y" value="29" />
+    <option name="width" value="1496" />
+    <option name="height" value="1108" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -259,54 +307,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="__tests__" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="stores" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -325,99 +325,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dispatcher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constants" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="medqs-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -429,16 +337,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptLanguageLevel" value="JSX" />
-    <property name="options.lastSelected" value="JavaScript.Libraries" />
+    <property name="options.lastSelected" value="settings.nodejs" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="LayoutCode.rearrangeEntriesJSX Harmony" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="toDateString&#9;null&#9;null&#10;AptMode&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/models/AptModel.js&#10;form-group&#9;null&#9;null&#10;getOrC&#9;null&#9;null&#10;getQueues&#9;null&#9;null&#10;getSchedules&#9;null&#9;null&#10;getSch&#9;null&#9;null&#10;Appser&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/utils/AppService.js&#10;AS&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/utils/AppService.js&#10;TE&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/models/TicketEntityProvider.js&#10;QEP&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/models/QueueEntityProvider.js&#10;AppSer&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/AppServerMock.js&#10;TicketAptEditorStore&#9;null&#9;null&#10;mergeOwn&#9;null&#9;null&#10;QS&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/stores/QueueSectionStore.js&#10;TicketAptEditor&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/components/TicketAptEditor.react.js&#10;QueueModel&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/models/QueueModel.js&#10;log4js&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/node_modules/log4js/lib/log4js.json&#10;app.dispatcher&#9;null&#9;null&#10;MedqsConstants&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/constants/medqs.constants.js&#10;med&#9;FILE&#9;file://C:/wongca/dev/projects/medq/medqs-client/public_html/js/utils/medqsservice.js" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wongca\dev\projects\medq\medqs-client\public_html\js\models" />
       <recent name="C:\wongca\dev\projects\medqs-client\public_html\js\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wongca\dev\projects\medq\medqs-client\public_html\js\models" />
+      <recent name="C:\wongca\dev\projects\medq\medqs-client\public_html\js\constants" />
     </key>
   </component>
   <component name="RunManager">
@@ -475,6 +390,7 @@
       <node-options />
       <gulpfile />
       <tasks />
+      <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
       <method />
@@ -494,49 +410,49 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-255" y="45" width="1172" height="976" extended-state="0" />
-    <editor active="true" />
+    <frame x="19" y="29" width="1496" height="1108" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15591398" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18609408" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32887974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32616824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24953096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3121693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2229081" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299075" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32965687" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24191867" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -555,406 +471,412 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/queue.react.js">
+    <entry file="file://$PROJECT_DIR$/public_html/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="748">
-          <caret line="11" column="75" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="205" max-vertical-offset="1615">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/AppWorkspace.react.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/Calendar.react.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="599">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/node_modules/react-bootstrap-datetimepicker/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40589887" vertical-offset="170" max-vertical-offset="1037">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/utils/__tests__/medqsservice.test.js">
+    <entry file="file://$PROJECT_DIR$/public_html/node_modules/react-bootstrap-datetimepicker/lib/DateTimePickerTime.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="238">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1014" max-vertical-offset="2091">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/readme.txt">
+    <entry file="file://$PROJECT_DIR$/public_html/node_modules/react-bootstrap-datetimepicker/lib/DateTimeField.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
-          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.70989764" vertical-offset="4684" max-vertical-offset="5338">
+          <caret line="300" column="0" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41808873" vertical-offset="40929" max-vertical-offset="107746">
+          <caret line="2422" column="0" selection-start-line="2422" selection-start-column="0" selection-end-line="2422" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/node_modules/react-bootstrap-datetimepicker/lib/DateTimePicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1768">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/QueueSection.react.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25542572" vertical-offset="459" max-vertical-offset="1173">
+          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/Info.react.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.390681" vertical-offset="163" max-vertical-offset="629">
+          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="438" max-vertical-offset="1037">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="527">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/models/ticket.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="255">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/models/appointment.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/medqsapp.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1196" max-vertical-offset="1904">
-          <caret line="86" column="26" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.56369984" vertical-offset="0" max-vertical-offset="573">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/prototype.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="5746">
-          <caret line="80" column="47" selection-start-line="80" selection-start-column="47" selection-end-line="80" selection-end-column="47" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/utils/medqsservice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/utils/medqsservice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/actions/medqs.actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.27321428" vertical-offset="0" max-vertical-offset="7327">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/Queue.react.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="595">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.23372287" vertical-offset="285" max-vertical-offset="884">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/css/bootstrap.css">
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/Ticket.react.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="107746">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="629">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/medqsapp.header.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="799">
-          <caret line="17" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/medqsapp.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1904">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="714">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/queue.react.js">
+    <entry file="file://$PROJECT_DIR$/public_html/css/bootflat.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="544">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/queuesection.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="629">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/appointment.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="357">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/ticket.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="493">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/schedulesection.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47619048" vertical-offset="0" max-vertical-offset="714">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/planner.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35714287" vertical-offset="0" max-vertical-offset="714">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/info.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35714287" vertical-offset="0" max-vertical-offset="714">
-          <caret line="15" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/calendar.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2246696" vertical-offset="0" max-vertical-offset="454">
-          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="629">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="107746">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/medqsapp.header.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33410406" vertical-offset="0" max-vertical-offset="867">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/MedqsData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32232347" vertical-offset="227" max-vertical-offset="3196">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="8680" max-vertical-offset="39474">
-          <caret line="531" column="22" selection-start-line="531" selection-start-column="14" selection-end-line="531" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/css/bootflat.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88435376" vertical-offset="132" max-vertical-offset="884">
-          <caret line="46" column="103" selection-start-line="46" selection-start-column="103" selection-end-line="46" selection-end-column="103" />
-          <folding />
+        <state vertical-scroll-proportion="-9.965517" vertical-offset="21777" max-vertical-offset="44642">
+          <caret line="1298" column="0" selection-start-line="1298" selection-start-column="0" selection-end-line="1409" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91717416" vertical-offset="1032" max-vertical-offset="1887">
-          <caret line="105" column="1" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.28046745" vertical-offset="1515" max-vertical-offset="3876">
+          <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/index.html">
+    <entry file="file://$PROJECT_DIR$/public_html/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="527">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.46882495" vertical-offset="0" max-vertical-offset="834">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/utils/__tests__/medqsservice.test.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/utils/TimeService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="765">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/readme.txt">
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/TicketAptEditor.react.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="137" max-vertical-offset="527">
-          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.31182796" vertical-offset="1" max-vertical-offset="4420">
+          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/TicketAptEditorSection.react.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81534094" vertical-offset="360946" max-vertical-offset="361573">
-          <caret line="21249" column="12" selection-start-line="21249" selection-start-column="0" selection-end-line="21249" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.24675325" vertical-offset="67315" max-vertical-offset="827798">
+          <caret line="3972" column="3" selection-start-line="3972" selection-start-column="3" selection-end-line="3972" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/app.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/appointment.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/dispatcher/app.dispatcher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/models/appointment.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/models/queue.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/models/ticket.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10403917" vertical-offset="0" max-vertical-offset="817">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/stores/schedule.store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="39542">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/stores/queue.store.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/AptEntityProvider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60465115" vertical-offset="832" max-vertical-offset="1649">
-          <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/AptModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1598">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/CompanyEntityProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/CustomerModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49418604" vertical-offset="0" max-vertical-offset="860">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/EntityModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21744186" vertical-offset="0" max-vertical-offset="1156">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc;n#EntityModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/EntityProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7116279" vertical-offset="680" max-vertical-offset="2567">
+          <caret line="78" column="12" selection-start-line="78" selection-start-column="12" selection-end-line="78" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/WorkerEntityProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45465118" vertical-offset="0" max-vertical-offset="860">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/stores/AppWorkspaceStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+          <caret line="6" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/stores/InfoStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/stores/PlannerSectionStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/queue.react.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/stores/TicketAptEditorSectionStore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
-          <caret line="11" column="75" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
+        <state vertical-scroll-proportion="3.5186048" vertical-offset="0" max-vertical-offset="3638">
+          <caret line="178" column="38" selection-start-line="178" selection-start-column="38" selection-end-line="178" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/queuesection.react.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/stores/QueueSectionStore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="629">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2176">
+          <caret line="97" column="39" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/utils/medqsservice.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/AppServerMock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2657895" vertical-offset="97" max-vertical-offset="1513">
-          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.31627908" vertical-offset="0" max-vertical-offset="3553">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#0#42#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/heatmap.react.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/utils/AppService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.019767443" vertical-offset="0" max-vertical-offset="3213">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/medqsapp.react.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/Heatmap.react.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1904">
-          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.14320096" vertical-offset="0" max-vertical-offset="833">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/actions/medqs.actions.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/components/HeatmapSlot.react.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/prototype.html">
+    <entry file="file://$PROJECT_DIR$/public_html/js/actions/AppActionCreator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26934096" vertical-offset="4207" max-vertical-offset="5746">
-          <caret line="283" column="38" selection-start-line="283" selection-start-column="38" selection-end-line="283" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2234" max-vertical-offset="4505">
+          <caret line="163" column="19" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/ConfigModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1870">
+          <caret line="88" column="41" selection-start-line="88" selection-start-column="41" selection-end-line="88" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/TicketEntityProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7181572" vertical-offset="41" max-vertical-offset="901">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/AppDataMock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72357726" vertical-offset="1705" max-vertical-offset="2431">
+          <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/QueueEntityProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35501355" vertical-offset="430" max-vertical-offset="1020">
+          <caret line="33" column="80" selection-start-line="33" selection-start-column="80" selection-end-line="33" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/QueueModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49322492" vertical-offset="532" max-vertical-offset="918">
+          <caret line="50" column="57" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/WorkerModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.401084" vertical-offset="515" max-vertical-offset="884">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#0#42#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/components/ticket.react.js">
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/CompanyModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49210528" vertical-offset="544" max-vertical-offset="1207">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-0.33604336" vertical-offset="804" max-vertical-offset="1173">
+          <caret line="40" column="54" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/constants/AppConstant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/models/TicketModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9669422" vertical-offset="0" max-vertical-offset="935">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/stores/HeatmapStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9078591" vertical-offset="430" max-vertical-offset="2278">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

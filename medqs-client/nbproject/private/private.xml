@@ -4,15 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/models/Ticket.js</file>
-            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/MedqsData.js</file>
-            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/stores/queue.store.js</file>
-            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/components/queue.react.js</file>
+            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/AppDataMock.js</file>
+            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/stores/QueueSectionStore.js</file>
+            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/components/Queue.react.js</file>
             <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/models/Queue.js</file>
-            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/actions/medqs.actions.js</file>
+            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/actions/AppActionCreator.js</file>
             <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/app.js</file>
-            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/dispatcher/app.dispatcher.js</file>
+            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/dispatcher/AppDispatcher.js</file>
             <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/models/Appointment.js</file>
-            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/components/queuesection.react.js</file>
+            <file>file:/C:/wongca/dev/projects/medqs-client/public_html/js/components/QueueSection.react.js</file>
             <file>file:/C:/wongca/dev/projects/medqs-client/public_html/package.json</file>
         </group>
     </open-files>

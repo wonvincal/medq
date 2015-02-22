@@ -2,7 +2,7 @@
  * Component for display an Calendar section
  * Copyright 2014 Calvin Wong.
  */
-var React = require('react');
+/*var React = require('react');
 
 var Calendar = React.createClass({
         render: function(){
@@ -13,4 +13,4 @@ var Calendar = React.createClass({
     }
 );
 
-module.exports = Calendar;
+module.exports = Calendar;*/

@@ -1,7 +1,7 @@
 /**
  * Created by Calvin on 12/18/2014.
  */
-var React = require('react');
+/*var React = require('react');
 
 var Ad = React.createClass({
         render: function(){
@@ -12,4 +12,4 @@ var Ad = React.createClass({
     }
 );
 
-module.exports = Ad;
+module.exports = Ad;*/

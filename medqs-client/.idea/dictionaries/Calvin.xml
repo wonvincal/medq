@@ -1,11 +1,24 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Calvin">
     <words>
+      <w>appt</w>
+      <w>apts</w>
+      <w>cust</w>
+      <w>datetimepicker</w>
       <w>glyphicon</w>
+      <w>guid</w>
+      <w>lodash</w>
+      <w>mainwidget</w>
       <w>medqs</w>
       <w>medqsapp</w>
       <w>medqsservice</w>
+      <w>objs</w>
+      <w>queuesection</w>
+      <w>schedulesection</w>
+      <w>ticketstatus</w>
       <w>timeslot</w>
+      <w>unmount</w>
+      <w>yyyymmdd</w>
     </words>
   </dictionary>
 </component>
