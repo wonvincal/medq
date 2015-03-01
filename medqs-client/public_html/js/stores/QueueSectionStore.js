@@ -40,7 +40,7 @@ function handleSelectQueue(queue){
 
 function handleSelectTicket(data){
     var ticket = data.ticket;
-    if (_selectedTicket == null || ((_selectedTicket.id !== ticket.id) && (_selectedTicket.cid !== ticket.cid))){
+    if (_selectedTicket == null || !_selectedTicket.isEqual(ticket)){
         _selectedTicket = ticket;
         return true;
     }
