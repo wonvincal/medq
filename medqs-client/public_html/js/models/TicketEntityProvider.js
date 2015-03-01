@@ -25,22 +25,44 @@ function TicketEntityProvider(){
 
 TicketEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
+TicketEntityProvider.prototype.entityName = "Ticket";
+
 TicketEntityProvider.prototype.create = function(id) {
     var obj = new TicketModel();
-//    obj.queueId = queueId;
     obj.id = id;
     return obj;
 };
 
-TicketEntityProvider.prototype.mergeOtherEntitiesWithJSON = function(current, json) {
-    if (!_.isUndefined(json.apt) && json.apt !== null) {
-        var schId = json.apt.schId;
+TicketEntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json) {
+    obj.apt = this.getOrCreateEntityWithJSON(json.apt, AptEntityProvider);
+/*    if (!_.isUndefined(json.apt) && json.apt !== null) {
+        //var schId = json.apt.schId;
         var aptId = json.apt.id;
-        if (!_.isUndefined(schId) && schId !== null && !_.isUndefined(aptId) && aptId !== null) {
+        //if (!_.isUndefined(schId) && schId !== null && !_.isUndefined(aptId) && aptId !== null) {
+        if (!_.isUndefined(aptId) && aptId !== null) {
             // Merging would be done separately
-            current.apt = AptEntityProvider.getOrCreateObj(schId, aptId, json.apt.cid);
+            //current.apt = AptEntityProvider.getOrCreateObj(schId, aptId, json.apt.cid);
+            current.apt = AptEntityProvider.getOrCreateObj(aptId, json.apt.cid);
         }
-    }
+    }*/
+};
+
+TicketEntityProvider.prototype.getByQueue = function(queue){
+    return _.filter(this.entities, function(obj) {
+        return (obj.queueId === queue.id);
+    });
+};
+
+TicketEntityProvider.prototype.getByWorkers = function(workers){
+    var ids = {};
+    _.forEach(workers, function(worker){
+        ids[worker.id] = true;
+    });
+    return _.filter(this.entities, function(ticket) {
+        return (_.some(ticket.apt.workers, function(worker){
+            return (!_.isUndefined(ids[worker.id]));
+        }));
+    });
 };
 
 var instance = new TicketEntityProvider();

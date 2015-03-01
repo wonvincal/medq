@@ -7,6 +7,7 @@
 var QueueModel = require('./QueueModel');
 var TicketEntityProvider = require('./TicketEntityProvider');
 var WorkerEntityProvider = require('./WorkerEntityProvider');
+var CompanyEntityProvider = require('./CompanyEntityProvider');
 var EntityProvider = require('./EntityProvider');
 var _ = require('lodash');
 
@@ -27,10 +28,10 @@ QueueEntityProvider.prototype.create = function(id){
 }
 
 QueueEntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json){
+    /*
     var tickets = [];
     if (!_.isUndefined(json.tickets) && json.tickets !== null && _.isArray(json.tickets)) {
         _.forEach(json.tickets, function (jsonObj) {
-            // Merging of tickets are done by TicketEntityProvider separately
             tickets.push(TicketEntityProvider.getOrCreateObj(jsonObj.id, jsonObj.cid));
         });
     }
@@ -43,6 +44,10 @@ QueueEntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json){
         });
     }
     obj.workers = workers;
+*/
+    obj.tickets = this.getOrCreateEntitiesWithJSON(json.tickets, TicketEntityProvider);
+    obj.workers = this.getOrCreateEntitiesWithJSON(json.workers, WorkerEntityProvider);
+    obj.company = this.getOrCreateEntityWithJSON(json.company, CompanyEntityProvider);
 }
 
 QueueEntityProvider.prototype.getQueues = function(){

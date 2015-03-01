@@ -14,11 +14,21 @@ AptEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
 AptEntityProvider.prototype.create = function(id){
     var obj = new AptModel();
-    //obj.schdId = schdId;
     obj.id = id;
-    //obj.status = AptStatus.ACTIVE;
     return obj;
-}
+};
+
+AptEntityProvider.prototype.getByWorkers = function(workers){
+    var ids = {};
+    _.forEach(workers, function(worker){
+        ids[worker.id] = true;
+    });
+    return _.filter(this.entities, function(apt) {
+        return (_.some(apt.workers, function(worker){
+            return (!_.isUndefined(ids[worker.id]));
+        }));
+    });
+};
 
 var instance = new AptEntityProvider();
 

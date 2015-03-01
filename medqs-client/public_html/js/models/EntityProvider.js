@@ -94,6 +94,29 @@ EntityProvider.prototype.mergeWithJSON = function (json) {
 EntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json){
 };
 
+EntityProvider.prototype.getOrCreateEntityWithJSON = function(jsonObj, entityProvider){
+    if (!_.isUndefined(jsonObj) && jsonObj !== null) {
+        var id = jsonObj.id;
+        if (!_.isUndefined(id) && id !== null) {
+            return entityProvider.getOrCreateObj(id, jsonObj.cid);
+        }
+    }
+    return null;
+};
+
+EntityProvider.prototype.getOrCreateEntitiesWithJSON = function(jsonObjs, entityProvider) {
+    if (!_.isUndefined(jsonObjs) && jsonObjs !== null && _.isArray(jsonObjs)) {
+        return _.map(jsonObjs, function (jsonObj) {
+            return entityProvider.getOrCreateObj(jsonObj.id, jsonObj.cid);
+        });
+    }
+    return [];
+};
+
+
+EntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json){
+};
+
 EntityProvider.prototype.removeFilter = function(obj){
     return false;
 }

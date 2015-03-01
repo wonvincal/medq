@@ -3,6 +3,7 @@
  */
 var WorkerModel = require('./WorkerModel');
 var EntityProvider = require('./EntityProvider');
+var CompanyEntityProvider = require('./CompanyEntityProvider');
 var _ = require('lodash');
 
 function WorkerEntityProvider(){
@@ -15,10 +16,12 @@ WorkerEntityProvider.prototype.entityName = "Worker";
 
 WorkerEntityProvider.prototype.create = function(id){
     var obj = new WorkerModel();
-    if (!_.isUndefined(id)){
-        obj.id = id;
-    }
+    obj.id = id;
     return obj;
+};
+
+WorkerEntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json) {
+    obj.company = this.getOrCreateEntityWithJSON(json.company, CompanyEntityProvider);
 };
 
 var instance = new WorkerEntityProvider();
