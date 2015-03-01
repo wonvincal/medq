@@ -17,7 +17,7 @@ module.exports = keyMirror({
 
     // Heatmap
     SELECTED_HEATMAP_DATE: null,
-    SELECTED_HEATMAP_SOURCE: null,
+    SELECTED_HEATMAP_FILTER: null,
 
     // Queue
     AFTER_SELECT_QUEUE: null,
@@ -32,6 +32,7 @@ module.exports = keyMirror({
     CANCELLED_TICKET: null,
     EDIT_TICKET: null,
     SELECT_TICKET: null,
+    RECEIVE_TICKETS: null,
     UPDATED_TICKET: null,
 
     // Schedule
@@ -60,5 +61,8 @@ module.exports = keyMirror({
 
     // Other
     MODE_ADD: null,
-    MODE_EDIT: null
+    MODE_EDIT: null,
+
+    FILTER_TYPE_QUEUE: null,
+    FILTER_TYPE_WORKER: null
 });

@@ -22,14 +22,6 @@ var AppActionCreator = {
                 console.log("error from getQueues: " + err);
             }
         );
-/*        AppService.getSchedules().then(
-            function(data){
-                this.receiveSchedules(data);
-            }.bind(this),
-            function(err){
-                console.log("error from getSchedules: " + err);
-            }
-        );*/
         AppService.getCompanies().then(
             function(data){
                 this.receiveCompanies(data);
@@ -59,16 +51,6 @@ var AppActionCreator = {
             this.selectQueue(queue);
         }
     },
-/*    receiveSchedules: function(data){
-        AppDispatcher.handleAction({
-            actionType: AppConstant.RECEIVE_SCHEDULES,
-            data: data
-        });
-        var schedules = data;
-        if (schedules.length > 0){
-            this.selectSchedule(schedules[0]);
-        }
-    },*/
     receiveCompanies: function(data){
         AppDispatcher.handleAction({
             actionType: AppConstant.RECEIVE_COMPANIES,
@@ -91,16 +73,16 @@ var AppActionCreator = {
             data: date
         });
     },
-/*    selectSchedule: function(schedule){
-        AppDispatcher.handleViewAction({
-            actionType: AppConstant.SELECTED_SCHEDULE,
-            data: schedule
-        });
-    },*/
     selectWorker: function(worker){
         AppDispatcher.handleViewAction({
             actionType: AppConstant.SELECTED_WORKER,
             data: worker
+        });
+    },
+    selectHeatMapFilter: function(type, data){
+        AppDispatcher.handleViewAction({
+            actionType: AppConstant.SELECTED_HEATMAP_FILTER,
+            data: { "filterType": type, "filter": data}
         });
     },
     selectQueue: function(queue){
@@ -111,22 +93,21 @@ var AppActionCreator = {
             actionType: AppConstant.BEFORE_SELECT_QUEUE,
             data: data
         });
-
         if (!data.cancel){
             AppDispatcher.handleViewAction({
                 actionType: AppConstant.SELECT_QUEUE,
                 data: queue
             });
-
             AppDispatcher.handleViewAction({
                 actionType: AppConstant.AFTER_SELECT_QUEUE,
                 data: queue
             });
+            this.selectHeatMapFilter(AppConstant.FILTER_TYPE_QUEUE, queue);
         }
     },
-    selectTicket: function(queue, ticket){
+    selectTicket: function(ticket){
         var data = {};
-        data.queue = queue;
+        //data.queue = queue;
         data.ticket = ticket;
         data.cancel = false;
         AppDispatcher.handleViewAction({
@@ -157,16 +138,16 @@ var AppActionCreator = {
                         data: [ data.apt ]
                     });
                 }
-/*                if (data.schedule !== null){
+                if (data.ticket !== null){
                     AppDispatcher.handleAction({
-                        actionType: AppConstant.RECEIVE_SCHEDULES,
-                        data: [ data.schedule ]
+                        actionType: AppConstant.RECEIVE_TICKETS,
+                        data: [ data.ticket ]
                     });
-                }*/
-                AppDispatcher.handleAction({
-                    actionType: AppConstant.ADDED_TICKET,
-                    data: data
-                });
+                    AppDispatcher.handleAction({
+                        actionType: AppConstant.ADDED_TICKET,
+                        data: data.ticket
+                    });
+                }
                 if (data.queue != null){
                     AppDispatcher.handleAction({
                         actionType: AppConstant.RECEIVE_QUEUES,

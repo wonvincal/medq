@@ -33,7 +33,7 @@ var Heatmap = React.createClass({
         var slotsView =
             <div className="heatmap-section">{
                 this.state.slots.map(function (slot, index) {
-                    return (<HeatmapSlot start={slot.start} end={slot.end} timeFormat={timeFormat} />);
+                    return (<HeatmapSlot key={index} start={slot.start} end={slot.end} timeFormat={timeFormat} items={slot.items} />);
                 })
                 }
             </div>;

@@ -89,10 +89,12 @@ div.ticket-item .ticket-status {
 
 .heatmap-cell-arrived {
     background-color: #26c281;
+    cursor: pointer;
 }
 
 .heatmap-cell-scheduled {
     background-color: #6bb9f0;
+    cursor: pointer;
 }
 
 .price-title > p {

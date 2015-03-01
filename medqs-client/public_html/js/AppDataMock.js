@@ -25,7 +25,7 @@ var moment = require('moment');
 var CompanyModel = require('./models/CompanyModel');
 var company = new CompanyModel();
 company.id = 200;
-company.name = "Dr. Lee Clinic";
+company.name = "Dr. Lee Clinic 5";
 company.officeHours = [
     [
         [
@@ -35,6 +35,10 @@ company.officeHours = [
         [
             moment({ hour: 14, minute: 0}),
             moment({ hour: 18, minute: 0})
+        ],
+        [
+            moment({ hour: 18, minute: 0}),
+            moment({ hour: 23, minute: 59})
         ]
     ] /* 0 - Sunday */,
     [
@@ -45,6 +49,10 @@ company.officeHours = [
         [
             moment({ hour: 14, minute: 0}),
             moment({ hour: 18, minute: 0})
+        ],
+        [
+            moment({ hour: 18, minute: 0}),
+            moment({ hour: 23, minute: 59})
         ]
     ] /* 1 - Monday */,
     [
@@ -55,46 +63,82 @@ company.officeHours = [
         [
             moment({ hour: 14, minute: 0}),
             moment({ hour: 18, minute: 0})
+        ],
+        [
+            moment({ hour: 18, minute: 0}),
+            moment({ hour: 23, minute: 59})
         ]
     ] /* 2 - Tuesday */,
     [
         [
+            moment({ hour: 0, minute: 0}),
+            moment({ hour: 9, minute: 0})
+        ],
+        [
             moment({ hour: 9, minute: 0}),
             moment({ hour: 12, minute: 0})
         ],
         [
             moment({ hour: 14, minute: 0}),
             moment({ hour: 18, minute: 0})
+        ],
+        [
+            moment({ hour: 18, minute: 0}),
+            moment({ hour: 23, minute: 59})
         ]
     ] /* 3 - Wednesday */,
     [
         [
+            moment({ hour: 0, minute: 0}),
+            moment({ hour: 9, minute: 0})
+        ],
+        [
             moment({ hour: 9, minute: 0}),
             moment({ hour: 12, minute: 0})
         ],
         [
             moment({ hour: 14, minute: 0}),
             moment({ hour: 18, minute: 0})
+        ],
+        [
+            moment({ hour: 18, minute: 0}),
+            moment({ hour: 23, minute: 59})
         ]
     ] /* 4 - Thursday */,
     [
         [
+            moment({ hour: 0, minute: 0}),
+            moment({ hour: 9, minute: 0})
+        ],
+        [
             moment({ hour: 9, minute: 0}),
             moment({ hour: 12, minute: 0})
         ],
         [
             moment({ hour: 14, minute: 0}),
             moment({ hour: 18, minute: 0})
+        ],
+        [
+            moment({ hour: 18, minute: 0}),
+            moment({ hour: 23, minute: 59})
         ]
     ] /* 5 - Friday */,
     [
         [
+            moment({ hour: 0, minute: 0}),
+            moment({ hour: 9, minute: 0})
+        ],
+        [
             moment({ hour: 9, minute: 0}),
             moment({ hour: 12, minute: 0})
         ],
         [
             moment({ hour: 14, minute: 0}),
             moment({ hour: 18, minute: 0})
+        ],
+        [
+            moment({ hour: 18, minute: 0}),
+            moment({ hour: 23, minute: 59})
         ]
     ] /* 6 - Saturday */
 ];
@@ -119,6 +163,7 @@ queue.id = 100;
 queue.name = "Consultation";
 queue.nextTicketId = "C001";
 queue.workers =  [ worker ];
+queue.company = company;
 
 console.log(queue);
 console.log(JSON.stringify(queue));
