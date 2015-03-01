@@ -10,7 +10,7 @@ var AppActionCreator = require('../actions/AppActionCreator');
 var Queue = React.createClass({
     handleTicketClick: function(ticket){
         console.log("Queue:handleTicketClick: enter");
-        AppActionCreator.selectTicket(this.props.queue, ticket);
+        AppActionCreator.selectTicket(ticket);
     },
     render: function(){
         var queue = this.props.queue;

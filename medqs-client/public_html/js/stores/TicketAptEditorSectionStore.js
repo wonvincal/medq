@@ -92,7 +92,6 @@ function handleAddedTicket(data /* {queue, ticket}*/){
  * @param data
  */
 function handleAfterSelectTicket(data){
-    _queueForEdit = data.queue;
     _ticketForEdit = data.ticket;
     _isTicketForEditDirty = false;
     return true;
