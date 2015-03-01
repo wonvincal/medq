@@ -11,7 +11,7 @@ var WorkerModel = function(){
     this.email = null;
     this.timePerSlotInMin = null;
     this.aptPerSlot = null;
-    this.officeHours = null;
+    this.officeHours = [];
 
     // Other Entity
     // TODO company can be broken down into locations/branches, each location can have its own office hours
@@ -32,18 +32,18 @@ WorkerModel.prototype.mergeOwnProps = function(obj) {
     this.email = obj.email;
     this.timePerSlotInMin = obj.timePerSlotInMin;
     this.aptPerSlot = obj.aptPerSlot;
+    // TODO this way of merge may not be correct
+    this.officeHours = obj.officeHours;
     return true;
 };
 
-WorkerModel.prototype.mergeProps = function(apt){
-    return this.mergeOwnProps(apt);
-};
-
-WorkerModel.prototype.getOfficeHours = function(){
+WorkerModel.prototype.getOfficeHoursForDay = function(day){
     if (this.officeHours !== null && this.officeHours.length > 0){
-        return this.officeHours;
+        return _.map(this.officeHours[day], function(session) {
+            return [session[0].clone(), session[1].clone()];
+        });
     }
-    return this.company.getOfficeHours();
+    return this.company.getOfficeHoursForDay(day);
 };
 
 module.exports = WorkerModel;

@@ -45,6 +45,9 @@ function AptModel(){
     // each appointment should have some custom-made fields that are
     // industry specific, the rendering of those fields can be
     // configured as well
+
+    // Other entities
+    this.workers = [];
 }
 
 AptModel.prototype = Object.create(EntityModel.prototype);
@@ -81,9 +84,9 @@ AptModel.prototype.mergeOwnProps = function(apt){
     // todo return true only if there is a change
     return true;
 };
-
+/*
 AptModel.prototype.mergeProps = function(apt){
     return this.mergeOwnProps(apt);
-};
+};*/
 
 module.exports = AptModel;

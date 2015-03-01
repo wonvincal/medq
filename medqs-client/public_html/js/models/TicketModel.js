@@ -49,10 +49,14 @@ TicketModel.prototype.mergeOwnProps = function(ticket) {
     return true;
 };
 
+TicketModel.prototype.getScheduledTime = function() {
+    return (this.scheduledTime !== null) ? this.scheduledTime : ((this.apt !== null) ? this.apt.aptDateTime : null);
+}
+/*
 TicketModel.prototype.mergeProps = function(ticket){
     this.mergeOwnProps(ticket);
     this.apt.mergeProps(ticket.apt);
     return true;
 };
-
+*/
 module.exports = TicketModel;

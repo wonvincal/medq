@@ -31,11 +31,13 @@
  * Created by Calvin on 2/18/2015.
  */
 var EntityModel = require('./EntityModel');
+var moment = require('moment');
+var _ = require('lodash');
 
 function CompanyModel() {
     EntityModel.call(this);
     this.name = null;
-    this.officeHours = null;
+    this.officeHours = [];
 }
 
 CompanyModel.prototype = Object.create(EntityModel.prototype);
@@ -46,19 +48,21 @@ CompanyModel.prototype.createInstance = function(){
 
 CompanyModel.prototype.mergeOwnProps = function(obj) {
     this.name = obj.name;
+    this.officeHours =
+    _.map(obj.officeHours, function(officeHoursForDay){
+        return _.map(officeHoursForDay, function(officeHoursBySession){
+            return _.map(officeHoursBySession, function(officeHoursBeginEnd){
+                return moment(officeHoursBeginEnd);
+            });
+        });
+    });
     return true;
-}
-
-CompanyModel.prototype.mergeProps = function(apt){
-    return this.mergeOwnProps(apt);
 };
 
-
-CompanyModel.prototype.getOfficeHours = function(){
-    if (this.officeHours !== null && this.officeHours.length > 0){
-        return this.officeHours;
-    }
-    return this.company.getOfficeHours();
+CompanyModel.prototype.getOfficeHoursForDay = function(day){
+    return _.map(this.officeHours[day], function(session) {
+        return [session[0].clone(), session[1].clone()];
+    });
 };
 
 module.exports = CompanyModel;

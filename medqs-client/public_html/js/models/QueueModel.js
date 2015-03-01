@@ -7,6 +7,7 @@
  * Copyright 2014 Calvin Wong.
  * Status: Completed
  */
+var _ = require('lodash');
 var EntityModel = require('./EntityModel');
 
 var cid = 0;
@@ -21,11 +22,18 @@ function QueueModel(){
     this.tickets = [];
     // Can a queue has more than one worker? Sure.  What's the use of 'workers'?  In our case, it is used to display
     // heatmap - define the heatmap duration base on the office hours of the workers.
+    // this doesn't make much sense !!!!
     this.workers = [];
     this.company = null;
 }
 
 QueueModel.prototype = Object.create(EntityModel.prototype);
+
+QueueModel.prototype.hasTicket = function(input){
+    return !_.isUndefined(_.find(this.tickets, function(ticket){
+        return input.isEqual(ticket);
+    }));
+};
 
 QueueModel.prototype.createInstance = function(){
     return new QueueModel();
@@ -46,12 +54,12 @@ QueueModel.prototype.mergeOwnProps = function(obj) {
     return true;
 };
 
-QueueModel.prototype.getOfficeHours = function(){
+QueueModel.prototype.getOfficeHoursForDay = function(day){
     if (this.workers !== null && this.workers.length > 0){
         // TODO union the office hours of list of workers
-        return this.workers[0].getOfficeHours();
+        return this.workers[0].getOfficeHoursForDay(day);
     }
-    return this.company.getOfficeHours();
+    return this.company.getOfficeHoursForDay(day);
 };
 
 module.exports = QueueModel;
