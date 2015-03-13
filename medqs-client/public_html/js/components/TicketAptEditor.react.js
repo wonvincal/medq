@@ -26,7 +26,7 @@ var TicketAptEditor = React.createClass({
         // if there is any change to the ticket
         var ticket = null;
         if (this.props.ticket != null){
-            ticket = this.props.ticket.clone();
+            ticket = this.props.ticket.deepClone();
         }
         return {
             ticket: ticket

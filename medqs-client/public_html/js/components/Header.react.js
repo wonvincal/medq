@@ -2,12 +2,22 @@
  * Created by Calvin on 11/30/2014.
  */
 var React = require('react');
+var ViewActionCreator = require('../actions/ViewActionCreator');
 
 var Header = React.createClass({
     getDefaultProps: function(){
         return {
             accountName: 'Default Prop - Account Name'
         };
+    },
+    handleQueueClick: function(){
+        ViewActionCreator.clickQueueOnHeader();
+    },
+    handlePlannerClick: function(){
+        ViewActionCreator.clickPlannerOnHeader();
+    },
+    handleReportClick: function(){
+        ViewActionCreator.clickReportOnHeader();
     },
     /** Collect the nav links, forms, and other content for toggling */
     render: function(){
@@ -25,9 +35,9 @@ var Header = React.createClass({
                 </div>
                 <div className="collapse navbar-collapse" id="navbar-collapse-section">
                     <ul className="nav navbar-nav">
-                        <li className="active"><a href="#"><i className="glyphicon glyphicon-user"></i> Queue <span className="sr-only">(current)</span></a></li>
-                        <li><a href="#"><i className="glyphicon glyphicon-calendar"></i> Planner</a></li>
-                        <li><a href="#"><i className="glyphicon glyphicon-stats"></i> Report</a></li>
+                        <li className="active"><a onClick={this.handleQueueClick}><i className="glyphicon glyphicon-user"></i> Queue <span className="sr-only">(current)</span></a></li>
+                        <li><a onClick={this.handlePlannerClick}><i className="glyphicon glyphicon-calendar"></i> Planner</a></li>
+                        <li><a onClick={this.handleReportClick}><i className="glyphicon glyphicon-stats"></i> Report</a></li>
                     </ul>
                     <form className="navbar-form navbar-right" role="search">
                         <div className="form-search search-only">

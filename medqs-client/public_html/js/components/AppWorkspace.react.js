@@ -13,6 +13,11 @@ var Info = require('./Info.react');
 
 function getState(){
     return {
+        isQueueSectionVisible: AppWorkspaceStore.isQueueSectionVisible(),
+        isInfoVisible: AppWorkspaceStore.isInfoVisible(),
+        isPlannerSectionVisible: AppWorkspaceStore.isPlannerSectionVisible(),
+        isHeatmapVisible: AppWorkspaceStore.isHeatmapVisible(),
+        isTicketAptEditorSectionVisible: AppWorkspaceStore.isTicketAptEditorSectionVisible()
     };
 }
 
@@ -32,14 +37,15 @@ var AppWorkspace = React.createClass({
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8">
-                            <QueueSection />
-                            <Info />
+                            {(this.state.isQueueSectionVisible) ? <QueueSection /> : null }
+                            {(this.state.isInfoVisible) ? <Info /> : null }
+                            {(this.state.isPlannerSectionVisible) ? <Info /> : null }
                         </div>
                         <div className="col-md-2">
-                            <Heatmap />
+                            {(this.state.isHeatmapVisible) ? <Heatmap /> : null }
                         </div>
                         <div className="col-md-2">
-                            <TicketAptEditorSection />
+                            {(this.state.isTicketAptEditorSectionVisible) ? <TicketAptEditorSection /> : null }
                         </div>
                     </div>
                 </div>
@@ -47,7 +53,7 @@ var AppWorkspace = React.createClass({
         )
     },
     _onChange: function(){
-        this.setState(getAppState());
+        this.setState(getState());
     }
 });
 

@@ -5,8 +5,6 @@
  */
 var keyMirror = require('react/lib/keyMirror');
 
-var COLORS = keyMirror({blue: null, red: null});
-
 // Define action constants
 module.exports = keyMirror({
     // Appointment
@@ -71,5 +69,10 @@ module.exports = keyMirror({
 
     ENTITY_NO_CHANGE: null,
     ENTITY_ADDED_OR_UPDATED: null,
-    ENTITY_DELETED: null
+    ENTITY_DELETED: null,
+
+    // MENU
+    CLICK_QUEUE_ON_HEADER: null,
+    CLICK_PLANNER_ON_HEADER: null,
+    CLICK_REPORT_ON_HEADER: null
 });

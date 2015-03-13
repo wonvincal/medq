@@ -1,7 +1,7 @@
 /**
  * Created by Calvin on 2/10/2015.
  */
-var AptStatus = { ACTIVE : 1, CANCELLED: 2, INVALID : -1 }
+var AptStatus = { ACTIVE : 1, CANCELLED: 2, INVALID : -1 };
 
 AptStatus.getString = function(item) {
     switch (item)
@@ -15,7 +15,7 @@ AptStatus.getString = function(item) {
         default:
             return "Invalid";
     }
-}
+};
 AptStatus.getEnum = function(value){
     switch (value)
     {
@@ -28,7 +28,7 @@ AptStatus.getEnum = function(value){
         default:
             return this.INVALID;
     }
-}
+};
 AptStatus.values = [1, 2, -1];
 Object.freeze(AptStatus);
 module.exports = AptStatus;
