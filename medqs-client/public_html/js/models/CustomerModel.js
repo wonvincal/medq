@@ -16,6 +16,8 @@ function CustomerModel(){
 
 CustomerModel.prototype = Object.create(EntityModel.prototype);
 
+CustomerModel.prototype.entityName = "Customer";
+
 CustomerModel.prototype.createInstance = function(){
     return new CustomerModel();
 };

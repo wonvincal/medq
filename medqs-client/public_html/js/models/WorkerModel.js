@@ -23,6 +23,8 @@ var WorkerModel = function(){
 
 WorkerModel.prototype = Object.create(EntityModel.prototype);
 
+WorkerModel.prototype.entityName = "Worker";
+
 WorkerModel.prototype.createInstance = function(){
     return new WorkerModel();
 };

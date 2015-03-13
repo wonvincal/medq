@@ -9,13 +9,14 @@ function SchedulableModel(){
 
 SchedulableModel.prototype = Object.create(EntityModel.prototype);
 
+SchedulableModel.prototype.entityName = "Schedulable";
+
 SchedulableModel.prototype.deepCompare = function(obj){
     return EntityModel.prototype.deepCompare.call(this, obj);
 };
 
 SchedulableModel.prototype.deepClone = function(){
-    var clone = EntityModel.prototype.deepClone.call(this);
-    return clone;
+    return EntityModel.prototype.deepClone.call(this);
 };
 
 SchedulableModel.prototype.getScheduleStartTime = function(){};

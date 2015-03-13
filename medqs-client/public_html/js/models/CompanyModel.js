@@ -42,6 +42,8 @@ function CompanyModel() {
 
 CompanyModel.prototype = Object.create(EntityModel.prototype);
 
+CompanyModel.prototype.entityName = "Company";
+
 CompanyModel.prototype.createInstance = function(){
     return new CompanyModel();
 };

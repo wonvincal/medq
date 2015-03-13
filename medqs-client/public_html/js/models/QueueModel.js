@@ -30,6 +30,8 @@ function QueueModel(){
 
 QueueModel.prototype = Object.create(EntityModel.prototype);
 
+QueueModel.prototype.entityName = "Queue";
+
 // TODO who knows, we may have a way to set default worker for a particular queu
 QueueModel.prototype.getSelectedWorker = function(){
     if (this.workers.length > 0){
