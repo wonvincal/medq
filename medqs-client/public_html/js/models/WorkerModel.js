@@ -2,6 +2,8 @@
  * Created by Calvin on 2/18/2015.
  */
 var EntityModel = require('./EntityModel');
+var Comparator = require('../utils/Comparator');
+var _ = require('lodash');
 
 var WorkerModel = function(){
     this.id = null;
@@ -26,15 +28,16 @@ WorkerModel.prototype.createInstance = function(){
 };
 
 WorkerModel.prototype.mergeOwnProps = function(obj) {
-    this.lastName = obj.lastName;
-    this.firstName = obj.firstName;
-    this.phone = obj.phone;
-    this.email = obj.email;
-    this.timePerSlotInMin = obj.timePerSlotInMin;
-    this.aptPerSlot = obj.aptPerSlot;
+    var merged = 0;
+    var properties = ["lastName", "firstName", "phone", "email", "timePerSlotInMin", "aptPerSlot"];
+    _.forEach(properties, function(prop){
+        merged |= Comparator.mergePropertyByName(this, obj, prop);
+    }, this);
+
     // TODO this way of merge may not be correct
     this.officeHours = obj.officeHours;
-    return true;
+
+    return (merged != 0);
 };
 
 WorkerModel.prototype.getOfficeHoursForDay = function(day){

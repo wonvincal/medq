@@ -9,6 +9,7 @@
  */
 var _ = require('lodash');
 var EntityModel = require('./EntityModel');
+var Comparator = require('../utils/Comparator');
 
 var cid = 0;
 
@@ -29,6 +30,13 @@ function QueueModel(){
 
 QueueModel.prototype = Object.create(EntityModel.prototype);
 
+// TODO who knows, we may have a way to set default worker for a particular queu
+QueueModel.prototype.getSelectedWorker = function(){
+    if (this.workers.length > 0){
+        return this.workers[0];
+    }
+};
+
 QueueModel.prototype.hasTicket = function(input){
     return !_.isUndefined(_.find(this.tickets, function(ticket){
         return input.isEqual(ticket);
@@ -48,10 +56,16 @@ QueueModel.prototype.getNextCid = function(){
 };
 
 QueueModel.prototype.mergeOwnProps = function(obj) {
-    this.name = obj.name;
-    this.numWaiting = parseInt(obj.numWaiting);
-    this.nextTicketId = obj.nextTicketId;
-    return true;
+    var merged = 0;
+    if (!_.isUndefined(obj.numWaiting)){
+        merged |= Comparator.mergeProperty(this, "numWaiting", parseInt(obj.numWaiting));
+    }
+
+    var properties = ["name", "nextTicketId"];
+    _.forEach(properties, function(prop){
+        merged |= Comparator.mergePropertyByName(this, obj, prop);
+    }, this);
+    return (merged != 0);
 };
 
 QueueModel.prototype.getOfficeHoursForDay = function(day){

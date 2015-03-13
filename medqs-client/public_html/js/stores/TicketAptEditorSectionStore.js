@@ -18,6 +18,18 @@ var _queueForEdit = null;
 var _ticketForEdit = null;
 var _isTicketForEditDirty = false;
 
+function handleReceiveQueues(entityResultSet){
+    if (_queueForAdd !== null){
+        var index = _.findIndex(entityResultSet.getUpdates(), _queueForAdd);
+        if (index !== -1){
+            return handleSelectedWorker(_queueForAdd.getSelectedWorker());
+        }
+    }
+    // todo check for delete
+    // todo check for _queueForEdit
+    return false;
+}
+
 function handleSelectedWorker(worker){
     console.log("TicketAptEditorSectionStore: handleSelectedWorker");
     if (_workerForApt === null || !_workerForApt.isEqual(worker)){
@@ -59,6 +71,7 @@ function handleAfterSelectQueue(queue){
     console.log("TicketAptEditorSectionStore: handleAfterSelectQueue");
     if (_queueForAdd == null || !_queueForAdd.isEqual(queue)){
         _queueForAdd = queue;
+        _workerForApt = _queueForAdd.getSelectedWorker();
         _ticketForAdd = createTicketForAdd(_queueForAdd, _workerForApt);
         return true;
     }
@@ -169,6 +182,9 @@ TicketAptEditorSectionStore.dispatcherToken = AppDispatcher.register(function(pa
     var changed = false;
 
     switch (action.actionType){
+        case AppConstant.RECEIVE_QUEUES:
+            changed = handleReceiveQueues(data);
+            break;
         case AppConstant.BEFORE_SELECT_QUEUE:
             changed = handleBeforeSelectQueue(data);
             break;
@@ -189,9 +205,6 @@ TicketAptEditorSectionStore.dispatcherToken = AppDispatcher.register(function(pa
             break;
         case AppConstant.CANCELLED_TICKET:
             changed = handleCancelledTicket(data);
-            break;
-        case AppConstant.SELECTED_WORKER:
-            changed = handleSelectedWorker(data);
             break;
         case AppConstant.UPDATED_TICKET:
             changed = handleUpdatedTicket(data);

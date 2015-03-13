@@ -2,6 +2,7 @@
  * Created by Calvin on 2/22/2015.
  */
 var EntityModel = require('./EntityModel');
+var Comparator = require('../utils/Comparator');
 
 var cid = 0;
 
@@ -24,11 +25,13 @@ CustomerModel.prototype.deepClone = function(){
 };
 
 CustomerModel.prototype.mergeOwnProps = function(obj) {
-    this.lastName = obj.lastName;
-    this.firstName = obj.firstName;
-    this.phone = obj.phone;
-    this.email = obj.email;
-    return true;
+    var merged = 0;
+    var properties = ["lastName", "firstName", "phone", "email"];
+    _.forEach(properties, function(prop){
+        merged |= Comparator.mergePropertyByName(this, obj, prop);
+    }, this);
+
+    return (merged != 0);
 };
 
 module.exports = CustomerModel;

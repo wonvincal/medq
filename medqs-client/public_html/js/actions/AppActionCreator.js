@@ -7,6 +7,7 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppService = require('../utils/AppService');
 var AppConstant = require('../constants/AppConstant');
 var QueueSectionStore = require('../stores/QueueSectionStore');
+var HeatmapDataFilter = require('../utils/HeatmapDataFilter');
 var moment = require('moment');
 var _ = require('lodash');
 
@@ -20,6 +21,7 @@ var AppActionCreator = {
             }.bind(this),
             function(err){
                 console.log("error from getQueues: " + err);
+                console.log(err.stack);
             }
         );
         AppService.getCompanies().then(
@@ -27,15 +29,17 @@ var AppActionCreator = {
                 this.receiveCompanies(data);
             }.bind(this),
             function(err){
-                console.log("error from getSchedules: " + err);
+                console.log("error from getCompanies: " + err);
+                console.log(err.stack);
             }
         );
         AppService.getWorkers().then(
-            function(data){
-                this.receiveWorkers(data);
+            function(entityResultSet){
+                this.receiveWorkers(entityResultSet);
             }.bind(this),
             function(err){
-                console.log("error from getSchedules: " + err);
+                console.log("error from getWorkers: " + err);
+                console.log(err.stack);
             }
         );
         this.selectHeatmapDate(moment());
@@ -57,15 +61,11 @@ var AppActionCreator = {
             data: data
         });
     },
-    receiveWorkers: function(data){
+    receiveWorkers: function(entityResultSet){
         AppDispatcher.handleAction({
             actionType: AppConstant.RECEIVE_WORKERS,
-            data: data
+            data: entityResultSet
         });
-        var workers = data;
-        if (workers.length > 0){
-            this.selectWorker(workers[0]);
-        }
     },
     selectHeatmapDate: function(date){
         AppDispatcher.handleViewAction({
@@ -102,12 +102,14 @@ var AppActionCreator = {
                 actionType: AppConstant.AFTER_SELECT_QUEUE,
                 data: queue
             });
+            // Create a filter that holds links related to a queue
+            // One from queue, another one from worker
+            var queueFilter = new HeatmapDataFilter();
             this.selectHeatMapFilter(AppConstant.FILTER_TYPE_QUEUE, queue);
         }
     },
     selectTicket: function(ticket){
         var data = {};
-        //data.queue = queue;
         data.ticket = ticket;
         data.cancel = false;
         AppDispatcher.handleViewAction({
@@ -135,13 +137,13 @@ var AppActionCreator = {
                 if (data.apt !== null){
                     AppDispatcher.handleAction({
                         actionType: AppConstant.RECEIVE_APTS,
-                        data: [ data.apt ]
+                        data: data.apt
                     });
                 }
                 if (data.ticket !== null){
                     AppDispatcher.handleAction({
                         actionType: AppConstant.RECEIVE_TICKETS,
-                        data: [ data.ticket ]
+                        data: data.ticket
                     });
                     AppDispatcher.handleAction({
                         actionType: AppConstant.ADDED_TICKET,
@@ -151,7 +153,7 @@ var AppActionCreator = {
                 if (data.queue != null){
                     AppDispatcher.handleAction({
                         actionType: AppConstant.RECEIVE_QUEUES,
-                        data: [ data.queue ]
+                        data: data.queue
                     });
                 }
             },
@@ -173,7 +175,7 @@ var AppActionCreator = {
                 if (data.queue != null){
                     AppDispatcher.handleAction({
                         actionType: AppConstant.RECEIVE_QUEUES,
-                        data: [ data.queue ]
+                        data: data.queue
                     });
                 }
                 AppDispatcher.handleAction({
@@ -192,7 +194,7 @@ var AppActionCreator = {
                 if (data.queue != null){
                     AppDispatcher.handleAction({
                         actionType: AppConstant.RECEIVE_QUEUES,
-                        data: [ data.queue ]
+                        data: data.queue
                     });
                 }
                 AppDispatcher.handleAction({
@@ -205,41 +207,6 @@ var AppActionCreator = {
             }
         );
     }
-    /*
-    receiveTicket: function(data){
-        console.log("receiveTicket");
-        AppDispatcher.handleAction({
-            actionType: AppConstant.RECEIVE_TICKET_DATA,
-            data: data
-        });
-    },
-    receiveQueue: function(data){
-        console.log("receiveQueue");
-        AppDispatcher.handleAction({
-            actionType: AppConstant.RECEIVE_QUEUE_DATA,
-            data: data
-        });
-    },
-    // Receive initial schedule data
-    receiveSchedules: function(data){
-        console.log("receiveSchedules");
-        AppDispatcher.handleAction({
-            actionType: AppConstant.RECEIVE_SCHEDULES_DATA,
-            data: data
-        });
-    },
-    selectTicketFromQueue: function(data){
-        AppDispatcher.handleViewAction({
-            actionType: AppConstant.RECEIVE_QUEUES_DATA,
-            data: data
-        });
-    },
-    selectAppointmentFromPlanner: function(data){
-        
-    },
-    selectAppointmentFromHeatMap: function(data){
-        
-    }*/
 };
 
 module.exports = AppActionCreator;

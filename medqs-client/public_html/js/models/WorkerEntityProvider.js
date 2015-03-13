@@ -4,6 +4,7 @@
 var WorkerModel = require('./WorkerModel');
 var EntityProvider = require('./EntityProvider');
 var CompanyEntityProvider = require('./CompanyEntityProvider');
+var Comparator = require('../utils/Comparator');
 var _ = require('lodash');
 
 function WorkerEntityProvider(){
@@ -21,7 +22,9 @@ WorkerEntityProvider.prototype.create = function(id){
 };
 
 WorkerEntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json) {
+    var prevCompany = obj.company;
     obj.company = this.getOrCreateEntityWithJSON(json.company, CompanyEntityProvider);
+    return Comparator.isEqual(prevCompany, obj.company);
 };
 
 var instance = new WorkerEntityProvider();

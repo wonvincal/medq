@@ -2,6 +2,7 @@
  * Created by Calvin on 1/28/2015.
  */
 var TicketStatus = require('./constants/TicketStatus');
+var EntityState = require('./constants/EntityState');
 var _ = require('lodash');
 
 function zeroFill( number, width ) {
@@ -88,6 +89,7 @@ module.exports = {
             throw new Error("Trying to create an appointment with no cid");
         }
         a.id = a.cid;
+        a.state = EntityState.ACTIVE;
         var apts = JSON.parse(localStorage.getItem('apts'));
         var apt = _.find(apts, { "id": a.id });
         if (!_.isUndefined(apt)){
@@ -188,6 +190,7 @@ module.exports = {
             apt = result.apt;
         }
         t.id = queue.nextTicketId;
+        t.state = EntityState.ACTIVE;
         t.apt = { "id" : apt.id, "cid" : apt.cid};
         queue.tickets.push({ "id": t.id, "cid" : t.cid });
         var ticketIdPrefix = queue.nextTicketId.substring(0, 1);

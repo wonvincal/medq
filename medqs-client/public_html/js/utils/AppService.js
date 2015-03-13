@@ -4,6 +4,18 @@
  * and open the template in the editor.
  * 
  * This service communicates with server side to get latest data
+ *
+ * Below are the only ways to communicate with server
+ * 1) Query server directly using REST
+ * 2) Add/Delete from server directly using REST
+ *
+ * Below are the only ways to get updates from the server
+ * 1) receive server-pushing updates of different entity types with seq
+ * 2) receive synchronous updates from server with seq with timeout
+ * 3) an entity state
+ *
+ * Periodic poll for connection-alive
+ *
  */
 var CompanyEntityProvider = require('../models/CompanyEntityProvider');
 var WorkerEntityProvider = require('../models/WorkerEntityProvider');
@@ -12,7 +24,6 @@ var TicketEntityProvider = require('../models/TicketEntityProvider');
 var AptEntityProvider = require('../models/AptEntityProvider');
 var AppServerMock = require('../AppServerMock');
 var _ = require('lodash');
-
 
 module.exports = {
     // Load mock data from localStorage into Stores via Action
@@ -24,9 +35,9 @@ module.exports = {
             var str = AppServerMock.getCompanies();
             var json = JSON.parse(str);
 
-            var objs = CompanyEntityProvider.mergeWithJSONs(json);
-            if (objs.length > 0) {
-                resolve(objs);
+            var result = CompanyEntityProvider.mergeWithJSONs(json);
+            if (result.hasReadOrUpdates()) {
+                resolve(result);
             }
             else{
                 reject("cannot get companies");
@@ -41,9 +52,9 @@ module.exports = {
             var str = AppServerMock.getWorkers();
             var json = JSON.parse(str);
 
-            var objs = WorkerEntityProvider.mergeWithJSONs(json);
-            if (objs.length > 0) {
-                resolve(objs);
+            var entityResultSet = WorkerEntityProvider.mergeWithJSONs(json);
+            if (entityResultSet.hasReadOrUpdates()) {
+                resolve(entityResultSet);
             }
             else{
                 reject("cannot get workers");
@@ -58,9 +69,9 @@ module.exports = {
             var str = AppServerMock.getQueues();
             var json = JSON.parse(str);
 
-            var queues = QueueEntityProvider.mergeWithJSONs(json);
-            if (queues.length > 0) {
-                resolve(queues);
+            var result = QueueEntityProvider.mergeWithJSONs(json);
+            if (result.hasReadOrUpdates()) {
+                resolve(result);
             }
             else{
                 reject("cannot get queues");
@@ -75,6 +86,8 @@ module.exports = {
     // Phase 2:
     // - queue: delta changes wrt the latest snapshot of the 'permissioned' queue with the added ticket
     // - ticket: saved ticket info
+    // Phase 3:
+    // - support timeout
     addTicket: function(queue, ticket, apt){
         return new Promise(function (resolve, reject) {
             // Simulate getting queues from server
@@ -83,13 +96,13 @@ module.exports = {
 
             var result = {};
             if (_.has(json, "apt") && json.ticket !== null) {
-                result.apt = AptEntityProvider.mergeWithJSON(json.apt);
+                result.apt = AptEntityProvider.mergeWithJSON(json.apt).toEntityResultSet();
             }
             if (_.has(json, "queue") && json.queue !== null) {
-                result.queue = QueueEntityProvider.mergeWithJSON(json.queue);
+                result.queue = QueueEntityProvider.mergeWithJSON(json.queue).toEntityResultSet();
             }
             if (_.has(json, "ticket") && json.ticket !== null) {
-                result.ticket = TicketEntityProvider.mergeWithJSON(json.ticket);
+                result.ticket = TicketEntityProvider.mergeWithJSON(json.ticket).toEntityResultSet();
             }
 
             if (result.queue != null && result.ticket != null){
@@ -114,10 +127,10 @@ module.exports = {
 
             var result = {};
             if (_.has(json, "queue") && json.queue !== null) {
-                result.queue = QueueEntityProvider.mergeWithJSON(json.queue);
+                result.queue = QueueEntityProvider.mergeWithJSON(json.queue).toEntityResultSet();
             }
             if (_.has(json, "ticket") && json.ticket !== null) {
-                result.ticket = TicketEntityProvider.mergeWithJSON(json.ticket);
+                result.ticket = TicketEntityProvider.mergeWithJSON(json.ticket).toEntityResultSet();
             }
             if (result.queue !== null && result.ticket !== null){
                 resolve(result);
@@ -135,10 +148,9 @@ module.exports = {
 
             var result = {};
             if (_.has(json, "queue") && json.queue !== null) {
-                result.queue = QueueEntityProvider.mergeWithJSON(json.queue);
+                result.queue = QueueEntityProvider.mergeWithJSON(json.queue).toEntityResultSet();
                 if (_.has(json, "ticket") && json.ticket !== null) {
-                    //result.ticket = TicketEntityProvider.mergeWithJSON(json.queue.id, json.ticket);
-                    result.ticket = TicketEntityProvider.mergeWithJSON(json.ticket);
+                    result.ticket = TicketEntityProvider.mergeWithJSON(json.ticket).toEntityResultSet();
                 }
             }
             if (result.queue !== null && result.ticket !== null){

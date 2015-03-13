@@ -1,9 +1,12 @@
 /**
  * Created by Calvin on 2/22/2015.
  */
+var EntityState = require('../constants/EntityState');
+
 function EntityModel(){
     this.id = null;
     this.cid = null;
+    this.state = EntityState.INVALID;
 }
 
 EntityModel.prototype.createInstance = function(){
@@ -12,6 +15,10 @@ EntityModel.prototype.createInstance = function(){
 
 EntityModel.prototype.mergeOwnProps = function(/* obj */){
     throw new Error("Not implemented");
+};
+
+EntityModel.prototype.deepCompare = function(obj){
+    return EntityModel.prototype.isEqual(obj);
 };
 
 EntityModel.prototype.deepClone = function(){
@@ -40,8 +47,15 @@ EntityModel.prototype.applyNextCid = function(){
     this.cid = this.getNextCid();
 };
 
+// -------------------
+// Since we check against the entityName first, we can be sure
+// that (this) and (obj) have the same set of properties (i.e. name, not value)
+// We can leave out checks on whether a property exists or not.
+// -------------------
 EntityModel.prototype.isEqual = function(obj){
-    return (obj != null && (this.id === obj.id || this.cid === obj.cid));
+    return (this.entityName === obj.entityName &&
+            obj !== null &&
+            (this.id === obj.id || this.cid === obj.cid));
 };
 
 EntityModel.prototype.mergeId = function(obj){

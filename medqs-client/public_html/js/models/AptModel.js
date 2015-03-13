@@ -1,4 +1,3 @@
-var AptStatus = require('../constants/AptStatus');
 /**
  * Copyright 2014 Calvin Wong.
  *
@@ -21,20 +20,23 @@ var AptStatus = require('../constants/AptStatus');
  *              1) assign to a default worker (by clinic)
  *              2) can be assigned to more than one workers
  */
-var EntityModel = require('./EntityModel');
+var SchedulableModel = require('./SchedulableModel');
+var AptStatus = require('../constants/AptStatus');
+var Comparator = require('../utils/Comparator');
 var moment = require('moment');
+var _ = require('lodash');
 
 var cid = 0;
 
 function AptModel(){
-    EntityModel.call(this);
+    SchedulableModel.call(this);
     this.schdId = null;
     this.status = AptStatus.INVALID;
     this.custName = null;
     this.phone = null;
     this.custId = null;
     this.receiveSMS = false;
-    this.receiveCall = false
+    this.receiveCall = false;
 
     // property names need to be better
     this.aptDateTime = null;
@@ -50,43 +52,37 @@ function AptModel(){
     this.workers = [];
 }
 
-AptModel.prototype = Object.create(EntityModel.prototype);
+AptModel.prototype = Object.create(SchedulableModel.prototype);
 
 AptModel.prototype.createInstance = function(){
     return new AptModel();
 };
 
+AptModel.prototype.entityName = "Apt";
+
 AptModel.prototype.getNextCid = function(){
     return cid++;
 };
 
-AptModel.prototype.isEqual = function(apt){
-    return (apt != null && this.schdId ===  apt.schdId && (this.id === apt.id || this.cid === apt.cid));
+AptModel.prototype.mergeOwnProps = function(apt){
+    var merged = 0;
+    if (!_.isUndefined(apt.status)){
+        merged |= Comparator.mergeProperty(this, "status", parseInt(apt.status));
+    }
+    var properties = ["custName", "phone", "custId", "receiveSMS", "receiveCall", "schdId", "elapsedTimeInSec"];
+    _.forEach(properties, function(prop){
+        merged |= Comparator.mergePropertyByName(this, apt, prop);
+    }, this);
+
+    var momentProps = ["aptDateTime", "arrivalTime", "estAptTime"];
+    _.forEach(momentProps, function(prop){
+        merged |= Comparator.mergeMomentPropertyByName(this, apt, prop);
+    }, this);
+    return (merged != 0);
 };
 
-AptModel.prototype.mergeOwnProps = function(apt){
-    this.status = parseInt(apt.status);
-    this.custName = apt.custName;
-    this.phone = apt.phone;
-    this.custId = apt.custId;
-    this.receiveSMS = apt.receiveSMS;
-    this.receiveCall = apt.receiveCall;
-    this.schdId = apt.schdId;
-    if (typeof apt.aptDateTime === 'object'){
-        this.aptDateTime = apt.aptDateTime.clone();
-    }
-    else{
-        this.aptDateTime = moment(apt.aptDateTime);
-    }
-    this.arrivalTime = apt.arrivalTime;
-    this.estAptTime = apt.estAptTime;
-    this.elapsedTimeInSec = apt.elapsedTimeInSec;
-    // todo return true only if there is a change
-    return true;
+AptModel.prototype.getScheduleStartTime = function() {
+    return this.aptDateTime;
 };
-/*
-AptModel.prototype.mergeProps = function(apt){
-    return this.mergeOwnProps(apt);
-};*/
 
 module.exports = AptModel;

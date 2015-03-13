@@ -88,7 +88,7 @@ function generateHeatmap() {
 }
 
 function addTicketToSlot(ticket){
-    return addItemToSlot({"entityType": "ticket", "entity": ticket, "time": ticket.getScheduledTime()}, _slots, _extraSlot);
+    return addItemToSlot({"entityType": "ticket", "entity": ticket, "time": ticket.getScheduleStartTime()}, _slots, _extraSlot);
 }
 
 function addAptToSlot(apt){
@@ -161,15 +161,16 @@ function handleSelectedHeatmapFilter(data){
     return generateHeatmap();
 }
 
-function handleReceiveApts(data){
+function handleReceiveApts(entityResultSet /** EntityResultSet */){
     return false;
 }
 
-function handleReceiveTickets(data){
+function handleReceiveTickets(entityResultSet){
     var changed = false;
     var filterQueue = _filter[AppConstant.FILTER_TYPE_QUEUE];
     if (!_.isUndefined(filterQueue)){
-        _.forEach(data, function(ticket){
+        // todo process deletes as well
+        _.forEach(entityResultSet.getUpdates(), function(ticket){
             if (filterQueue.hasTicket(ticket)){
                 // check if ticket already exists
                 var exist = _tickets[ticket.id];

@@ -1,7 +1,7 @@
 /**
  * Created by Calvin on 12/14/2014.
  */
-var TicketStatus = { ARRIVED : 1, SCHEDULED : 2, PROCESSING : 3, CANCELLED: 4, INVALID : -1 }
+var TicketStatus = { ARRIVED : 1, SCHEDULED : 2, PROCESSING : 3, CANCELLED: 4, INVALID : -1 };
 
 TicketStatus.getString = function(item) {
     switch (item)
@@ -21,7 +21,8 @@ TicketStatus.getString = function(item) {
         default:
             return "Invalid";
     }
-}
+};
+
 TicketStatus.getEnum = function(value){
     switch (value)
     {
@@ -40,7 +41,8 @@ TicketStatus.getEnum = function(value){
         default:
             return this.INVALID;
     }
-}
+};
+
 TicketStatus.values = [1, 2, 3, 4, -1];
 Object.freeze(TicketStatus);
 module.exports = TicketStatus;

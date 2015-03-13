@@ -1,6 +1,9 @@
 /**
  * Created by Calvin on 2/11/2015.
  */
+var AppConstant = require('../constants/AppConstant');
+var EntityResultSet = require('../utils/EntityResultSet');
+var EntityResult = require('../utils/EntityResult');
 var _ = require('lodash');
 
 function EntityProvider(){
@@ -58,7 +61,11 @@ EntityProvider.prototype.createWithNextCid = function(){
 };
 
 // Merge with JSON
-// Object can be updated, created or deleted after the merge
+// server will instruct whether to create / update / delete an objects
+// With current design, a new entity (i.e. Ticket) can be asynchronously by
+// 1) indirectly through its first reference in a Queue entity, or
+// 2) directly through its first reference in a Ticket entity update
+// Therefore, we will only provide way to tell if a entity has been changed or deleted
 EntityProvider.prototype.mergeWithJSON = function (json) {
     if (_.isUndefined(json) || json === null) {
         return null;
@@ -79,19 +86,29 @@ EntityProvider.prototype.mergeWithJSON = function (json) {
             }
         }
     }
+
+    var result = new EntityResult();
+    result.type = AppConstant.ENTITY_NO_CHANGE;
     if (current === null) {
         current = this.getById(id);
         if (current === null) {
             current = this.create(id);
             this.entities[id] = current;
+            result.type = AppConstant.ENTITY_ADDED_OR_UPDATED;
         }
     }
-    current.mergeOwnProps(json);
-    this.mergeOtherEntitiesWithJSON(current, json);
-    return current;
+    if (current.mergeOwnProps(json)){
+        result.type = AppConstant.ENTITY_ADDED_OR_UPDATED;
+    }
+    if (this.mergeOtherEntitiesWithJSON(current, json)){
+        result.type = AppConstant.ENTITY_ADDED_OR_UPDATED;
+    }
+    result.obj = current;
+    return result;
 };
 
 EntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json){
+    return false;
 };
 
 EntityProvider.prototype.getOrCreateEntityWithJSON = function(jsonObj, entityProvider){
@@ -113,23 +130,31 @@ EntityProvider.prototype.getOrCreateEntitiesWithJSON = function(jsonObjs, entity
     return [];
 };
 
-
-EntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json){
-};
-
 EntityProvider.prototype.removeFilter = function(obj){
     return false;
-}
+};
 
 EntityProvider.prototype.mergeWithJSONs = function(jsons){
-    var result = [];
+    //var result = [];
+    var entityResult = new EntityResultSet();
     _.forEach(jsons, function(json){
-        var obj = this.mergeWithJSON(json);
+        var result = this.mergeWithJSON(json);
+        if (result.type === AppConstant.ENTITY_ADDED_OR_UPDATED){
+            entityResult.addUpdate(result.obj);
+        }
+        else if (result.type == AppConstant.ENTITY_DELETED){
+            entityResult.addDelete(result.obj);
+        }
+        else{
+            entityResult.addRead(result.obj);
+        }
+/*        var obj = this.mergeWithJSON(json);
         if (obj !== null){
             result.push(obj);
-        }
+        }*/
     }, this);
-    return result;
+    //return result;
+    return entityResult;
 };
 
 EntityProvider.prototype.removeBy = function(id, grp, grpAlt, grpRemoved, propAlt){

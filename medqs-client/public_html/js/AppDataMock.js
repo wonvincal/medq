@@ -22,10 +22,12 @@
  * Notification is sent to Customers
  */
 var moment = require('moment');
+var EntityState = require('./constants/EntityState');
 var CompanyModel = require('./models/CompanyModel');
 var company = new CompanyModel();
 company.id = 200;
 company.name = "Dr. Lee Clinic 5";
+company.state = EntityState.ACTIVE;
 company.officeHours = [
     [
         [
@@ -146,6 +148,7 @@ company.officeHours = [
 var WorkerModel = require('./models/WorkerModel');
 var worker = new WorkerModel();
 worker.id = 300;
+worker.state = EntityState.ACTIVE;
 worker.lastName = "Lee";
 worker.firstName = "Bruce";
 worker.phone = "23211212";
@@ -160,6 +163,7 @@ console.log(JSON.stringify(worker));
 var QueueModel = require('./models/QueueModel');
 var queue = new QueueModel();
 queue.id = 100;
+queue.state = EntityState.ACTIVE;
 queue.name = "Consultation";
 queue.nextTicketId = "C001";
 queue.workers =  [ worker ];

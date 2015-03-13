@@ -17,15 +17,15 @@
 var TicketModel = require('./TicketModel');
 var AptEntityProvider = require('./AptEntityProvider');
 var EntityProvider = require('./EntityProvider');
+var Comparator = require('../utils/Comparator');
 var _ = require('lodash');
 
 function TicketEntityProvider(){
     EntityProvider.call(this);
+    this.entityName = "Ticket";
 }
 
 TicketEntityProvider.prototype = Object.create(EntityProvider.prototype);
-
-TicketEntityProvider.prototype.entityName = "Ticket";
 
 TicketEntityProvider.prototype.create = function(id) {
     var obj = new TicketModel();
@@ -34,17 +34,9 @@ TicketEntityProvider.prototype.create = function(id) {
 };
 
 TicketEntityProvider.prototype.mergeOtherEntitiesWithJSON = function(obj, json) {
+    var prevApt = obj.apt;
     obj.apt = this.getOrCreateEntityWithJSON(json.apt, AptEntityProvider);
-/*    if (!_.isUndefined(json.apt) && json.apt !== null) {
-        //var schId = json.apt.schId;
-        var aptId = json.apt.id;
-        //if (!_.isUndefined(schId) && schId !== null && !_.isUndefined(aptId) && aptId !== null) {
-        if (!_.isUndefined(aptId) && aptId !== null) {
-            // Merging would be done separately
-            //current.apt = AptEntityProvider.getOrCreateObj(schId, aptId, json.apt.cid);
-            current.apt = AptEntityProvider.getOrCreateObj(aptId, json.apt.cid);
-        }
-    }*/
+    return Comparator.isEqual(prevApt, obj.apt);
 };
 
 TicketEntityProvider.prototype.getByQueue = function(queue){
@@ -63,6 +55,15 @@ TicketEntityProvider.prototype.getByWorkers = function(workers){
             return (!_.isUndefined(ids[worker.id]));
         }));
     });
+};
+
+TicketEntityProvider.prototype.getByApt = function(apt){
+    _.forEach(this.entities, function(entity){
+        if (entity.apt !== null && entity.apt.equals(apt)){
+            return entity;
+        }
+    });
+    return undefined;
 };
 
 var instance = new TicketEntityProvider();

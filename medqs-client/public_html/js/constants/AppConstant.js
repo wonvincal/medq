@@ -64,5 +64,12 @@ module.exports = keyMirror({
     MODE_EDIT: null,
 
     FILTER_TYPE_QUEUE: null,
-    FILTER_TYPE_WORKER: null
+    FILTER_TYPE_WORKER: null,
+
+    ENTITY_TYPE_TICKET: null,
+    ENTITY_TYPE_APT: null,
+
+    ENTITY_NO_CHANGE: null,
+    ENTITY_ADDED_OR_UPDATED: null,
+    ENTITY_DELETED: null
 });
