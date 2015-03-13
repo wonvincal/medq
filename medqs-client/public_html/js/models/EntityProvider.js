@@ -148,10 +148,6 @@ EntityProvider.prototype.mergeWithJSONs = function(jsons){
         else{
             entityResult.addRead(result.obj);
         }
-/*        var obj = this.mergeWithJSON(json);
-        if (obj !== null){
-            result.push(obj);
-        }*/
     }, this);
     //return result;
     return entityResult;

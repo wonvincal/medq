@@ -4,8 +4,6 @@
  */
 var moment = require('moment');
 var _ = require('lodash');
-var PERIOD_START = 0;
-var PERIOD_END = 1;
 
 var _aptSlotDurInMin = 15;
 var _officeHours = [

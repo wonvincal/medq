@@ -2,7 +2,6 @@
  * Created by Calvin on 1/24/2015.
  */
 var AptModel = require('../models/AptModel');
-var AptStatus = require('../constants/AptStatus');
 var EntityProvider = require('./EntityProvider');
 var _ = require('lodash');
 
