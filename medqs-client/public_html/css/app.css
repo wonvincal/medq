@@ -222,3 +222,55 @@ div.ticket-item .ticket-status {
 .pricing .price-warning .price-body ul {
     border-top: 1px solid #ffebba;
 }
+
+.clndr-controls div {
+    background: #999;
+    display: inline-block;
+    width: 30%;
+    padding:5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.clndr-controls .current-month {
+    width: 40%;
+    background: #333;
+    color: #fff;
+}
+
+.clndr {
+    width: 350px;
+    margin: 0 auto;
+    background: red;
+}
+
+.clndr-grid {
+    text-align: center;
+    background: yellow;
+}
+
+.clndr-grid .day-headers div {
+    float: left;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+
+.clndr-grid .days div {
+    float: left;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+
+.prev-month, .next-month {
+    color: #ccc;
+}
+
+.clearfix {
+    clear: both;
+}

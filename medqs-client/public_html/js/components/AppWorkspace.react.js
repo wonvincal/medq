@@ -9,6 +9,7 @@ var QueueSection = require('./QueueSection.react.js');
 var Heatmap = require('./Heatmap.react');
 var AppWorkspaceStore = require('../Stores/AppWorkspaceStore');
 var TicketAptEditorSection = require('./TicketAptEditorSection.react');
+var PlannerSection = require('./PlannerSection.react');
 var Info = require('./Info.react');
 
 function getState(){
@@ -38,8 +39,8 @@ var AppWorkspace = React.createClass({
                     <div className="row">
                         <div className="col-md-8">
                             {(this.state.isQueueSectionVisible) ? <QueueSection /> : null }
+                            {(this.state.isPlannerSectionVisible) ? <PlannerSection /> : null }
                             {(this.state.isInfoVisible) ? <Info /> : null }
-                            {(this.state.isPlannerSectionVisible) ? <Info /> : null }
                         </div>
                         <div className="col-md-2">
                             {(this.state.isHeatmapVisible) ? <Heatmap /> : null }
