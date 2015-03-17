@@ -1,5 +1,28 @@
 /**
  * Created by Calvin on 2/11/2015.
+ *
+ * EntityProvider merges entity updates from wire.  The merge can only happen in two scenarios:
+ * 1) AJAX response from a request that this client initiated
+ * 2) Push request from technologies such as Websocket, Meteor, App Notifications...etc.
+ *
+ * Cautious: Merge must not happen elsewhere
+ *
+ * TODO Get entity changes since a sequence number.
+ * TODO Get Web Worker to do the update of Entity - not sure how this works
+ *
+ * To get updates without worrying about concurrency issue (there shouldn't be any)
+ * 1) Each EntityProvider should have a count for new (e.g. Arrays.length)
+ * 2) Each Entity should have a sequence
+ *
+ * Each client component can maintain its own 'last new count' and 'last seq of each entity'
+ *
+ * 1) PlannerSectionStore calls EntityProvider with 'last new count' and 'last seq of each entity'
+ * NOTE: "last new count and addition of new entity" must be atomic
+ * NOTE: Update of objects must be atomic
+ * 2) EntityProvider updates after it receives response from server
+ * 3) PlannerSectionStore gets new, but only some of the updates
+ * 4) ActionCreator sends out a RECEIVE_UDPATES event
+ *
  */
 var AppConstant = require('../constants/AppConstant');
 var EntityResultSet = require('../utils/EntityResultSet');
@@ -13,20 +36,50 @@ function EntityProvider(){
     this.entitiesByCidRemoved = {};
 }
 
-EntityProvider.prototype.getBy = function(dict, id){
+function getBy(dict, id){
     var obj = dict[id];
     if (!_.isUndefined(obj)){
         return obj;
     }
     return null;
+}
+
+/**
+ * How to get new entities since last retrieve?
+ * How to get updates since last retrieve
+ *
+ * @param filter
+ * @returns {*}
+ */
+/*
+EntityProvider.prototype.getUpdates = function(cachedVersions) {
+    _.forOwn(cachedVersions, function (key) {
+        var cachedVersion = cachedVersions[key];
+        var currentItem = this.entities[key];
+        if (_.isUndefined(currentItem)){
+            currentitem = this.entitiesRemoved[key];
+            if (_.isUndefined(currentItem)){
+                // something is wrong
+                // return everything
+            }
+        }
+        if (cachedVersion < this.entities[key])
+    });
 };
+*/
+/*
+EntityProvider.prototype.getEntitiesByFilter = function(filter){
+    return _.filter(this.entities, filter);
+};
+*/
+EntityProvider.prototype.entityType = null;
 
 EntityProvider.prototype.getById = function(id){
-    return this.getBy(this.entities, id);
+    return getBy(this.entities, id);
 };
 
 EntityProvider.prototype.getByCid = function(cid){
-    return this.getBy(this.entitiesByCid, cid);
+    return getBy(this.entitiesByCid, cid);
 };
 
  EntityProvider.prototype.getOrCreateBy = function(dict, id){
@@ -60,12 +113,20 @@ EntityProvider.prototype.createWithNextCid = function(){
     return obj;
 };
 
-// Merge with JSON
-// server will instruct whether to create / update / delete an objects
-// With current design, a new entity (i.e. Ticket) can be asynchronously by
-// 1) indirectly through its first reference in a Queue entity, or
-// 2) directly through its first reference in a Ticket entity update
-// Therefore, we will only provide way to tell if a entity has been changed or deleted
+/**
+ * Merge with JSON
+ *
+ * Server should have enough info to tell whether an object has been created / updated / deleted
+ * With current design, a new entity (i.e. Ticket) can be asynchronously 'referenced' by
+ * 1) indirectly through its first reference in a Queue entity, or
+ * 2) directly through its first reference in a Ticket entity update
+ * Therefore, we will only provide way to tell if a entity has been changed or deleted
+ *
+ * TODO Consider sequence number
+ *
+ * @param json
+ * @returns {*}
+ */
 EntityProvider.prototype.mergeWithJSON = function (json) {
     if (_.isUndefined(json) || json === null) {
         return null;
@@ -134,8 +195,16 @@ EntityProvider.prototype.removeFilter = function(obj){
     return false;
 };
 
+/**
+ * Merge JSONs into a collection of entities
+ *
+ * TODO Consider sequence number
+ * TODO Do not return EntityResultSet, because that may not be useful at all once each client can query by seq number
+ *
+ * @param jsons
+ * @returns {EntityResultSet}
+ */
 EntityProvider.prototype.mergeWithJSONs = function(jsons){
-    //var result = [];
     var entityResult = new EntityResultSet();
     _.forEach(jsons, function(json){
         var result = this.mergeWithJSON(json);
@@ -149,7 +218,6 @@ EntityProvider.prototype.mergeWithJSONs = function(jsons){
             entityResult.addRead(result.obj);
         }
     }, this);
-    //return result;
     return entityResult;
 };
 
@@ -166,6 +234,16 @@ EntityProvider.prototype.removeBy = function(id, grp, grpAlt, grpRemoved, propAl
         grpRemoved[id] = removed;
     }
     return removed;
+};
+
+/**
+ * Clear cache
+ */
+EntityProvider.prototype.clear = function(){
+    this.entities = {};
+    this.entitiesByCid = {};
+    this.entitiesRemoved = {};
+    this.entitiesByCidRemoved = {};
 };
 
 EntityProvider.prototype.removeObj = function(obj){

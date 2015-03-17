@@ -11,6 +11,8 @@ function AptEntityProvider(){
 
 AptEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
+AptEntityProvider.prototype.entityType = "Apt";
+
 AptEntityProvider.prototype.create = function(id){
     var obj = new AptModel();
     obj.id = id;
@@ -26,6 +28,13 @@ AptEntityProvider.prototype.getByWorkers = function(workers){
         return (_.some(apt.workers, function(worker){
             return (!_.isUndefined(ids[worker.id]));
         }));
+    });
+};
+
+AptEntityProvider.prototype.getByWorkersAndDate = function(workers, aptDate){
+    var apts = this.getByWorkers(workers);
+    return _.filter(apts, function(apt){
+        return (apt.aptDateTime.isSame(aptDate, "day"));
     });
 };
 

@@ -11,7 +11,7 @@ function CompanyEntityProvider(){
 
 CompanyEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
-CompanyEntityProvider.prototype.entityName = "Company";
+CompanyEntityProvider.prototype.entityType = "Company";
 
 CompanyEntityProvider.prototype.create = function(id){
     var obj = new CompanyModel();

@@ -13,7 +13,7 @@ function WorkerEntityProvider(){
 
 WorkerEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
-WorkerEntityProvider.prototype.entityName = "Worker";
+WorkerEntityProvider.prototype.entityType = "Worker";
 
 WorkerEntityProvider.prototype.create = function(id){
     var obj = new WorkerModel();

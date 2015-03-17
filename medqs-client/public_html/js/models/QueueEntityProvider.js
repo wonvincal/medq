@@ -18,7 +18,7 @@ function QueueEntityProvider(){
 
 QueueEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
-QueueEntityProvider.prototype.entityName = "Queue";
+QueueEntityProvider.prototype.entityType = "Queue";
 
 QueueEntityProvider.prototype.create = function(id){
     var obj = new QueueModel();

@@ -22,10 +22,11 @@ var _ = require('lodash');
 
 function TicketEntityProvider(){
     EntityProvider.call(this);
-    this.entityName = "Ticket";
 }
 
 TicketEntityProvider.prototype = Object.create(EntityProvider.prototype);
+
+TicketEntityProvider.prototype.entityType = "Ticket";
 
 TicketEntityProvider.prototype.create = function(id) {
     var obj = new TicketModel();
