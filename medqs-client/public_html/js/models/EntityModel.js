@@ -6,6 +6,7 @@ var EntityState = require('../constants/EntityState');
 function EntityModel(){
     this.id = null;
     this.cid = null;
+    this.version = -1;
     this.state = EntityState.INVALID;
 }
 
