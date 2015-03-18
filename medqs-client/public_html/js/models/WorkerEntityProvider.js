@@ -5,6 +5,7 @@ var WorkerModel = require('./WorkerModel');
 var EntityProvider = require('./EntityProvider');
 var CompanyEntityProvider = require('./CompanyEntityProvider');
 var Comparator = require('../utils/Comparator');
+var EntityType = require('../constants/EntityType');
 var _ = require('lodash');
 
 function WorkerEntityProvider(){
@@ -13,7 +14,7 @@ function WorkerEntityProvider(){
 
 WorkerEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
-WorkerEntityProvider.prototype.entityType = "Worker";
+WorkerEntityProvider.prototype.entityType = EntityType.WORKER;
 
 WorkerEntityProvider.prototype.create = function(id){
     var obj = new WorkerModel();

@@ -8,6 +8,7 @@
  *    i. An existing appointment can turn into a Scheduled ticket automatically or manually (an option on an appointment perhaps)
  */
 var SchedulableModel = require('./SchedulableModel');
+var EntityType = require('../constants/EntityType');
 var TicketStatus = require('../constants/TicketStatus');
 var Comparator = require('../utils/Comparator');
 var _ = require('lodash');
@@ -23,7 +24,7 @@ function TicketModel() {
 
 TicketModel.prototype = Object.create(SchedulableModel.prototype);
 
-TicketModel.prototype.entityName = "Ticket";
+TicketModel.prototype.entityName = EntityType.TICKET;
 
 TicketModel.prototype.createInstance = function(){
     return new TicketModel();

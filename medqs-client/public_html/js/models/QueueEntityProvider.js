@@ -8,6 +8,7 @@ var QueueModel = require('./QueueModel');
 var TicketEntityProvider = require('./TicketEntityProvider');
 var WorkerEntityProvider = require('./WorkerEntityProvider');
 var CompanyEntityProvider = require('./CompanyEntityProvider');
+var EntityType = require('../constants/EntityType');
 var EntityProvider = require('./EntityProvider');
 var Comparator = require('../utils/Comparator');
 var _ = require('lodash');
@@ -18,7 +19,7 @@ function QueueEntityProvider(){
 
 QueueEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
-QueueEntityProvider.prototype.entityType = "Queue";
+QueueEntityProvider.prototype.entityType = EntityType.QUEUE;
 
 QueueEntityProvider.prototype.create = function(id){
     var obj = new QueueModel();

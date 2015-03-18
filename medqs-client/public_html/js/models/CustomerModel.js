@@ -2,6 +2,7 @@
  * Created by Calvin on 2/22/2015.
  */
 var EntityModel = require('./EntityModel');
+var EntityType = require('../constants/EntityType');
 var Comparator = require('../utils/Comparator');
 
 var cid = 0;
@@ -16,7 +17,7 @@ function CustomerModel(){
 
 CustomerModel.prototype = Object.create(EntityModel.prototype);
 
-CustomerModel.prototype.entityName = "Customer";
+CustomerModel.prototype.entityName = EntityType.CUSTOMER;
 
 CustomerModel.prototype.createInstance = function(){
     return new CustomerModel();

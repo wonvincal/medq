@@ -18,6 +18,7 @@ var TicketModel = require('./TicketModel');
 var AptEntityProvider = require('./AptEntityProvider');
 var EntityProvider = require('./EntityProvider');
 var Comparator = require('../utils/Comparator');
+var EntityType = require('../constants/EntityType');
 var _ = require('lodash');
 
 function TicketEntityProvider(){
@@ -26,7 +27,7 @@ function TicketEntityProvider(){
 
 TicketEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
-TicketEntityProvider.prototype.entityType = "Ticket";
+TicketEntityProvider.prototype.entityType = EntityType.TICKET;
 
 TicketEntityProvider.prototype.create = function(id) {
     var obj = new TicketModel();

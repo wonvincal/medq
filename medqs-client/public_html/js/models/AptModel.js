@@ -21,6 +21,7 @@
  *              2) can be assigned to more than one workers
  */
 var SchedulableModel = require('./SchedulableModel');
+var EntityType = require('../constants/EntityType');
 var AptStatus = require('../constants/AptStatus');
 var Comparator = require('../utils/Comparator');
 var moment = require('moment');
@@ -58,7 +59,7 @@ AptModel.prototype.createInstance = function(){
     return new AptModel();
 };
 
-AptModel.prototype.entityName = "Apt";
+AptModel.prototype.entityName = EntityType.APT;
 
 AptModel.prototype.getNextCid = function(){
     return cid++;

@@ -9,6 +9,7 @@
  */
 var _ = require('lodash');
 var EntityModel = require('./EntityModel');
+var EntityType = require('../constants/EntityType');
 var Comparator = require('../utils/Comparator');
 
 var cid = 0;
@@ -30,7 +31,7 @@ function QueueModel(){
 
 QueueModel.prototype = Object.create(EntityModel.prototype);
 
-QueueModel.prototype.entityName = "Queue";
+QueueModel.prototype.entityName = EntityType.QUEUE;
 
 // TODO who knows, we may have a way to set default worker for a particular queu
 QueueModel.prototype.getSelectedWorker = function(){

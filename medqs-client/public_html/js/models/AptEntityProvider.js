@@ -3,6 +3,7 @@
  */
 var AptModel = require('../models/AptModel');
 var EntityProvider = require('./EntityProvider');
+var EntityType = require('../constants/EntityType');
 var _ = require('lodash');
 
 function AptEntityProvider(){
@@ -11,7 +12,7 @@ function AptEntityProvider(){
 
 AptEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
-AptEntityProvider.prototype.entityType = "Apt";
+AptEntityProvider.prototype.entityType = EntityType.APT;
 
 AptEntityProvider.prototype.create = function(id){
     var obj = new AptModel();

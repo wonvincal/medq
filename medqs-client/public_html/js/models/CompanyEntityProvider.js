@@ -3,6 +3,7 @@
  */
 var CompanyModel = require('./CompanyModel');
 var EntityProvider = require('./EntityProvider');
+var EntityType = require('../constants/EntityType');
 var _ = require('lodash');
 
 function CompanyEntityProvider(){
@@ -11,7 +12,7 @@ function CompanyEntityProvider(){
 
 CompanyEntityProvider.prototype = Object.create(EntityProvider.prototype);
 
-CompanyEntityProvider.prototype.entityType = "Company";
+CompanyEntityProvider.prototype.entityType = EntityType.COMPANY;
 
 CompanyEntityProvider.prototype.create = function(id){
     var obj = new CompanyModel();

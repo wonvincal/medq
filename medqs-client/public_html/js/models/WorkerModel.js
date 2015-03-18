@@ -2,6 +2,7 @@
  * Created by Calvin on 2/18/2015.
  */
 var EntityModel = require('./EntityModel');
+var EntityType = require('../constants/EntityType');
 var Comparator = require('../utils/Comparator');
 var _ = require('lodash');
 
@@ -23,7 +24,7 @@ var WorkerModel = function(){
 
 WorkerModel.prototype = Object.create(EntityModel.prototype);
 
-WorkerModel.prototype.entityName = "Worker";
+WorkerModel.prototype.entityName = EntityType.WORKER;
 
 WorkerModel.prototype.createInstance = function(){
     return new WorkerModel();
