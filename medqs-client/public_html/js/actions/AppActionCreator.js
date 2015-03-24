@@ -9,15 +9,20 @@ var AppConstant = require('../constants/AppConstant');
 var QueueSectionStore = require('../stores/QueueSectionStore');
 var HeatmapDataFilter = require('../utils/HeatmapDataFilter');
 var moment = require('moment');
+var EntityType = require('../constants/EntityType');
 var _ = require('lodash');
 
-// Define action object
 var AppActionCreator = {
+    initMockLogin: function(){
+        // login and get all required ids
+        // call subscribeAndGetEntities appropriately
+    },
     initMock: function(){
-        // Pretend getting data from server
+        // It's ok to subscribe tickets, but should we also subscribe Company and Workers?
+        // Client should be as dumb as possible
         AppService.getQueues().then(
-            function(data){
-                this.receiveQueues(data);
+            function(entityResultSet){
+                this.receiveQueues(entityResultSet);
             }.bind(this),
             function(err){
                 console.log("error from getQueues: " + err);
@@ -45,20 +50,20 @@ var AppActionCreator = {
         this.selectHeatmapDate(moment());
     },
     // Receive queues data - snapshot
-    receiveQueues: function(data){
+    receiveQueues: function(entityResultSet){
         AppDispatcher.handleAction({
             actionType: AppConstant.RECEIVE_QUEUES,
-            data: data
+            data: entityResultSet
         });
         var queue = QueueSectionStore.shouldSelectQueue();
         if (queue){
             this.selectQueue(queue);
         }
     },
-    receiveCompanies: function(data){
+    receiveCompanies: function(entityResultSet){
         AppDispatcher.handleAction({
             actionType: AppConstant.RECEIVE_COMPANIES,
-            data: data
+            data: entityResultSet
         });
     },
     receiveWorkers: function(entityResultSet){
@@ -132,7 +137,7 @@ var AppActionCreator = {
     },
     addTicket: function(queue, ticket, apt){
         // Pretend getting data from server
-        AppService.addTicket(queue, ticket, apt).then(
+        AppService.addTicketAndApt(queue, ticket, apt).then(
             function(data){
                 if (data.apt !== null){
                     AppDispatcher.handleAction({
@@ -159,6 +164,7 @@ var AppActionCreator = {
             },
             function(err){
                 console.log("error from addTicket: " + err);
+                console.log(err.stack);
             }
         );
     },

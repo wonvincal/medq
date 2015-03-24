@@ -26,6 +26,7 @@ var EntityState = require('./constants/EntityState');
 var CompanyModel = require('./models/CompanyModel');
 var company = new CompanyModel();
 company.id = 200;
+company.version = 0;
 company.name = "Dr. Lee Clinic 5";
 company.state = EntityState.ACTIVE;
 company.officeHours = [
@@ -148,6 +149,7 @@ company.officeHours = [
 var WorkerModel = require('./models/WorkerModel');
 var worker = new WorkerModel();
 worker.id = 300;
+worker.version = 0;
 worker.state = EntityState.ACTIVE;
 worker.lastName = "Lee";
 worker.firstName = "Bruce";
@@ -163,9 +165,10 @@ console.log(JSON.stringify(worker));
 var QueueModel = require('./models/QueueModel');
 var queue = new QueueModel();
 queue.id = 100;
+queue.version = 0;
 queue.state = EntityState.ACTIVE;
 queue.name = "Consultation";
-queue.nextTicketId = "C001";
+queue.nextTicketDisplayId = "C001";
 queue.workers =  [ worker ];
 queue.company = company;
 

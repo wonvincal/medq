@@ -23,20 +23,55 @@ var QueueEntityProvider = require('../models/QueueEntityProvider');
 var TicketEntityProvider = require('../models/TicketEntityProvider');
 var AptEntityProvider = require('../models/AptEntityProvider');
 var AppServerMock = require('../AppServerMock');
+var SubscriptionManager = require('../utils/SubscriptionManager');
+var EntityType = require('../constants/EntityType');
 var _ = require('lodash');
 
+var _entityProviders = {};
+_entityProviders[CompanyEntityProvider.entityType] = CompanyEntityProvider;
+_entityProviders[WorkerEntityProvider.entityType] = WorkerEntityProvider;
+_entityProviders[QueueEntityProvider.entityType] = QueueEntityProvider;
+_entityProviders[TicketEntityProvider.entityType] = TicketEntityProvider;
+_entityProviders[AptEntityProvider.entityType] = AptEntityProvider;
+_entityProviders[WorkerEntityProvider.entityType] = WorkerEntityProvider;
+
+function processResult(json){
+    var result = {};
+    for (var entityType in json){
+        var jsonEntityResult = json[entityType];
+        if (_.isArray(jsonEntityResult)){
+            result[entityType] = _entityProviders[entityType].mergeWithJSONs(jsonEntityResult);
+        }
+        else {
+            result[entityType] = _entityProviders[entityType].mergeWithJSON(jsonEntityResult).toEntityResultSet();
+        }
+    }
+    return result;
+}
+
 module.exports = {
-    // Load mock data from localStorage into Stores via Action
-    getCompanies: function(){
+    getQueues: function(){
         return new Promise(function(resolve, reject){
             // getSession
 
             // Simulate getting queues from server - strings from wire
-            var str = AppServerMock.getCompanies();
-            var json = JSON.parse(str);
+            var result = processResult(JSON.parse(AppServerMock.getQueues()));
+            var queueResult = result[EntityType.QUEUE];
+            if (!_.isUndefined(queueResult) && queueResult.hasReadOrUpdates()) {
+                resolve(result);
+            }
+            else{
+                reject("cannot get queues");
+            }
+        });
+    },
+    getCompanies: function(){
+        return new Promise(function(resolve, reject){
+            // getSession
 
-            var result = CompanyEntityProvider.mergeWithJSONs(json);
-            if (result.hasReadOrUpdates()) {
+            var result = processResult(JSON.parse(AppServerMock.getCompanies()));
+            var companyResult = result[EntityType.COMPANY];
+            if (!_.isUndefined(companyResult) && companyResult.hasReadOrUpdates()) {
                 resolve(result);
             }
             else{
@@ -48,33 +83,13 @@ module.exports = {
         return new Promise(function(resolve, reject){
             // getSession
 
-            // Simulate getting queues from server - strings from wire
-            var str = AppServerMock.getWorkers();
-            var json = JSON.parse(str);
-
-            var entityResultSet = WorkerEntityProvider.mergeWithJSONs(json);
-            if (entityResultSet.hasReadOrUpdates()) {
-                resolve(entityResultSet);
-            }
-            else{
-                reject("cannot get workers");
-            }
-        });
-    },
-    getQueues: function(){
-        return new Promise(function(resolve, reject){
-            // getSession
-
-            // Simulate getting queues from server - strings from wire
-            var str = AppServerMock.getQueues();
-            var json = JSON.parse(str);
-
-            var result = QueueEntityProvider.mergeWithJSONs(json);
-            if (result.hasReadOrUpdates()) {
+            var result = processResult(JSON.parse(AppServerMock.getWorkers()));
+            var workerResult = result[EntityType.WORKER];
+            if (!_.isUndefined(workerResult) && workerResult.hasReadOrUpdates()) {
                 resolve(result);
             }
             else{
-                reject("cannot get queues");
+                reject("cannot get workers");
             }
         });
     },
@@ -88,51 +103,21 @@ module.exports = {
     // - ticket: saved ticket info
     // Phase 3:
     // - support timeout
-    addTicket: function(queue, ticket, apt){
+    addTicketAndApt: function(queue, ticket, apt){
         return new Promise(function (resolve, reject) {
-            // Simulate getting queues from server
-            var str = AppServerMock.addTicket(queue, ticket, apt);
-            var json = JSON.parse(str);
-
-            var result = {};
-            if (_.has(json, "apt") && json.ticket !== null) {
-                result.apt = AptEntityProvider.mergeWithJSON(json.apt).toEntityResultSet();
-            }
-            if (_.has(json, "queue") && json.queue !== null) {
-                result.queue = QueueEntityProvider.mergeWithJSON(json.queue).toEntityResultSet();
-            }
-            if (_.has(json, "ticket") && json.ticket !== null) {
-                result.ticket = TicketEntityProvider.mergeWithJSON(json.ticket).toEntityResultSet();
-            }
-
-            if (result.queue != null && result.ticket != null){
+            var result = processResult(JSON.parse(AppServerMock.addTicketAndApt(queue, ticket, apt)));
+            if (!_.isUndefined(result[EntityType.TICKET]) && !_.isUndefined(result[EntityType.APT])){
                 resolve(result);
             }
             else{
                 reject("cannot add ticket");
             }
-
-            // Send ticket over to the server side, ajax
-            // [ajax.(queue [with latest sequence number], ticket)]
-
-            // After a ticket is added, we should get a response from the server side
-            // We shouldn't wait for the periodic poll from the server
         });
     },
     updateTicket: function(queue, ticket){
         return new Promise(function(resolve, reject){
-            // Simulate getting queues from server
-            var str = AppServerMock.updateTicket(queue, ticket);
-            var json = JSON.parse(str);
-
-            var result = {};
-            if (_.has(json, "queue") && json.queue !== null) {
-                result.queue = QueueEntityProvider.mergeWithJSON(json.queue).toEntityResultSet();
-            }
-            if (_.has(json, "ticket") && json.ticket !== null) {
-                result.ticket = TicketEntityProvider.mergeWithJSON(json.ticket).toEntityResultSet();
-            }
-            if (result.queue !== null && result.ticket !== null){
+            var result = processResult(JSON.parse(AppServerMock.updateTicket(queue, ticket)));
+            if (!_.isUndefined(result[EntityType.TICKET])){
                 resolve(result);
             }
             else{
@@ -140,7 +125,44 @@ module.exports = {
             }
         });
     },
-    cancelTicket: function(queue, ticket){
+    subcribeAndGetQueues: function(subscribeBy){
+        SubscriptionManager.subscriptionFuncs(this.getQueues, subscribeBy)
+    },
+    /**
+     * Server should NOT maintain a subscription reference count for a particular client
+     * This should be done at the client side
+     */
+    subscribeAndGetEntityAndChildren: function(entityTypeName, entityId, subscribeBy) {
+        return null;
+    },
+    subscribeAndGetEntity: function(entityTypeName, entityId, subscribeBy) {
+        return null;
+    },
+    subscribeAndGetEntitiesAndChildren: function(entityTypeName, entityIds, subscribeBy) {
+        return null;
+    },
+    subscriberAndGetEntities: function(entityTypeName, entityIds, subscribeBy){
+        return null;
+    },
+    subscribeAndGetEntities: function(entityName, filterFunc){
+        return new Promise(function(resolve, reject){
+            var str = AppServerMock.subscribeAndGetEntities(entityName, filterFunc);
+            var json = JSON.parse(str);
+
+            // Result returns from GetEntities call should be in the form of
+            // { "[entityTypeName]" : [ {}, {}, {}],
+            //   "[entityTypeName]" : [ {}, {}, {}]
+
+            // Merge data into EntityProvider
+
+            // Return result to AppActionCreator
+            // mark subscription
+        });
+    },
+    subscribeAndGetQueries: function(subscribeBy){
+        return SubscriptionManager.subscribeByFunc(this.getQueues, subscribeBy);
+    },
+/*    cancelTicket: function(queue, ticket){
         return new Promise(function(resolve, reject){
             // Simulate getting queues from server
             var str = AppServerMock.cancelTicket(queue, ticket);
@@ -160,7 +182,7 @@ module.exports = {
                 reject("cannot remove ticket");
             }
         });
-    },
+    },*/
     // Login: send credentials to server, return:
     // 1) accounts
     // 2) settings
