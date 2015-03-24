@@ -44,7 +44,7 @@ function handleSelectedWorker(worker){
  * When a queue is selected, we should set selectedQueue.  Then we should notify the react
  * component.code.
  * If there is a change in queue,
- *      If no ticket is being created, update the nextTicketId.
+ *      If no ticket is being created, update the nextTicketDisplayId.
  *      If ticket is being created, it should alert user and ask if we want to discard the change.
  *      If not discard, select back the original queue.
  * @param data
