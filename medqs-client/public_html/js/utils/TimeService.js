@@ -6,6 +6,7 @@ var moment = require('moment');
 function TimeService(){
     this.ownNow = moment();
     this.isRunning = true;
+    this.asOf = null;
 }
 
 TimeService.prototype.now = function(){
@@ -30,10 +31,17 @@ TimeService.prototype.setOwnNow = function(value){
 
 TimeService.prototype.stop = function(){
     this.isRunning = false;
-}
+};
 
 TimeService.prototype.start = function(){
     this.isRunning = true;
+};
+
+TimeService.prototype.asOfDate = function(){
+    if (this.asOf === null){
+        return this.today();
+    }
+    return this.asOf.startOf('day');
 }
 
 var instance = new TimeService();
