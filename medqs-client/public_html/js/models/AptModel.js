@@ -61,6 +61,11 @@ AptModel.prototype.createInstance = function(){
 
 AptModel.prototype.entityName = EntityType.APT;
 
+AptModel.prototype.deepClone = function(){
+    var clone = SchedulableModel.prototype.deepClone.call(this);
+    return clone;
+};
+
 AptModel.prototype.getNextCid = function(){
     return cid++;
 };

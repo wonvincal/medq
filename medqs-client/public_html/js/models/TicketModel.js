@@ -17,6 +17,7 @@ var cid = 0;
 
 function TicketModel() {
     SchedulableModel.call(this);
+    this.displayId = null;
     this.apt = null;
     this.status = TicketStatus.INVALID;
     this.scheduledTime = null;
@@ -56,6 +57,10 @@ TicketModel.prototype.mergeOwnProps = function(ticket) {
     if (!_.isUndefined(ticket.status)){
         merged |= Comparator.mergeProperty(this, "status", parseInt(ticket.status));
     }
+    if (!_.isUndefined(ticket.displayId)){
+        merged |= Comparator.mergeProperty(this, "displayId", ticket.displayId);
+    }
+
     return (merged != 0);
 };
 

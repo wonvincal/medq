@@ -178,7 +178,7 @@ var TicketAptEditor = React.createClass({
 
         var ticketId = null;
         if (mode === AppConstant.MODE_ADD){
-            ticketId = queue.nextTicketId;
+            ticketId = queue.nextTicketDisplayId;
         }
         else{
             ticketId = ticket.id;

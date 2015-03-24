@@ -21,7 +21,7 @@ var Ticket = React.createClass({
         return (
                     <li className="unit price-primary" key={ticket.id} onClick={this.handleTicketClick}>
                         <div className="price-title">
-                            <p>{ticket.id}</p>
+                            <p>{ticket.displayId}</p>
                         </div>
                         <div className="price-body">
                             <p>{ticket.apt.custName}</p>

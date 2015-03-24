@@ -18,7 +18,7 @@ function QueueModel(){
     EntityModel.call(this);
     this.name = null;
     this.numWaiting = 0;
-    this.nextTicketId = "-";
+    this.nextTicketDisplayId = "-";
 
     // Other entities
     this.tickets = [];
@@ -64,7 +64,7 @@ QueueModel.prototype.mergeOwnProps = function(obj) {
         merged |= Comparator.mergeProperty(this, "numWaiting", parseInt(obj.numWaiting));
     }
 
-    var properties = ["name", "nextTicketId"];
+    var properties = ["name", "nextTicketDisplayId"];
     _.forEach(properties, function(prop){
         merged |= Comparator.mergePropertyByName(this, obj, prop);
     }, this);
