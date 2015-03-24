@@ -70,7 +70,7 @@ module.exports = {
                 return true;
             }
         }
-        if (typeof destVal === 'object'){
+        if (moment.isMoment(destVal)){
             momentValue = destVal.clone();
         }
         else{
